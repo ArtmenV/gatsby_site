@@ -1,0 +1,146 @@
+.card {
+  display:           flex;
+  justify-content: center;
+  padding:    0 4vw;
+  max-width: 1880px;
+  margin:    0 auto;
+  margin-top:  30px;
+
+  @include breakpoint(lg) {
+    margin-top: 80px;
+  }
+
+  .card__container {
+    display:              grid;
+    grid-template-columns: 1fr;
+    min-height: 260px;
+    width:       100%;
+    margin: 0 auto;
+
+    @include breakpoint(lg) {
+      grid-template-columns: 1.0fr 1.5fr;
+    }
+  }
+
+  .card__front {
+    background-color: $white;
+    display:           flex;
+    justify-content: center;
+    align-items:     center;
+    height: 104px;
+
+    @include breakpoint(lg) {
+      height: 100%;
+    }
+  }
+
+  .card-logo__container {
+    width: 75%;
+
+    @include breakpoint(lg) {
+      width: 60%;
+    }
+  }
+
+  .card__logo {
+    margin: 0 auto;
+    max-height: 80px;
+  }
+
+  .card__back {
+    padding: 30px 20px 20px 20px;
+    background: transparentize($white, 0.94);
+    grid-area: 1 / 1 / 1 / 1;
+
+    @include breakpoint(lg) {
+      padding:  fluidSizeVw(30, 1440) 
+                fluidSizeVw(20, 1440) 
+                fluidSizeVw(10, 1440) 
+                fluidSizeVw(30, 1440);
+      grid-area: 1 / 2 / 1 / 2;
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      width: 50px;
+      background-color: $light-blue;
+      height:                   3px;
+
+      @include breakpoint(lg) {
+        width:  fluidSizeVw(100, 1440);
+        height:                    4px;
+        background-color: $light-blue;
+      }
+    }
+  }
+
+  .card__back--title {
+    font-weight: bold;
+    font-size:   22px;
+    line-height: 27px;
+    margin-top:  15px;
+
+    @include breakpoint(lg) {
+      font-weight:                  800;
+      line-height:                 49px;
+      font-size:  fluidSizeVw(40, 1440);
+      margin-top: fluidSizeVw(15, 1440);
+      text-transform: uppercase;
+    }
+
+    @include breakpoint(xl) {
+      line-height: 72px;
+      font-size:   58px;
+    }
+  }
+
+  .card__list {
+    font-size:   16px;
+    line-height: 130%;
+    margin-top:  20px;
+    color: transparentize($white, 0.2);
+
+    @include breakpoint(lg) {
+      font-size:   fluidSizeVw(20, 1440);
+      line-height: fluidSizeVw(30, 1440);
+      list-style: none;
+      margin-top: fluidSizeVw(15, 1440);
+    }
+
+    @include breakpoint(xl) {
+      font-size:   30px;
+      line-height: 42px;
+    }
+  }
+
+  .card__item:not(:first-child) {
+    margin-top: 15px;
+
+    @include breakpoint(lg) {
+      margin-top: 20px;
+    }
+  }
+
+  .client {
+    display: flex;
+    justify-content: flex-end;
+    margin-top:  18px;
+    font-weight:  900;
+    font-size:   45px;
+    line-height: 55px;
+    -webkit-text-stroke: 1.5px $light-blue;
+    text-stroke:         1.5px $light-blue;
+    color: transparent;
+
+    @include breakpoint(lg) {
+      font-size: fluidSizeVw(79, 1440);
+      line-height: fluidSizeVw(96, 1440);
+    }
+
+    @include breakpoint(xl) {
+      font-size: 100px;
+      line-height: 120px;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "plugins": [
+    "@babel/plugin-proposal-optional-chaining",
+    "jsx-control-statements"
+  ],
+  "presets": [
+    [
+      "babel-preset-gatsby"
+    ]
+  ]
+}

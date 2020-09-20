@@ -1,0 +1,11 @@
+@import 'home';
+@import 'our-work';
+@import 'our-services';
+@import 'reviews';
+@import 'our-clients';
+
+.home-page {
+  .carousel__button-arrow {
+    border-color: $white;
+  }
+}

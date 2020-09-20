@@ -1,0 +1,108 @@
+.link-app {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  transition: background-color 0.35s, border-color .35s, color 0.35s;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+// Outlined
+.link-app--outlined {
+  padding: 0 13px;
+  border-width: 2px;
+  border-style: solid;
+  background-color: transparent;
+  
+  @include breakpoint (lg) {
+    padding: 0 25px;
+  }
+}
+
+// Svg icon
+.link-app__svg-icon {
+  path {
+    transition: stroke 0.35s;
+  }
+}
+
+// Bold
+.link-app--bold {
+  font-weight: bold;
+}
+
+// Light
+.link-app--light {
+  color: $white;
+
+  .link-app__svg-icon {
+    path {
+      stroke: $white;
+    }
+  }
+
+  &:hover {
+    color: $blue;
+
+    .link-app__svg-icon {
+      path {
+        stroke: $blue;
+      }
+    }
+  }
+  // Light outlined
+  &.link-app--outlined {
+    border-color: $white;
+
+    &:hover {
+      color: $white;
+      border-color: $blue;
+      background-color: $blue;
+
+      .link-app__svg-icon {
+        path {
+          stroke: $white;
+        }
+      }
+    }
+  }
+}
+
+// Dark
+.link-app--dark {
+  color: $dark-blue;
+
+  .link-app__svg-icon {
+    path {
+      stroke: $dark-blue;
+    }
+  }
+
+  &:hover {
+    color: $blue;
+
+    .link-app__svg-icon {
+      path {
+        stroke: $blue;
+      }
+    }
+  }
+
+  // Dark outlined
+  &.link-app--outlined {
+    border-color: $dark-blue;
+
+    &:hover {
+      color: $white;
+      background-color: $dark-blue;
+
+      .link-app__svg-icon {
+        path {
+          stroke: $white;
+        }
+      }
+    }
+  }
+}

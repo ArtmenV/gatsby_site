@@ -1,0 +1,385 @@
+
+/*--------------------------------------*\
+  #Menu
+\*--------------------------------------*/
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  width:                           100vw;
+  min-height:                      100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+  min-height:     -webkit-fill-available;
+  position: fixed;
+  right: 100%;
+  top:      0;
+  bottom:   0;
+  will-change: right;
+  z-index: 300;
+  background-color: #12253A;
+  overflow-y:   auto;
+  overflow-x: hidden;
+  transition: right 0.5s;
+
+  &--opened {
+    right: 0;
+  }
+
+  @include breakpoint (lg) {
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-top:                  fluidSizeVh(140, 700);
+    padding-top: calc(var(--vh, 1vh) * #{vh(140, 700)});
+    background: $theme-dark-main-color;
+
+    .copyright {
+      display: block;
+      position: absolute;
+      bottom: 35px;
+      right:  44px;
+    }
+  }
+
+  @include breakpoint (xl) {
+    .copyright {
+      bottom: 45px;
+      right:  51px;
+    }
+  }
+}
+
+.menu__btn-close {
+  width:  48px;
+  height: 48px;
+  display: flex;
+  align-items:     center;
+  justify-content: center;
+  position: absolute;
+  top:   0;
+  right: 0;
+  margin:  0;
+  padding: 0;
+  z-index: 200;
+  background: transparent;
+  border:  none;
+  outline: none;
+  cursor: pointer;
+
+  &:active {
+    background-color: $dark-blue;
+  }
+
+  svg {
+    width:  14px;
+    height: 14px;
+  }
+
+  @include breakpoint (lg) {
+    top:   27px;
+    right: 27px;
+
+    svg {
+      width:  20px;
+      height: 20px;
+    }
+  }
+
+  @include breakpoint (xl) {
+    top:   36px;
+    right: 36px;
+
+    svg {
+      width:  25px;
+      height: 25px;
+    }
+  }
+}
+
+
+
+
+
+/*--------------------------------------*\
+  #Navigation
+\*--------------------------------------*/
+
+.nav {
+  position: relative;
+  padding: fluidSizeVh(70, 568)  20px fluidSizeVh(20, 568) 20px;
+  padding-top:            calc(var(--vh, 1vh) * #{vh(70, 568)});
+  padding-bottom:         calc(var(--vh, 1vh) * #{vh(20, 568)});
+  background-color: $theme-dark-main-color;
+
+  @include breakpoint (lg) {
+    padding: 0;
+  }
+}
+
+.nav__list {
+  @include breakpoint (lg) {
+    width: 320px;
+  }
+
+  @include breakpoint (xl) {
+    width: 426px;
+  }
+}
+
+.nav__list-item {
+  a {
+    display: block;
+    color: $white;
+    text-decoration: none;
+  }
+
+  &:hover {
+    a {
+      color: $blue!important;
+    }
+  }
+}
+
+.nav__list-item,
+.submenu {
+  &:not(:last-child) {
+    border-bottom: 1px solid #445567;
+
+    @include breakpoint (xl) {
+      border-width: 2px;
+    }
+  }
+}
+
+.btn-menu {
+  @include button();
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items:            center;
+}
+
+.nav__list-item,
+.btn-menu {
+  padding:                  fluidSizeVh(10, 568) 0;
+  padding: calc(var(--vh, 1vh) * #{vh(10, 568)}) 0;
+  font-size:   18px;
+  font-weight: bold;
+  color: $white;
+  cursor: pointer;
+
+  &:hover { 
+    // .nav__list-item-link,
+    .nav__list-item-button {
+      color: $blue;
+    }
+  }
+
+  @include breakpoint (lg) {
+    padding: fluidSizeVw(10, 1440) 0;
+    font-size: fluidSizeVw(30, 1440);
+  }
+
+  @include breakpoint (lg_mid) {
+    padding: 10px 0;
+    font-size: 30px;
+  }
+
+  @include breakpoint (xl) {
+    font-size: 40px;
+  }
+}
+
+
+.nav__list-item,
+.btn-menu,
+.submenu__link {
+  transition: color 0.25s;
+}
+
+// .nav__list-item-link,
+.nav__list-item-button {
+  transition: color 0.35s;
+}
+
+.nav__list-item-button {
+  width: 100%;
+  padding: 0;
+  text-align: left;
+  color: $white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.submenu__list {
+  max-height: 0;
+  padding-left: 17px;
+  overflow: hidden;
+  transition: max-height 0.3s;
+
+  @include breakpoint (lg) {
+    padding-left: 27px;
+  }
+
+  @include breakpoint (xl) {
+    padding-left: 30px;
+  }
+}
+
+.submenu__list-item {
+  font-size: 16px;
+  margin-bottom:                  fluidSizeVh(10, 568);
+  margin-bottom: calc(var(--vh, 1vh) * #{vh(10, 568)});
+  color: transparentize($white, 0.3);
+  cursor: pointer;
+
+  &:hover {
+    color: $blue;
+  }
+
+  @include breakpoint (lg) {
+    font-size:  26px;
+    font-weight: 600;
+  }
+
+  @include breakpoint (xl) {
+    font-size: 36px;
+  }
+}
+
+.submenu__link {
+  color: $white;
+  text-decoration: none;
+
+  &:hover {
+    color: $blue;
+
+    &::before {
+      background: $blue;
+    }
+  }
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 15px;
+    height: 1px;
+    margin-right: 5px;
+    background: transparentize($white, 0.3);
+    vertical-align: middle;
+  }
+
+  @include breakpoint (lg) {
+    &::before {
+      width: 25px;
+      height: 2px;
+      margin-right: 9px;
+    }
+  }
+
+  @include breakpoint (xl) {
+    &::before {
+      width: 35px;
+      height: 3px;
+      margin-right: 12px;
+    }
+  }
+}
+
+.btn-menu__icon {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  margin-right: 20px;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    background-color: $white;
+    transition: transform 0.35s ease-out;
+  }
+
+  /* Vertical line */
+  &:before {
+    width:   2px;
+    height: 100%;
+    top:    0;
+    left: 50%;
+    margin-left: -1px;
+  }
+
+  /* horizontal line */
+  &:after {
+      width: 100%;
+      height: 2px;
+      top: 50%;
+      left:  0;
+      margin-top: -1px;
+  }
+
+  @include breakpoint (lg) {
+    width:  17px;
+    height: 17px;
+
+    &:before {
+      width: 3px;
+      margin-left: -1.5px;
+    }
+
+    &:after {
+      height: 3px;
+      margin-top: -1.5px;
+    }
+  }  
+}
+
+.btn-menu__icon--toggled {
+  &:before { 
+    transform: rotate(90deg); 
+  }
+  &:after { 
+    transform: rotate(180deg); 
+  }
+}
+
+
+
+
+
+/*--------------------------------------*\
+  #Menu info
+\*--------------------------------------*/
+
+.menu-info {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+
+  .review-links-container {
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  @include breakpoint (lg) {
+    width: fluidSizeVw(658, 1440);
+    min-height:    auto!important;
+    justify-content: flex-start;
+    flex-grow: 0;
+    
+    .company-info {
+      display: block;
+      margin-bottom: 45px;
+    }
+
+    .review-links-container {
+      justify-content: flex-start;
+      margin-top: 0;
+    }
+  }
+}

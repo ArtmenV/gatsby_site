@@ -1,0 +1,12 @@
+
+/*------------------------------------*\
+  #Bodyshops page 
+\*------------------------------------*/
+
+.bodyshops-page {
+  .shops,
+  .automations,
+  .erp {
+    @include primary-caption-small();
+  }
+}

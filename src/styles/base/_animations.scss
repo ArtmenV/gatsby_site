@@ -1,0 +1,210 @@
+/*------------------- Scale ------------------*/ 
+@keyframes scaleInLineMobile {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  12.5%, 87.5% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes scaleInLineDesctop {
+  0% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  1.3888%, 31.9444% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  33.3333%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes scaleInLineNsk {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+// London
+@keyframes scaleInLineLondon {
+  0% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  12.5%, 87.5% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+// Chicago
+@keyframes scaleInLineChicago {
+  0% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  4.1666%, 95.8333% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+// Wollongong
+@keyframes scaleInLineWollongong {
+  0% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  6.25%, 87.5% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+/*---------------------- Fade --------------------*/ 
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInDownContentMobile {
+  0% {
+    opacity: 0;
+    transform: translate3d(0,-100%,0);
+  }
+  14.2857%, 85.7143% {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInDownContentDesctop {
+  0% {
+    opacity: 0;
+    transform: translate3d(0,-100%,0);
+  }
+  1.3889%, 30.5555% {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+  31.9444%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInDownContentNsk {
+  0% {
+   opacity: 0;
+   transform: translate3d(0,-100%,0);
+  }
+  100% {
+   opacity: 1;
+   transform: translateZ(0);
+  }
+}
+
+@keyframes fadeInDownContentLondon {
+  0% {
+   opacity:0;
+   transform:translate3d(0,-100%,0);
+  }
+  14.2857%, 85.7143% {
+    opacity:1;
+    transform:translateZ(0);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+ // Chicago
+ @keyframes fadeInDownContentChicago {
+  0% {
+    opacity:0;
+    transform:translate3d(0,-100%,0);
+  }
+  4.3478%, 95.6521% {
+    opacity:1;
+    transform:translateZ(0);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+ // Wollongong
+ @keyframes fadeInDownContentWollongong {
+  0% {
+   opacity:0;
+   transform:translate3d(0,-100%,0);
+  }
+  6.6666%,86.6666% {
+    opacity:1;
+   transform:translateZ(0);
+  }
+  100% {
+   opacity:0;
+  }
+}
+
+// Snowflake
+@keyframes snowflakeColorChange {
+ 0% {
+  opacity: 0.2;
+  transform: scale(0.7);
+ }
+ 100% {
+  opacity: 1;
+  transform: scale(1);
+ }
+}
+
+// animation service page card
+@keyframes animationForServicePageCard {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes spinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+
+
+

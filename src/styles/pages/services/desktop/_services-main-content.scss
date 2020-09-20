@@ -1,0 +1,209 @@
+.services-desktop {
+  margin: 0 7vw 0 5rem;
+  padding:   5vh 0 0 0;
+
+  .services-desktop-main {
+    display: grid;
+    grid-template-columns: 77%;
+    grid-template-rows: repeat(1, minmax(32.5vh, auto));
+    justify-content: end;
+    position: absolute;
+    top: 32.5vh;
+    margin: 0 10vw 4vh 3rem;
+  }
+}
+.services-main-desktop__list {
+  margin-top: 2vh;
+}
+//---------main page content list--------//
+.services-main-desktop__item {
+  display: grid;
+  grid-template-columns: fluidSizeVh(70, 900) 12fr;
+  grid-gap: 1.5rem;
+  margin-bottom: 2.5vh;
+
+  @include breakpoint(lg_mid) {
+    grid-gap: 2rem;
+  }
+
+  .icon-container {
+    display: flex;
+    justify-content: center;
+
+    .wireframe-icon {
+      width: 90%;
+    }
+  } 
+  .services-main-desktop__title {
+    font-size: fluidSizeVw(26, 1440);
+    font-weight: 800;
+
+    @include breakpoint(lg_mid) {
+      margin-bottom: 1vh;
+    }
+  }
+
+  @include breakpoint(lg_mid) {
+    .services-main-desktop__title {
+      font-size: 30px;
+    }
+  }
+  @include breakpoint(xl) {
+    .services-main-desktop__title {
+      font-size: 35px;
+    }
+  }
+
+  .services-main-desktop__description {
+    font-size: 15px;
+    padding: fluidSizeVh(5, 1440) 0;
+    color: transparentize($white, 0.2);
+
+    @include breakpoint(lg_mid) {
+      font-size: 18px;
+      line-height: fluidSizeVw(24, 1440);
+    }
+    @include breakpoint(xl) {
+      font-size: 22px;
+      line-height: fluidSizeVw(30, 1920);
+    }
+  }
+}
+//--------portfolio card section when toggle switch-----//
+.portfolio-card__container {
+  display: grid;
+  grid-template-columns: repeat(2, 33vw);
+  grid-template-rows: repeat(2, 29.8vh);
+  margin-left: 2.1vw;
+  margin-top: 3vh;
+  margin-right: 1rem;
+
+  @media screen and (min-width: 1280px) {
+    grid-template-columns: repeat(2, 34.5vw);
+  }
+  @include breakpoint(lg_mid) {
+    grid-template-columns: repeat(2, 35vw);
+    margin-left: 2.5vw;
+  }
+  @include breakpoint(xl) {
+    grid-template-columns: repeat(2, 36vw);
+  }
+}
+.portfolio-card-gallery {
+  animation: animationForServicePageCard 1.5s !important;
+  position: relative;
+  overflow: hidden;
+
+  &:nth-child(1) {
+    grid-row:    1/3;
+    grid-column: 1/2;
+  }
+  &:nth-child(2) {
+    grid-row:    1/2;
+    grid-column: 2/3;
+  }
+  &:nth-child(3) {
+    grid-row:    2/3;
+    grid-column: 2/3;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    top:    0;
+    bottom: 0;
+    left:   0;
+    right:  0;
+    background-color: transparentize($dark-blue, 0.35);
+    transition: all 0.7s;
+  }
+  .btn-see-more {
+    position: relative;
+    display: none;
+  }
+  .our-work-card__background {
+    position: absolute;
+    z-index: -10;
+    top:    0;
+    bottom: 0;
+    left:   0;
+    right:  0;
+  
+    img {
+      width:  100%;
+      height: 100%;
+      pointer-events: none;
+      object-fit: cover;
+    }
+  }
+  .portfolio-card__title-small__card {
+    font-size: 28px;
+  }
+  .portfolio-card__title {
+    font-size: fluidSizeVw(26, 1440);
+  }
+  .portfolio-card__category {
+    top: 1rem;
+  }
+  //hover content
+  &:hover {
+    .portfolio-card__content {
+      opacity: 1;
+      top: 18%;
+      text-align: justify;
+
+      p {
+        font-size:   fluidSizeVw(14, 1440);
+        line-height: fluidSizeVw(20, 1440);
+      }
+    }
+    .portfolio-card__list {
+      font-size:   fluidSizeVw(15, 1440);
+      margin-top:  fluidSizeVw(12, 1440);
+      line-height: fluidSizeVw(18, 1440);
+
+      li {
+        &::before {
+          top: 6px;
+        }
+      }
+    }
+    .portfolio-card__item {
+      margin-bottom: .2vw;
+    }
+    .portfolio-card__category {
+      transform: translateX(-100%);
+    }
+    .portfolio-card__title {
+      font-size: fluidSizeVw(26, 1440);
+      top: 8%;
+      padding: 0 20px;
+      transform: none;
+    }
+    .btn-see-more {
+      height: 38px;
+      display: block;
+      margin: 1rem 0;
+    }
+    .programming-icon:not(:last-child) {
+      margin-right: 28px;
+    }
+    .programming-icons-container {
+      margin-top: .7vw;
+    }
+    .portfolio-card__content-small__card {
+      top: 24%;
+    }
+    .programming-icon  {
+      width: 2vw;
+    }
+    &::before {
+      z-index: 0;
+      top:    15px;
+      bottom: 15px;
+      left:   15px;
+      right:  15px;
+      background-color: rgba(8, 43, 81, 0.65);
+    }
+  }
+}

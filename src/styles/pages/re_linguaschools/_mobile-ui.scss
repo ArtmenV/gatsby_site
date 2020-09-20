@@ -1,0 +1,180 @@
+
+/*------------------------------------*\
+  #Mobile-ui section
+\*------------------------------------*/
+
+.mobile-ui-redesign {
+  position: relative;
+  padding: 55px 0 0;
+  background:  $portfolio-background;
+  overflow: hidden;
+  min-height: 500px;
+  max-height: 820px;
+
+  @include breakpoint(lg) {
+    max-height: 940px;
+    padding-bottom: 40px!important;
+  }
+
+  @include breakpoint(xl) {
+    max-height: 1020px;
+    padding-bottom: 20px!important;
+  }
+
+  .carousel__slider-tray-wrapper {
+    @include breakpoint(lg) {
+      width: 100%;
+      margin-left: 25vw;
+      display: flex;
+      justify-content: center;
+
+      @include breakpoint(lg_mid) {
+        margin-left: 25vw;
+      }
+    }
+  }
+
+  .caption-primary {
+    color: transparentize($white, 0.6);
+    margin: 0;
+
+    @include breakpoint(lg)     { font-size: 60px }
+    @include breakpoint(lg_mid) { font-size: 70px }
+    @include breakpoint(xl)     { font-size: 94px }
+
+    &::before {
+      border-color: transparentize($white, 0.6);
+      width: 7.8vw;
+
+      @include breakpoint(lg)     { width: 160px }
+      @include breakpoint(lg_mid) { width: 220px }
+      @include breakpoint(xl)     { width: 260px }
+    }
+  }
+
+  .carousel__slider-tray--horizontal {
+    width: 240%!important;
+    transition: transform 1s;
+
+    @include breakpoint(lg) {
+      width: 80%!important;
+      transition: all 1s;
+    }
+
+    @include breakpoint(lg_mid) {
+      width: 75%!important;
+    }
+  }
+
+  .mobile-ui-carousel {
+    margin: 15px auto 0;
+
+    @include breakpoint(lg)     { margin-top:  80px }
+    @include breakpoint(lg_mid) { margin-top:  90px }
+    @include breakpoint(xl)     { margin-top: 110px }
+  }
+
+  .carousel__slide--visible {
+    transform: translateY(-5%);
+    transition: all 1s;
+
+    @include breakpoint(lg) {
+      margin: 0 auto !important;
+      margin-top:   0!important;
+      width:     30% !important;
+      transform: translateY(-10%);
+    }
+  }
+
+  .carousel__slide--hidden {
+    transition: all 1s;
+  }
+
+  //settings for corousel navigation button
+  .carousel-buttons__container {
+    position: absolute;
+    z-index: 201;
+    top:   55px;
+    right: 15px;
+
+    @include breakpoint (lg) {
+      top:   50px;
+      right:    0;
+      left: 540px;
+    }
+
+    @include breakpoint (lg_mid) { left: 640px }
+    @include breakpoint (xl)     { left: 860px }
+  }
+
+  .carousel__button {
+    width: 30px;
+    &:hover {
+      background: none;
+    }
+  }
+
+  .carousel__button-arrow {
+    width:  12px;
+    height: 12px;
+    border: 3px solid $white;
+    border-left:        none;
+    border-bottom:      none;
+
+    @include breakpoint(lg) {
+      width:  18px;
+      height: 18px;
+    }
+
+    @include breakpoint(lg_mid) {
+      width:  22px;
+      height: 22px;
+    }
+
+    @include breakpoint(xl) {
+      width:  25px;
+      height: 25px;
+    }
+
+    &:hover {
+      border-color: $light-blue!important;
+    }
+  }
+
+  @include breakpoint (lg) {
+    padding-top: 25px;
+    padding-bottom: 210px;
+
+    .carousel__button {
+      border: none;
+      margin-right: 0;
+      width: 30px;
+
+      &:hover {
+        background: none;
+      }
+    }
+
+    .carousel__button-arrow::before {
+      display: none;
+    }
+  }
+
+  //css for card slide
+  .mobile-ui-card {
+    position: relative;
+    display: flex;
+    width:  165px;
+    height: 342px;
+    margin: 0 25px;
+
+    @include breakpoint (lg) {
+      width:  fluidSizeVw(280, 1440);
+      max-width:               340px;
+      height: fluidSizeVw(580, 1440);
+      max-height:              720px;
+      margin: 0 auto;
+    }
+  }
+}
+

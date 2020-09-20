@@ -1,0 +1,294 @@
+
+/*------------------------------------*\
+  #Our work section
+\*------------------------------------*/
+
+.our-work {
+  position: relative;
+
+  .caption-primary {
+    z-index: 300;
+  }
+}
+
+.our-work-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left:   0;
+  right:  0;
+  z-index: 100;
+  // padding:                  19px 30px fluidSizeVh(65, 568);
+  // padding: 19px 30px calc(var(--vh, 1vh) * #{vh(65, 568)});
+
+  padding-top: fluidSizeVh(147, 568);
+  padding-top: calc(var(--vh, 1vh) * #{vh(147, 568)});
+  padding-left: 37px;
+  padding-right: 37px;
+  background-color: transparentize($dark-blue, 0.3);
+
+  @include breakpoint (lg) {
+    padding: fluidSizeVw(19, 1440) fluidSizeVw(30, 1440) fluidSizeVw(25, 1440);
+    top: auto;
+  }
+
+  @include breakpoint (lg_mid) {
+    padding: 19px 30px 25px;
+  }
+}
+
+.our-work-content__title {
+  margin-bottom: fluidSizeVh(17, 568);
+  margin-bottom: calc(var(--vh, 1vh) * #{vh(17, 568)});
+
+  text-transform: capitalize;
+  font-size:   28px;
+  line-height: 34px;
+  font-weight:  900;
+  color: $blue;
+
+  @include breakpoint (lg) {
+    margin-bottom: 0;
+    font-size: fluidSizeVw(30, 1440);
+    font-weight: 700;
+    color: $white;
+  }
+
+  @include breakpoint (lg_mid) {
+    font-size: 30px;
+  }
+
+  @include breakpoint (xl) {
+    font-size: 40px;
+  }
+}
+
+.our-work-content-block {
+  @include breakpoint (lg) {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.4s ease-out;
+  }
+}
+
+.our-work-content__text {
+  // margin-bottom:                  fluidSizeVh(10, 568);
+  // margin-bottom: calc(var(--vh, 1vh) * #{vh(10, 568)});
+  // font-size:   12px;
+  // line-height: 130%;
+
+  margin-bottom:                  fluidSizeVh(24, 568);
+  margin-bottom: calc(var(--vh, 1vh) * #{vh(24, 568)});
+
+  min-height: fluidSizeVh(140, 568);
+  min-height: calc(var(--vh, 1vh) * #{vh(140, 568)});
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: justify;
+
+  @include breakpoint (lg) {
+    min-height: auto;
+    margin-top: fluidSizeVw(7, 1440);
+    margin-bottom: fluidSizeVw(20, 1440);
+    font-size:   fluidSizeVw(18, 1440);
+    line-height: fluidSizeVw(22, 1440);
+    font-weight: 400;
+  }
+
+  @include breakpoint (lg_mid) {
+    margin-bottom: 20px;
+    font-size:   18px;
+    line-height: 22px;
+  }
+}
+
+.our-work-content__link {
+  position: relative;
+  flex-direction: row-reverse;
+  // font-size:   12px;
+  // line-height: 15px;
+  text-transform: uppercase;
+
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+
+  .icon--arrow {
+    // margin-left: 11px;
+    margin-right: 8px;
+  }
+
+  @include breakpoint (lg) {
+    flex-direction: row;
+    font-size:   fluidSizeVw(20, 1440);
+    line-height: fluidSizeVw(24, 1440);
+
+    .icon--arrow {
+      margin-left: fluidSizeVw(22, 1440);
+    }
+  }
+
+  @include breakpoint (lg_mid) {
+    font-size:   20px;
+    line-height: 24px;
+
+    .icon--arrow {
+      margin-left: 22px;
+    }
+  }
+
+  @include breakpoint (xl) {
+    font-size:   28px;
+    line-height: 34px;
+
+    .icon--arrow {
+      margin-left: 27px;
+    }
+  }
+}
+
+.circle--blue {
+  width:  55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: $blue;
+  position: absolute;
+  left: 17px;
+  z-index: -1;
+
+  @include breakpoint (lg) {
+    display: none;
+  }
+}
+
+.our-work__card {
+  position: relative;
+  width:  100%;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.4s;
+  background-repeat: no-repeat;
+  background-size:       cover;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top:    0;
+    bottom: 0;
+    right:  0;
+    left:   0;
+    transition: background-color 0.4s;
+  }
+
+  @include breakpoint (lg) {
+    flex: 1 1 20%;
+
+    &::before {
+      background-color: transparentize($dark-blue, 0.5);
+    }
+  }
+}
+
+.our-work__card--expanded {
+
+  @include breakpoint (lg) {
+    flex-basis: fluidSizeVw(480, 1440);
+
+    &:before {
+      background-color: transparent;
+    }
+
+    .our-work__card-icon {
+      top:   21px;
+      right: 21px;
+      transform: none;
+    }
+  }
+}
+
+.our-work-container {
+  position: absolute;
+  top:    0;
+  bottom: 0;
+  left:   0;
+  right:  0;
+  z-index: 200;
+
+  .carousel__slide {
+    height:                      100vh!important;
+    height: calc(var(--vh, 1vh) * 100)!important;
+  }
+
+  .carousel__dot-group {
+    width: 100%;
+    position: absolute;
+    bottom:                  fluidSizeVh(65, 568);
+    bottom: calc(var(--vh, 1vh) * #{vh(65, 568)});
+    text-align: center;
+    z-index: 300;
+  }
+
+  @include breakpoint (lg) {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.our-work__card-icon {
+  @include breakpoint (lg) {
+    position: absolute;
+    top:    50%;
+    right: 30px;
+    transform: translateY(-50%);
+  }
+}
+
+.icon--collapse {
+  @include breakpoint (lg) {
+    width:  fluidSizeVw(24, 1440);
+    height: fluidSizeVw(24, 1440);
+  }
+
+  @include breakpoint (lg_mid) {
+    width:  24px;
+    height: 24px;
+  }
+}
+
+.icon--expand {
+  @include breakpoint (lg) {
+    width:  fluidSizeVw(22, 1440);
+    height: fluidSizeVw(22, 1440);
+  }
+
+  @include breakpoint (lg_mid) {
+    width:  22px;
+    height: 22px;
+  }
+}
+
+
+
+
+
+/*------------------------------------*\
+  #Background
+\*------------------------------------*/
+
+.no-webp {
+  .security { @include background('/backgrounds/landing/our-work/security.jpg'); }
+  .auto     { @include background('/backgrounds/auto.jpg');                      }
+  .travel   { @include background('/backgrounds/travel.jpg');                    }
+  .learning { @include background('/backgrounds/landing/our-work/learning.jpg'); }
+  .music    { @include background('/backgrounds/music.jpg');                     }
+}
+
+.webp {
+  .security { @include background('/backgrounds/landing/our-work/security.webp'); }
+  .auto     { @include background('/backgrounds/auto.webp');                      }
+  .travel   { @include background('/backgrounds/travel.webp');                    }
+  .learning { @include background('/backgrounds/landing/our-work/learning.webp'); }
+  .music    { @include background('/backgrounds/music.webp');                     }
+}

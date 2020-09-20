@@ -1,0 +1,127 @@
+.no-webp {
+  .main-service {
+    @include background('/services/background_image_header_mobile.jpg');
+    background-position: center !important;
+    background-size: cover !important;
+
+    @include breakpoint (lg) {
+      @include background('/services/background_image_header_lg.jpg');
+    }
+
+    @include breakpoint (xl) {
+      @include background('/services/background_image_header_xl.jpg');
+    }
+  }
+}
+
+.webp {
+  .main-service {
+    @include background('/services/background_image_header_mobile.webp');
+    background-position: center !important;
+    background-size: cover !important;
+
+    @include breakpoint (lg) {
+      @include background('/services/background_image_header_lg.webp');
+    }
+
+    @include breakpoint (xl) {
+      @include background('/services/background_image_header_xl.webp');
+    }
+  }
+}
+
+.main-service {
+  &:before {
+    content: "";
+    position: absolute;
+    top:    0;
+    bottom: 0;
+    right:  0;
+    left:   0;
+  }
+
+  .review-links-container {
+    position: absolute;
+    left:   0;
+    right:  0;
+    bottom: 0;
+    padding:                  0 20px fluidSizeVh(45, 568);
+    padding: 0 20px calc(var(--vh, 1vh) * #{vh(45, 568)});
+    justify-content: space-between;
+
+    &::before {
+      content: '';
+      display: block;
+      height: fluidSizeVh(100, 568);
+      position: absolute;
+      bottom: 0;
+      left:   0;
+      right:  0;
+
+      background: linear-gradient(180deg, rgba(8, 43, 81, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+      mix-blend-mode: multiply;
+      transform: rotate(-180deg);
+    }
+  }
+
+  .review-link {
+    z-index: 200;
+  }
+
+  // breakpoints
+  @include breakpoint (lg) {
+    background-size: 100%!important;
+    
+    &::before {
+      background: transparent; 
+    }
+
+    .menu-btn {
+      display: none;
+    }
+
+    .review-links-container {
+      justify-content: flex-end;
+      bottom: 0;
+      padding-right:  39px;
+      padding-bottom: 25px;
+    }
+
+    .review-link {
+      &:not(:last-child) {
+        margin-right: 29px;
+      }
+    }
+  }
+
+  @include breakpoint (xl) {
+    .review-links-container {
+      padding-bottom: 30px;
+    }
+
+    .review-link {
+      &:not(:last-child) {
+        margin-right: 38px;
+      }
+    }
+  }
+}
+
+.service-title {
+  position: absolute;
+  text-align: center;
+  top:                      36.97183vh;
+  top: calc(var(--vh, 1vh) * 36.97183);
+  text-shadow: 5px 5px 15px #092C52;
+  left:   0;
+  right:  0;
+  font-size:  46px;
+  font-weight: 900;
+  transition: 1s;
+  text-transform: uppercase;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  @include breakpoint (lg) {
+    display: none;
+  }
+}

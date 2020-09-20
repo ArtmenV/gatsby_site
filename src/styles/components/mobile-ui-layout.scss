@@ -1,0 +1,63 @@
+
+/*------------------------------------*\
+  #Mobile-ui section
+\*------------------------------------*/
+
+.mobile-ui {
+  position: relative;
+  padding: 25px 0 120px;
+  background-color: transparentize($dark-blue, 0.15);
+  overflow: hidden;
+
+  .caption-primary {
+    margin: 0;
+  }
+
+  @include breakpoint (lg) {
+    padding-top: 75px;
+    padding-bottom: 210px; 
+
+    .carousel-buttons__container {
+      position: absolute;
+      bottom: 100px;
+      right:   63px;
+    }
+  }
+}
+
+.mobile-ui__card {
+  position: relative;
+  display: flex;
+  width:  165px;
+  height: 342px;
+  margin: 0 25px;
+
+  @include breakpoint (lg) {
+    width:  fluidSizeVw(225, 1440);
+    max-width:               225px;
+    height: fluidSizeVw(464, 1440);
+    max-height:              464px;
+    margin: 0 33px;
+  }
+}
+
+.mobile-ui-carousel {
+  width: 215px;
+  padding-top: 35px;
+
+  .carousel__slider {
+    overflow: visible!important;
+  }
+
+  .carousel__dot-group {
+    position: absolute;
+    bottom: 53px;
+    left:      0;
+    right:     0;
+    text-align: center;
+  }
+
+  @include breakpoint (lg) {
+    width: 100%;
+  }
+}

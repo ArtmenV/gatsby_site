@@ -1,0 +1,253 @@
+
+/*------------------------------------*\
+  #Core-features section
+\*------------------------------------*/
+
+.core-features-redesign {
+  padding: 20px 0 10px;
+  position: relative;
+  background:  $portfolio-background;
+  @include breakpoint(lg) {
+    padding: 75px 0 120px;
+  }
+
+  //style for button
+  .link-app--outlined {
+    border: 3px solid $white;
+  }
+
+  .caption-primary {
+    color: transparentize($white, 0.6);;
+    margin: 0;
+    &::before {
+      border-color: transparentize($white, 0.6);
+      width: 12vw;
+    }
+  }
+
+  .core-features__container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+
+    @include breakpoint (lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint (lg_mid) {
+      grid-template-columns:  1.5fr 1fr;
+    }
+  }
+
+  .flex-container {
+    // width: 240px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    padding:  0 20px;
+
+    @include breakpoint (lg) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items:            center;
+      margin-top:  80px;
+      padding:    0 8vw;
+    }
+  }
+
+  .core-features__list {
+    margin-top:    22px;
+    padding: 0 20px 0 0;
+
+    @include breakpoint (lg) {
+      width: 90%;
+      margin-top:  90px;
+      margin-left: 0;
+      //this style for hit master/branch style
+      columns:     1;
+    }
+
+    li {
+      display: flex;
+      position: relative;
+      margin-bottom: 18px;
+      font-size:   16px;
+      line-height: 20px;
+      padding-left: 60px;
+      // margin-left: 15vw;
+
+      @include breakpoint (lg) {
+        padding-left: 8vw;
+        padding-bottom: 25px;
+        font-size:   fluidSizeVw(20, 1440);
+        line-height: fluidSizeVw(30, 1440);
+        border-bottom: 1px solid transparentize($white, 0.4);
+        margin-left: 0;
+
+        &:not(:last-child) {
+          margin-bottom: 25px;
+        }
+      }
+
+      // @include breakpoint (lg_mid) {
+      //   font-size:   20px;
+      //   line-height: 30px;
+      // }
+
+      // @include breakpoint (xl) {
+      //   font-size:   22px;
+      //   line-height: 27px;
+      // }
+  
+      &:last-child {
+        margin-bottom: 0;
+      }
+  
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width:  20px;
+        height:  1px;
+        top:     6px;
+        left: 25px;
+        border-bottom: 3px solid $light-blue;
+
+        @include breakpoint(lg) {
+          display: none
+        }
+      }
+    }
+  }
+  
+  .core-features__timeline {
+    margin-bottom: 38.5px;
+    text-align: center;
+    font-size:   16px;
+    line-height: 20px;
+    font-weight:  600;
+    margin-top: 35px;
+
+    @include breakpoint (lg) {
+      text-align:  left;
+      font-size:   20px;
+      line-height: 24px;
+      margin-top: 60px;
+      margin-bottom: 0;
+    }
+  
+    @include breakpoint (xl) {
+      font-size:   22px;
+      line-height: 27px;
+    }
+
+    .timeline {
+      color: transparentize($white, 0.7);
+    }
+  }
+  
+  .core-features__link {
+    width: 260px;
+    height: 50px;
+    margin: 0 auto;
+    font-size:   20px;
+    line-height: 24px;
+  
+    @include breakpoint (lg) {
+      width: 379px;
+      height: 66px;
+      margin: 0;
+    }
+  
+    @include breakpoint (xl) {
+      font-size:   22px;
+      line-height: 27px;
+    }
+  }
+}
+
+
+//--------------------------------\\
+//this setting current for spp page
+//--------------------------------\\
+.spp-page-redesign {
+  .core-features__container {
+    @include breakpoint(lg) {
+      grid-template-columns: .7fr 1fr;
+    }
+  }
+
+  .core-features__list {
+    width: 100%;
+  }
+
+  .goal__media {
+    position: relative;
+
+    @include breakpoint(lg) {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 0;
+    }
+
+    @include breakpoint(xl) {
+      display: block;
+      margin-top: 50px;
+    }
+  
+    img {
+      width:  fluidSizeVw(245, 320);
+      max-width:             1140px;
+      height: fluidSizeVw(195, 320);
+      max-height:             900px;
+      margin-left: auto;
+
+      @include breakpoint (lg) {
+        width:  100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .core-features__timeline {
+    text-align: center!important;
+    margin-bottom: 15px;
+
+    @include breakpoint(lg) {
+      margin-top: 80px;
+    }
+  }
+  
+  .goal-video-container {
+    position: absolute;
+    top: 8.5%;
+    left:    50%;
+    width:  fluidSizeVw(210, 320);
+    max-width:              940px;
+    height: fluidSizeVw(115, 320);
+    padding: 0!important;
+    transform: translateX(-50%);
+
+    @include breakpoint (lg) {
+      width:  85%;
+      height: 67%;     
+      max-height: 600px;
+      top: 5%;
+    }
+  
+    video {
+      max-width: 100%;
+      height:    100%;
+    }
+  }
+  
+  .video-react-control-bar,
+  .video-react-big-play-button {
+    display: none;
+  }
+  
+  .goal__video {
+    max-width: 100%;
+  }
+}
+

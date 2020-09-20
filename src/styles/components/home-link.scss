@@ -1,0 +1,32 @@
+.link-home {
+  display: inline-block;
+  position: absolute;
+  top:  10px;
+  left: 18px;
+  z-index: 200;
+
+  @include breakpoint (lg) {
+    top:  15px;
+    left: 32px;
+  }
+
+  @include breakpoint (xl) {
+    top:  20px;
+    left: 32px;
+  }
+}
+
+.link-home__icon {
+  width: 149px;
+  height: 51px;
+
+  @include breakpoint (lg) {
+    width: 242px;
+    height: 83px;
+  }
+
+  @include breakpoint (xl) {
+    width:  320px;
+    height: 110px;
+  }
+} 

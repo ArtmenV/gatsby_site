@@ -1,0 +1,66 @@
+@import './main-start';
+@import './switch';
+/*---------------------------*/
+//background
+/*---------------------------*/
+.no-webp {
+  .service-page {
+    .services-section {
+      @include background('/services/background_sections_mobile.jpg');
+      background-position: center;
+      //need this for none display background on each page
+      @include breakpoint(lg) {
+        @include background('/');
+      }
+    }
+  }
+}
+// webp
+.webp {
+  .service-page {
+    .services-section {
+      @include background('/services/background_sections_mobile.webp');
+      background-position: center;
+      //need this for none display background on each page
+      @include breakpoint(lg) {
+        @include background('/');
+      }
+    }
+  }
+}
+/*---------------------------*/
+//end of background
+/*---------------------------*/
+/*---------------------------*/
+.no-webp {
+  .service-page.fixed-background {
+    @include breakpoint(lg) {
+      @include background('/services/background_sections.jpg');
+    }
+  }
+}
+
+.webp {
+  .service-page.fixed-background {
+    @include breakpoint(lg) {
+      @include background('/services/background_sections.webp');
+    }
+  }
+}
+/*---------------------------*/
+
+
+
+
+.service-page {
+  background-size: cover!important;
+  width:  100vw;
+  height: 100vh;
+
+  //this property need for
+  //not to see the blue, background while 
+  //loading the starting image
+  .fp-section {
+    background-color: $white;
+  }
+}

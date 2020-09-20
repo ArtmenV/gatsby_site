@@ -1,0 +1,400 @@
+
+/*------------------------------------*\
+  #Base tags
+\*------------------------------------*/
+
+* {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important; 
+  -webkit-focus-ring-color:    rgba(255, 255, 255, 0) !important; 
+  outline: none !important;
+} 
+
+body {
+  @include txt-md();
+  font-family: 'Montserrat', sans-serif;
+  color: $white;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.background {
+  position: absolute;
+  top:    0;
+  bottom: 0;
+  right:  0;
+  left:   0;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.noscroll {
+  overflow-y: hidden;
+}
+
+
+
+
+
+/*------------------------------------*\
+  #Fullpage
+\*------------------------------------*/
+
+.section {
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  position: relative;
+}
+
+.fp-section {
+  background-color: $theme-dark-main-color;
+  z-index: -100;
+}
+
+.fp-tableCell {
+  vertical-align: baseline!important;
+}
+
+
+
+
+
+/*------------------------------------*\
+  #Caption primary
+\*------------------------------------*/
+
+.caption-primary {
+  @include h2();
+  display: flex;
+  width: 100%;
+  position: relative;
+  margin-top: 10px;
+  align-items: center;
+  z-index: 200;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: fluidSizeVw(25, 320);
+    margin-right: 7px;
+    vertical-align: middle;
+    border-bottom: 4px solid $white;
+  }
+
+  @include breakpoint (lg) {
+    line-height: 80px;
+
+    &::before {
+      width: fluidSizeVw(167, 1440);
+      margin-right: 13px;
+    }
+  }
+
+  @include breakpoint (xl) {
+    margin-top: 52px;
+
+    &::before {
+      width: fluidSizeVw(220, 1920);
+      margin-right: 18px;
+    }
+  }
+}
+
+.icon--arrow {
+  width:  29px;
+  height: 12px;
+
+  @include breakpoint (lg) {
+    width: 42.43px;
+    height: 13.5px;
+  }
+
+  @include breakpoint (xl) {
+    width:  57px;
+    height: 18px;
+  }
+}
+
+
+
+
+
+/*------------------------------------*\
+  #Carousel
+\*------------------------------------*/
+
+.button-go-back,
+.button-go-next {
+  display: none;
+}
+
+.carousel__dot {
+  width:  42px;
+  height: 42px;
+  display: inline-flex;
+  align-items:     center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+
+  span {
+    display: block;
+    width:  12px;
+    height: 12px;
+    background-color: transparent;
+    border: 1px solid transparentize($white, 0.5);
+    transition: background-color 0.35s, border-color 0.35s;
+  }
+
+  &:hover {
+    span {
+      background-color: $blue;
+      border-color: $blue;
+    }
+  }
+
+  &--selected {
+    span {
+      background-color: $blue;
+      border-color: $blue;
+    }
+  }
+}
+
+.carousel-buttons__container {
+  display: flex;
+  flex-direction: row;
+}
+
+.carousel-buttons__container--vertical {
+  flex-direction: column;
+
+  .carousel__button {
+    &:first-child {
+      margin-right:     0;
+      margin-bottom: 20px;
+    }
+
+    transform: rotate(90deg);
+  }
+}
+
+.carousel__button {
+  display: flex;
+  align-items:     center;
+  justify-content: center;
+  width:  40px;
+  height: 40px;
+  padding: 0;
+  position: relative;
+  background: transparent;
+  border: none;
+  transition: all 0.35s;
+  cursor: pointer;
+
+  @include breakpoint (lg) {
+    width:  49px;
+    height: 38px;
+    border: 2px solid;
+
+    &:first-child {
+      margin-right: 12px;
+    }
+  }
+}
+
+.carousel__button--vertical {
+  transform: rotate(90deg);
+}
+
+.carousel__button--white {
+  .carousel__button-arrow {
+    border-color: $white;
+  }
+
+  &:hover {
+    .carousel__button-arrow {
+      border-color: $blue;
+    }
+  }
+
+  @include breakpoint (lg) {
+    border-color: $white;
+
+    .carousel__button-arrow {
+      &::before {
+        background-color: $white;
+      }
+    }
+
+    &:hover {
+      background-color: $blue;
+      border-color: $blue;
+
+      .carousel__button-arrow {
+        border-color: $white;
+      }
+    }
+  }
+}
+
+.carousel__button--blue {
+  .carousel__button-arrow {
+    border-color: $dark-blue;
+  }
+
+  &:hover {
+    .carousel__button-arrow {
+      border-color: $blue;
+    }
+  }
+
+  @include breakpoint (lg) {
+    border-color: $dark-blue;
+
+    .carousel__button-arrow {
+      &::before {
+        background-color: $dark-blue;
+      }
+    }
+
+    &:hover {
+      background-color: $dark-blue;
+
+      .carousel__button-arrow {
+        border-color: $white;
+
+        &::before {
+          background-color: $white;
+        }
+      }
+    }
+  }
+}
+
+.carousel__button-arrow {
+  display: block;
+  position: relative;
+  width:  11px;
+  height: 11px;
+  border:   2px solid;
+  border-left:   none;
+  border-bottom: none;
+  transition: border-color 0.35s;
+
+  &::before {
+    content: '';
+    display: none;
+    width: 19px;
+    height: 2px;
+    position: absolute;
+    right:  0;
+    top: -1px;
+    transform-origin: right top;
+    transform:   rotate(-45deg);
+    transition: background-color 0.35s;
+  }
+
+  &.left {
+    transform: rotate(-135deg);
+  }
+
+  &.right {
+    transform: rotate(45deg);
+  }
+
+
+  @include breakpoint (lg) {
+    width:  8.5px;
+    height: 8.5px;
+
+    &::before {
+      display: inline-block;
+    }
+
+    &.left {
+      transform: translateX(-4px) rotate(-135deg);
+    }
+
+    &.right {
+      transform: translateX(4px) rotate(45deg);
+    }
+  }
+}
+
+
+
+
+
+/*------------------------------------*\
+  #Mail link
+\*------------------------------------*/
+
+.link-mailto {
+  color: $gray;
+  transition: color 0.35s;
+
+  &:hover {
+    color: $blue;
+  }
+}
+
+
+
+
+
+/*------------------------------------*\
+  #Lazyload images
+\*------------------------------------*/
+
+.lazyload,
+.lazyloading {
+	opacity: 0;
+}
+
+.lazyloaded {
+	opacity: 1;
+	transition: opacity 300ms;
+}
+
+
+
+
+
+/*------------------------------------*\
+  #Spinner
+\*------------------------------------*/
+
+.spinner {
+  display: inline-block;
+  width:  16px;
+  height: 16px;
+  margin-right: 20px;
+  border:         3px solid $white;
+  border-right-color: transparent;
+  border-radius:              50%;
+  animation: spinner .75s linear infinite;
+
+  @include breakpoint (lg) {
+    width:  fluidSizeVw(16, 1440);
+    max-width:               16px;
+    height: fluidSizeVw(16, 1440);
+    max-height:              16px;
+  }
+
+  @include breakpoint (xl) {
+    max-width:  20px;
+    max-height: 20px;
+    margin-right: 30px;
+  }
+}
+
+ 

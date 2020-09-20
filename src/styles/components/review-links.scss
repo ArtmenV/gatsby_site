@@ -1,0 +1,94 @@
+.review-links-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 200;
+}
+.review-link {
+  display: flex;
+  cursor: pointer;
+
+  path {
+    transition: fill 0.35s;
+  }
+
+  &:hover {
+    path {
+      fill: $blue;
+    }
+  }
+
+  .clutch {
+    width: 57px;
+    height: 30px;
+  }
+  .clutch-no-stars {
+    width: 58px;
+    height: 26px;
+  }
+  .upwork {
+    width: 74px;
+    height: 36px;
+  }
+  .good-firms {
+    width: 104px;
+    height: 30px;
+  }
+
+  @include breakpoint (lg) {
+    &:not(:last-child) {
+      margin-right: fluidSizeVw(30, 1440);
+    }
+
+    .clutch {
+      width: fluidSizeVw(147, 1440);
+      height: fluidSizeVw(38, 1440);
+    }
+    .upwork{
+      width:  fluidSizeVw(98, 1440);
+      height: fluidSizeVw(42, 1440);
+    }
+    .good-firms {
+      width: fluidSizeVw(135, 1440);
+      height: fluidSizeVw(36, 1440);
+    }
+  }
+
+  @include breakpoint (lg_mid) {
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+
+    .clutch {
+      width: 147px;
+      height: 38px;
+    }
+    .upwork{
+      width: 98px;
+      height: 42px;
+    }
+    .good-firms {
+      width: 135px;
+      height: 36px;
+    }
+  }
+
+  @include breakpoint (xl) {
+    &:not(:last-child) {
+      margin-right: 40px;
+    }
+
+    .clutch {
+      width: 200px;
+      height: 51px;
+    }
+    .upwork {
+      width: 130px;
+      height: 60px;
+    }
+    .good-firms {
+      width: 181px;
+      height: 46px;
+    }
+  }
+}

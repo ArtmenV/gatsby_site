@@ -1,0 +1,97 @@
+
+/*--------------------------------------*\
+  #About client section
+\*--------------------------------------*/
+
+.about-client {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: transparentize($dark-blue, 0.15);
+
+  @include breakpoint (lg) {
+    flex-direction: row;
+  }
+}
+
+.about-client__content {
+  min-height: 200px;
+  padding: 5px 20px 30px 20px;
+  background-color: transparentize($white, 0.94);
+
+  @include breakpoint (lg) {
+    padding:     fluidSizeVw(40, 1440);
+    padding-top: fluidSizeVw(25, 1440);
+  }
+
+  @include breakpoint (lg_mid) {
+    padding: 25px 40px 50px 40px;
+  }
+
+  @include breakpoint (xl) {
+    padding: 33px 47px 50px 47px;
+  }
+}
+
+.about-client__title {
+  margin-bottom: 8px;
+  font-size:   28px;
+  line-height: 34px;
+  font-weight:  900;
+
+  @include breakpoint (lg) {
+    margin-bottom: fluidSizeVw(27, 1440);
+    font-size:   fluidSizeVw(70, 1440);
+    line-height: fluidSizeVw(85, 1440);
+  }
+
+  @include breakpoint (lg_mid) {
+    margin-bottom: 27px;
+    font-size:   70px;
+    line-height: 85px;
+  }
+
+  @include breakpoint (xl) {
+    font-size:    90px;
+    line-height: 110px;
+  }
+}
+
+.about-client__text {
+  font-size:     12px;
+  line-height:   15px;
+  font-weight: normal;
+
+  @include breakpoint (lg) {
+    font-size: fluidSizeVw(20, 1440);
+    line-height: fluidSizeVw(24, 1440);
+  }
+
+  @include breakpoint (lg_mid) {
+    font-size:   20px;
+    line-height: 24px;
+  }
+
+  @include breakpoint (xl) {
+    font-size:   22px;
+    line-height: 27px;
+  }
+}
+
+.about-client__logo {
+  padding: fluidSizeVw(20, 320);
+}
+
+.about-client__logo-inner {
+  width:  fluidSizeVw(280, 320);
+  height: fluidSizeVw(230, 320);
+  display: flex;
+  align-items:     center;
+  justify-content: center;
+  background-color: $white;
+
+  svg {
+    width:  fluidSizeVw(190, 320);
+    height: fluidSizeVw(190, 320);
+  }
+}

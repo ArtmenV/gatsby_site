@@ -1,0 +1,40 @@
+.btn-next-slide {
+  @include button();
+  width: 48px;
+  height: 48px;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  z-index: 300;
+
+  .mouse {
+    width: 20px;
+    height: 28px;
+  }
+
+  .arrow {
+    will-change: opacity;
+    animation: fadeOut 0.7s ease-in-out infinite alternate;
+  }
+
+  // breakpoints
+  @include breakpoint (lg) {
+    flex-direction: column;
+    bottom: fluidSizeVh(14, 568);
+    bottom: calc(var(--vh, 1vh) * #{vh(14, 568)});
+
+    .arrow {
+      margin-top: 7px;
+    }
+  }
+
+  @include breakpoint (xl) {
+    .mouse {
+      width: 27px;
+      height: 36px;
+    }
+  }
+}

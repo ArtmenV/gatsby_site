@@ -1,0 +1,12 @@
+
+/*------------------------------------*\
+  #Negina page 
+\*------------------------------------*/
+
+.negina-page {
+  .learning-system,
+  .integrations,
+  .seo {
+    @include primary-caption-small();
+  }
+}

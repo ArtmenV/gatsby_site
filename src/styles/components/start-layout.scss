@@ -1,0 +1,137 @@
+
+/*------------------------------------*\
+  #Start section
+\*------------------------------------*/
+
+.start {
+  height:                      100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  position: relative;
+  padding-top:                  fluidSizeVh(150, 568);
+  padding-top: calc(var(--vh, 1vh) * #{vh(150, 568)});
+  background-color: transparentize($dark-blue, 0.3);
+  transition: height 0.35s;
+}
+
+.start__caption {
+  font-size:   36px;
+  line-height: 56px;
+  font-weight:  900;
+  text-align: center;
+
+  @include breakpoint (lg) {
+    margin: 17px 0;
+    font-size:   fluidSizeVw(100, 1440);
+    line-height: fluidSizeVw(122, 1440);
+  }
+
+  @include breakpoint (lg_mid) {
+    margin: 17px 0;
+    font-size:   100px;
+    line-height: 122px;
+  }
+
+  @include breakpoint (xl) {
+    margin: 20px 0;
+    font-size:   120px;
+    line-height: 146px;
+  }
+}
+
+.upper-block,
+.lower-block {
+  // width: 275px;
+  height: 60px;
+  margin: 0 auto;
+  border: 3px solid $light-blue;
+
+  @include breakpoint (lg) {
+    // width: fluidSizeVw(826, 1440);
+    // max-width:              826px;
+    height: fluidSizeVw(58, 1440);
+    max-height:              58px;
+  }
+
+  @include breakpoint (xl) {
+    // width: 980px;
+    height: 69px;
+  }
+}
+
+.upper-block {
+  margin-bottom: -7px;
+  border-bottom: none;
+
+  @include breakpoint (lg) {
+    margin-bottom: 0;
+  }
+}
+
+.lower-block {
+  display: flex;
+  align-items: flex-end;
+  // padding-bottom: 15px;
+  border-top: none;
+
+  @include breakpoint (lg) {
+    padding-bottom: fluidSizeVw(15, 1440);
+  }
+
+  @include breakpoint (lg_mid) {
+    padding-bottom: 15px;
+  }
+}
+
+.lower-block__inner {
+  display: flex;
+  width: 190px;
+  margin:    0 auto;
+  padding: 5px 35px;
+  align-items: center;
+  background-color: transparentize($light-blue, 0.5);
+
+  &-text {
+    font-size:    8px;
+    line-height: 10px;
+    font-weight:  600;
+  }
+
+  @include breakpoint (lg) {
+    width: auto;
+    padding: fluidSizeVw(14, 1440) fluidSizeVw(16.5, 1440);
+
+    &-text {
+      font-size:   fluidSizeVw(22, 1440);
+      line-height: fluidSizeVw(27, 1440);
+    }
+  }
+
+  @include breakpoint (lg_mid) {
+    padding: 14px 16.5px;
+
+    &-text {
+      font-size:   22px;
+      line-height: 27px;
+    }
+  }
+
+  // @include breakpoint (xl) {
+  //   padding: 17px 18px;
+
+  //   &-text {
+  //     font-size:   30px;
+  //     line-height: 37px;
+  //   }
+  // }
+}
+
+.kek {
+  width: 275px;
+  margin: 0 auto;
+  
+  @include breakpoint (lg) {
+    width: fluidSizeVw(826, 1440);
+    max-width:              826px;
+  }
+}
+

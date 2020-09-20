@@ -1,0 +1,19 @@
+
+/*------------------------------------*\
+  #Spp page 
+\*------------------------------------*/
+
+.spp-page {
+  .threatlists,
+  .measure {
+    @include primary-caption-small();
+  }
+
+  @include breakpoint (lg) {
+    .kek {
+      width: fluidSizeVw(1177, 1440);
+      max-width: 1177px!important;
+    }
+  }
+  
+}

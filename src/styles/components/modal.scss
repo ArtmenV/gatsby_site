@@ -1,0 +1,33 @@
+.modal {
+  width: 100vw;
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  will-change: left;
+  left: 100%;
+  z-index: 500;
+  background: $theme-dark-main-color;
+  transition: left 0.35s;
+
+  &--opened {
+    left: 0;
+  }
+}
+.modal__btn-close {
+  @include button();
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 500;
+  cursor: pointer;
+
+  &:active {
+    background-color: $dark-blue;
+  }
+}
+.modal__icon-close {
+  width: 14px;
+  height: 14px;
+}

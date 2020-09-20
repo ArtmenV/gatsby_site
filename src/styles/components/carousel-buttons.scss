@@ -1,0 +1,102 @@
+// .carousel-buttons-container {
+//   display: flex;
+// }
+
+// /* Button */ 
+// .carousel__button {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   width: 40px;
+//   height: 40px;
+//   padding: 0;
+//   position: relative;
+//   background: transparent;
+//   border: none;
+//   transition: all 0.35s;
+//   cursor: pointer;
+
+//   &:hover {
+//     .carousel__button-arrow {
+//       border-color: $blue;
+//     }
+//   }
+
+//   @include breakpoint (lg) {
+//     width: 49px;
+//     height: 38px;
+//     border: 2px solid $dark-blue;
+
+//     &:first-child {
+//       margin-right: 12px;
+//     }
+
+//     &:hover {
+//       background-color: $dark-blue;
+
+//       .carousel__button-arrow {
+//         border-color: $white;
+
+//         &::before {
+//           background-color: $white;
+//         }
+//       }
+//     }
+
+//     &.vertical {
+//       transform: rotate(90deg);
+//     }
+//   }
+// }
+
+// /* Button arrow */ 
+// .carousel__button-arrow {
+//   display: block;
+//   position: relative;
+//   width: 11px;
+//   height: 11px;
+//   border: 2px solid $dark-blue;
+//   border-left: none;
+//   border-bottom: none;
+//   transition: border-color 0.35s;
+
+//   &::before {
+//     content: '';
+//     display: none;
+//     width: 19px;
+//     height: 2px;
+//     position: absolute;
+//     right: 0;
+//     top: -1px;
+//     transform-origin: right top;
+//     background-color: $dark-blue;
+//     transform: rotate(-45deg);
+//     transition: background-color 0.35s;
+//   }
+
+//   &.left {
+//     transform: rotate(-135deg);
+//   }
+
+//   &.right {
+//     transform: rotate(45deg);
+//   }
+
+//   // Breakpoints
+//   @include breakpoint (lg) {
+//     width: 8.5px;
+//     height: 8.5px;
+
+//     &::before {
+//       display: inline-block;
+//     }
+
+//     &.left {
+//       transform: translateX(-4px) rotate(-135deg);
+//     }
+
+//     &.right {
+//       transform: translateX(4px) rotate(45deg);
+//     }
+//   }
+// }

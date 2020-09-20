@@ -1,0 +1,249 @@
+
+.reviews {
+  // height: 100vh;
+  // height: calc(var(--vh, 1vh) * 100);
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  .review-links-container {
+    display: none;
+  }
+
+ @include breakpoint (lg) {
+  .review-links-container {
+    display: flex;
+    justify-content: flex-end;
+    height: 90px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding-right: 40px;
+    background: transparentize($dark-blue, 0.85);
+
+    a:not(:last-child) {
+      margin-right: 30px;
+    }
+   }
+ }
+
+ @include breakpoint (xl) {
+   .review-links-container {
+     height: 110px;
+
+     a:not(:last-child) {
+      margin-right: 40px;
+    }
+   }
+ }
+}
+
+.reviews__content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+
+  @include breakpoint (lg) {
+    top: fluidSizeVh(50, 700);
+    top: calc(var(--vh, 1vh) * #{vh(50, 700)});
+    transform: none;
+  }
+
+  @media (min-height: 900px) and (min-width:992px) {
+    top: fluidSizeVh(150, 900);
+    top: calc(var(--vh, 1vh) * #{vh(150, 900)});
+    margin-bottom: 40px;
+  }
+}
+
+/* Logo */ 
+.reviews__logo {
+  display: none;
+  width: 72px;
+  height: 76px;
+  margin-bottom: fluidSizeVh(12, 568);
+  margin-bottom: calc(var(--vh, 1vh) * #{vh(12, 568)});
+
+  path {
+    transform-origin: center;
+    animation-name: snowflakeColorChange;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: paused;
+  }
+
+  @media (min-height: 568px) {
+    display: inline;
+  }
+
+  @include breakpoint (lg) {
+    width: 120px;
+    height: 126px;
+    margin-bottom: 35px;
+  }
+
+  @include breakpoint (xl) {
+    width: 141px;
+    height: 148px;
+    margin-bottom: 40px;
+  }
+}
+
+.active {
+  .reviews__logo {
+    path {
+      animation-play-state: running;
+    }
+  }
+}
+
+/*----------------- Carousel ---------------*/
+.reviews-carousel {
+  // position: absolute;
+  // left: 0;
+  // right: 0;
+  // top: 50%;
+  // transform: translateY(-50%);
+
+  // &::before {
+  //   content: '';
+  //   position: relative;
+  //   display: inline-block;
+  //   left: 50%;
+  //   width: 72px;
+  //   height: 76px;
+  //   transform: translateX(-50%);
+  //   background: url(/logo.svg) no-repeat;
+  //   background-position: center;
+  //   background-size: cover;
+  //   margin-bottom: fluidSizeVh(12, 568);
+  //   margin-bottom: calc(var(--vh, 1vh) * #{vh(12, 568)});
+  //   text-align: center;
+  // }
+
+  .carousel__dot-group {
+    text-align: center;
+  }
+
+
+  @include breakpoint (lg) {
+    // top: fluidSizeVh(50, 700);
+    // top: calc(var(--vh, 1vh) * #{vh(50, 700)});
+    // transform: none;
+
+    // &::before { 
+    //   width: 120px;
+    //   height: 126px;
+    //   margin-bottom: 35px;
+    // }
+
+    .button-go-back,
+    .button-go-next {
+      display: flex;
+      position: absolute;
+      bottom: 10%;
+      padding: 0;
+      border: none;
+      outline: none;
+      background-color: transparent;
+    }
+
+    .button-go-back {
+      left: 30%;
+    }
+    .button-go-next {
+      right: 30%;
+    }
+  }
+
+  // @media (min-height: 900px) and (min-width:992px) {
+  //   top: fluidSizeVh(150, 900);
+  //   top: calc(var(--vh, 1vh) * #{vh(150, 900)});
+  //   margin-bottom: 40px;
+  // }
+
+  @include breakpoint (xl) {
+    // &::before {
+    //   width: 141px;
+    //   height: 148px;
+    //   margin-bottom: 40px;
+    // }
+  }
+}
+/*----------------- Slide ----------------*/
+.review-slide {
+  text-align: center;
+}
+// Text
+.review-slide__text {
+  padding: 0 fluidSizeVw(20, 320);
+  margin-bottom: fluidSizeVh(23, 568);
+  margin-bottom: calc(var(--vh, 1vh) * #{vh(23, 568)});
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 140%;
+
+  @include breakpoint (lg) {
+    width: fluidSizeVw(856, 1440);
+    margin: 0 auto 32px auto;
+    padding: 0;
+    font-size: 30px;
+    line-height: 130%;
+  }
+
+  @include breakpoint (xl) {
+    width: fluidSizeVw(1142, 1920);
+    margin-bottom: 53px;
+    font-size: 40px;
+    line-height: 140%;
+  }
+}
+// Horizontal line
+.review-slide__line {
+  width: 140px;
+  margin-bottom: fluidSizeVh(19, 568);
+  margin-bottom: calc(var(--vh, 1vh) * #{vh(19, 568)});
+  border-color: transparentize($white, 0.6);
+  border-bottom: none;
+
+  @include breakpoint (lg) {
+    width: 200px;
+  }
+
+  @include breakpoint (xl) {
+    width: 250px;
+    margin-bottom: 35px;
+  }
+}
+// Name
+.review-slide__name {
+  font-weight: bold;
+  font-size: 18px;
+
+  @include breakpoint (lg) {
+    font-size: 24px;
+  }
+
+  @include breakpoint (xl) {
+    font-size: 36px;
+  }
+}
+// Position
+.review-slide__position {
+  font-size: 14px;
+  color: transparentize($white, 0.2);
+
+  @include breakpoint (lg) {
+    font-size: 20px;
+  }
+
+  @include breakpoint (xl) {
+    font-size: 30px;
+  }
+}

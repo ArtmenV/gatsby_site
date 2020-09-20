@@ -1,0 +1,150 @@
+
+/*------------------------------------*\
+  #Core-features section
+\*------------------------------------*/
+
+.core-features {
+  padding: 20px 0 55px;
+  position: relative;
+  background-color: transparentize($dark-blue, 0.15);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top:    0;
+    bottom: 0;
+    left:   0;
+    right:  0;
+    background-position: center!important;
+    z-index: -1;
+  }
+
+  .caption-primary {
+    margin-top: 0;
+    line-height: 34px;
+  }
+
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    padding:  0 20px;
+  }
+
+  @include breakpoint (lg) {
+    padding: 75px 0 256px;
+    
+    .caption-primary {
+      line-height: 85px;
+    }
+    
+    .flex-container {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items:            center;
+      margin-top:  50px;
+      padding: 0 62.5px;
+    }
+  }
+}
+
+.core-features__list {
+  margin-top:       22px;
+  padding: 0 20px 0 50px;
+
+  li {
+    display: flex;
+    position: relative;
+    margin-bottom: 15px;
+    font-size:   12px;
+    line-height: 15px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      position: absolute;
+      left: -30px;
+      top:    6px;
+      align-self: center;
+      flex-shrink: 0;
+      margin-right: 10px;
+      border-bottom: 3px solid $light-blue;
+    }
+  }
+
+  @include breakpoint (lg) {
+    margin-top:  77px;
+    padding: 0 62.5px;
+    columns:         2;
+    column-gap:    2em;
+
+    li {
+      padding-left: 80px;
+      font-size:   20px;
+      line-height: 24px;
+
+      &:not(:last-child) {
+        margin-bottom: 25px;
+      }
+
+      &::before {
+        width: 50px;
+        top: 10px;
+        left:   0;
+        margin-right: 30px;
+      }
+    }
+  }
+
+  @include breakpoint (xl) {
+    margin-top: 90px;
+
+    li {
+      font-size:   22px;
+      line-height: 27px;
+    }
+  }
+}
+
+.core-features__timeline {
+  margin-bottom: 38.5px;
+  font-size:   14px;
+  line-height: 17px;
+  font-weight:  600;
+
+  @include breakpoint (lg) {
+    margin: 0;
+    font-size:   20px;
+    line-height: 24px;
+  }
+
+  @include breakpoint (xl) {
+    font-size:   22px;
+    line-height: 27px;
+  }
+}
+
+.core-features__link {
+  width: 280px;
+  height: 50px;
+  margin: 0 auto;
+  font-size:   20px;
+  line-height: 24px;
+
+  @include breakpoint (lg) {
+    width: 379px;
+    height: 66px;
+    margin: 0;
+  }
+
+  @include breakpoint (xl) {
+    font-size:   22px;
+    line-height: 27px;
+  }
+}
+

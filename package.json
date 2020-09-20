@@ -1,0 +1,52 @@
+{
+  "name": "gatsby-starter-hello-world",
+  "private": true,
+  "description": "A simplified bare-bones starter for Gatsby",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "dependencies": {
+    "@fullpage/react-fullpage": "^0.1.17",
+    "@loadable/component": "^5.13.1",
+    "axios": "^0.20.0",
+    "babel-plugin-jsx-control-statements": "^4.1.0",
+    "babel-preset-gatsby": "^0.4.7",
+    "eslint-config-react-app": "^5.2.1",
+    "eslint-plugin-jsx-control-statements": "^2.2.1",
+    "gatsby": "^2.21.22",
+    "gatsby-plugin-breakpoints": "^1.2.0",
+    "gatsby-plugin-loadable-components-ssr": "^2.1.0",
+    "gatsby-plugin-react-helmet": "^3.3.1",
+    "gatsby-plugin-react-svg": "^3.0.0",
+    "gatsby-plugin-sass": "^2.3.1",
+    "node-sass": "^4.14.1",
+    "prop-types": "^15.7.2",
+    "pure-react-carousel": "^1.27.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-google-recaptcha": "^2.1.0",
+    "react-helmet": "^6.0.0",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "video-react": "^0.14.1"
+  },
+  "devDependencies": {
+    "prettier": "2.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}

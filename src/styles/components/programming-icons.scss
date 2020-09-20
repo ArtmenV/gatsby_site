@@ -1,0 +1,183 @@
+.programming-icons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Svg Icons */ 
+.programming-icon {
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
+
+  &.icon--api {
+    width: 45px;
+    height: 36px;
+  }
+  // &.speed {
+  //   width: ;
+  //   height: ;
+  // }
+  // &.php {
+  //   width: ;
+  //   height: ;
+  // }
+  // &.square {
+  //   width: ;
+  //   height: ;
+  // }
+  // &.note {
+  //   width: ;
+  //   height: ;
+  // }
+  // &.swan {
+  //   width: ;
+  //   height: ;
+  // }
+  // &.screen {
+  //   width: ;
+  //   height: ;
+  // }
+  // &.api-2 {
+  //   width: ;
+  //   height: ;
+  // }
+  &.icon--symphony {
+    width: 36px;
+    height: 36px;
+  }
+  &.icon--aws {
+    width: 42px;
+    height: 25px;
+  }
+  &.icon--vue {
+    width: 36px;
+    height: 31px;
+  }
+  &.icon--js {
+    width: 36px;
+    height: 36px;
+  }
+  &.icon--html {
+    width: 36px;
+    height: 36px;
+  }
+  &.icon--laravel {
+    width: 36px;
+    height: 25px;
+  }
+
+  @include breakpoint (lg) {
+    &.icon--api {
+      width: fluidSizeVw(60, 1440);
+      max-width: 60px;
+      height: fluidSizeVw(45, 1440);
+      max-height: 45px;
+    }
+    &.icon--api-2 {
+      width: fluidSizeVw(52, 1440);
+      max-width: 52px;
+      height: fluidSizeVw(49, 1440);
+      max-height: 49px;
+    }
+    &.icon--php {
+      width: fluidSizeVw(57, 1440);
+      max-width: 57px;
+      height: fluidSizeVw(35, 1440);
+      max-height: 35px;
+    }
+    &.icon--speed {
+      width: fluidSizeVw(49, 1440);
+      max-width: 49px;
+      height: fluidSizeVw(45, 1440);
+      max-height: 45px;
+    }
+    &.icon--square {
+      width: fluidSizeVw(42, 1440);
+      max-width: 42px;
+      height: fluidSizeVw(45, 1440);
+      height: 45px;
+    }
+    &.icon--note {
+      width: fluidSizeVw(42, 1440);
+      max-width: 42px;
+      height: fluidSizeVw(42, 1440);
+      max-height: 42px;
+    }
+    &.icon--swan {
+      width: fluidSizeVw(42, 1440);
+      max-width: 42px;
+      height: fluidSizeVw(46, 1440);
+      max-height: 46px;
+    }
+    &.icon--screen {
+      width: fluidSizeVw(51, 1440);
+      max-width: 51px;
+      height: fluidSizeVw(42, 1440);
+      max-height: 42px;
+    }
+    &.icon--symphony {
+      width: fluidSizeVw(40, 1440);
+      max-width: 40px;
+      height: fluidSizeVw(40, 1440);
+      max-height: 40px;
+    }
+    &.icon--aws {
+      width: fluidSizeVw(47, 1440);
+      max-width: 47px;
+      height: fluidSizeVw(28, 1440);
+      max-height: 28px;
+    }
+    &.icon--vue {
+      width: fluidSizeVw(40, 1440);
+      max-width: 40px;
+      height: fluidSizeVw(34, 1440);
+      max-height: 34px;
+    }
+    &.icon--js {
+      width: fluidSizeVw(40, 1440);
+      max-width: 40px;
+      height: fluidSizeVw(40, 1440);
+      max-height: 40px;
+    }
+    &.icon--html {
+      width: fluidSizeVw(36, 1440);
+      max-width: 36px;
+      height: fluidSizeVw(45, 1440);
+      max-height: 45px;
+    }
+    &.icon--laravel {
+      width: fluidSizeVw(40, 1440);
+      max-width: 40px;
+      height: fluidSizeVw(27, 1440);
+      max-height: 27px;
+    }
+  }
+
+  @include breakpoint (xl) {
+    &.icon--symphony {
+      width: 60px;
+      height: 60px;
+    }
+    &.icon--aws {
+      width: 71px;
+      height: 42px;
+    }
+    &.icon--vue {
+      width: 60px;
+      height: 52px;
+    }
+    &.icon--js {
+      width: 60px;
+      height: 60px;
+    }
+    &.icon--html {
+      width: 36px;
+      height: 45px;
+    }
+    &.icon--laravel {
+      width: 60px;
+      height: 40px;
+    }
+  }
+}
