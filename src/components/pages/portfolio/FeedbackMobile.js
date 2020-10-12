@@ -1,12 +1,12 @@
 import React from 'react'
-import { 
-  CarouselProvider, 
-  Slider, 
-  Slide, 
-  ButtonBack, 
+import {
+  CarouselProvider,
+  Slider,
+  Slide,
+  ButtonBack,
   ButtonNext
 } from 'pure-react-carousel'
-import { 
+import {
   arrayOf,
   shape,
   string
@@ -40,7 +40,7 @@ const FeedbackMobile = ({
               <LoadImage
                 primaryLg={ reviewImage.imageWebp }
                 secondaryLg={ reviewImage.imageJpg }
-                className={ `carousel__image` }
+                className={ `carousel__image carousel__image-${index + 1}` }
                 alt={ `Review-${++index} image` }
                 lazyLoad
               />

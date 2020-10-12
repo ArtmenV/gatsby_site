@@ -1,43 +1,65 @@
 import React from 'react'
-import { 
-  CarouselProvider, 
-  Slider, 
-  Slide, 
-  ButtonBack, 
+import {
+  CarouselProvider,
+  Slider,
+  Slide,
+  ButtonBack,
   ButtonNext
 } from 'pure-react-carousel'
-import { 
+import {
   arrayOf,
+  object,
   shape,
   string
 } from 'prop-types'
-
-import '../../../styles/components/project-pics-layout.scss'
+import { CompanyCard } from './re_spp/CompanyCard'
 
 import LoadImage from '../../LoadImage'
 
-const ProjectPicsLayout = ({ pictureItems }) => {
+import '../../../styles/components/project-pics-layout.scss'
+
+const ProjectPicsLayout = ({
+  pictureItems,
+  cardData
+}) => {
+  const refMobileUi = React.useRef(null)
+
+  const handleChangeSlide = (activeSLideIndex) => {
+    const totalSlide =[...refMobileUi.current.querySelectorAll('.carousel__slide')]
+    const activeSlideIndex = totalSlide
+      .map(item => item.className.includes('carousel__slide--visible'))
+      .indexOf(true)
+    if (activeSlideIndex > activeSLideIndex) {
+      document.body.querySelector(`.carousel__back-button`).click()
+    } else {
+      document.body.querySelector(`.carousel__next-button`).click()
+    }
+  }
 
   return (
-    <section className="project-pictures">
+    <section
+      ref={ refMobileUi }
+      className="project-pictures-redesign"
+    >
       <h2 className="caption-primary">Project pics</h2>
 
       <CarouselProvider
+        className="project-pictures__carousel"
         naturalSlideWidth={ 100 }
         naturalSlideHeight={ 80 }
         isIntrinsicHeight={ true }
-        totalSlides={ 2 }
+        totalSlides={ 5 }
         infinite={ true }
         currentSlide={ 0 }
         visibleSlides={ 1 }
-        className="project-pictures__carousel"
       >
-        
+
         {/* Slides */}
         <Slider>
           {
             pictureItems.map((item, index) => (
               <Slide
+                onClick={ handleChangeSlide }
                 index={ index }
                 key={ index }
               >
@@ -52,11 +74,11 @@ const ProjectPicsLayout = ({ pictureItems }) => {
                     lazyLoad
                   />
                 </div>
-                
+
               </Slide>
             ))
           }
-        </Slider>     
+        </Slider>
 
         {/* Buttons */}
         <div className="carousel-buttons__container">
@@ -67,8 +89,12 @@ const ProjectPicsLayout = ({ pictureItems }) => {
             <span className="carousel__button-arrow right" />
           </ButtonNext>
         </div>
-           
+
       </CarouselProvider>
+
+      <CompanyCard
+        cardData= { cardData }
+      />
     </section>
   )
 }
@@ -79,7 +105,8 @@ ProjectPicsLayout.propTypes = {
     imageJpgLg: string.isRequired,
     imageWebpSm: string.isRequired,
     imageJpgSm: string.isRequired,
-  }))
+  })),
+  cardData: object
 }
 
 export default ProjectPicsLayout

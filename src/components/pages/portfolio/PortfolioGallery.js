@@ -156,7 +156,7 @@ export default () => {
     <section className="portfolio-container">
       {/* Music Courses */}
       <PortfolioCard
-        title="Music Courses"
+        title="Music lessons"
         category="music"
         primaryLg={ guitarWebp }
         secondaryLg={ guitarJpg }
@@ -165,7 +165,7 @@ export default () => {
         lazyLoad
       >
         <p>
-          Musical portal for learning how to play piano and other instruments. Different membership plans. Songs, artists and cources directory.
+          A portal for learning how to play music instruments with paid subscriptions, songs and artists catalog
         </p>
         <PortfolioCardList 
           items={[
@@ -199,7 +199,7 @@ export default () => {
         isSmall
       >
         <p>
-          Portal for students and parents to discover and compare private schools. Implemented in 2 languages — English and Arabic.
+          A portal for students and parents to discover and compare private schools. Implemented in 2 languages — English and Arabic.
         </p>
         {/* <ProgrammingIcons
           isLaravel={ false }
@@ -222,7 +222,7 @@ export default () => {
         lazyLoad
       >
         <p>
-        eCommerce solution for large Australian home appliance retailer with custom backend system to manage inventory, products, brands, taxonomy, promotions.
+          An eCommerce solution for large Australian home appliance retailer with custom backend system to manage inventory, products, brands, taxonomy, promotions.
         </p>
         <PortfolioCardList 
           items={[
@@ -279,7 +279,7 @@ export default () => {
         lazyLoad
       >
         <p>
-          CRM/ERP solution for a chain of 500+ car bodyshops. Dashboard for orders and supply management, different access level for shops, statistics module and generation .pdf reports.
+          A CRM/ERP solution for a chain of 500+ car bodyshops. Dashboard for orders and supply management, different access level for shops, statistics module and generation .pdf reports.
         </p>
         <PortfolioCardList 
           items={[
@@ -313,7 +313,7 @@ export default () => {
         isSmall
       >
         <p>
-          Website for baby gift lists creation by adding items using special browser bookmarklet. Share lists and reserve items. 
+          A website for baby gift lists creation by adding items using special browser bookmarklet. Share lists and reserve items. 
         </p>
         {/* <ProgrammingIcons
           isHtml={ false }
@@ -338,7 +338,7 @@ export default () => {
         lazyLoad
       >
         <p>
-          New brand website for chain of Spanish language schools with custom CMS to manage courses, destinations and all dynamic info. Support of several languages (English, German, Dutch, Spanish, French, Italian) with own domains (.com, .de, .nl, .es, .de, .fr, .it) for SEO purposes.
+          A new brand website for chain of Spanish language schools with custom CMS to manage courses, destinations and all dynamic info. Support of several languages (English, German, Dutch, Spanish, French, Italian) with own domains (.com, .de, .nl, .es, .de, .fr, .it) for SEO purposes.
         </p>
         <PortfolioCardList 
           items={[
@@ -369,7 +369,7 @@ export default () => {
         lazyLoad
       >
         <p>
-          Product search API of large promotional products distributor. Collaboration with Product Data team and IT Architect to setup the requirements and transform xml data files into a well-structured, normalised, fast, secure, developer-friendly and stateless RESTful API.
+          A product search API of large promotional products distributor. Collaboration with Product Data team and IT Architect to setup the requirements and transform xml data files into a well-structured, normalised, fast, secure, developer-friendly and stateless RESTful API.
         </p>
         <PortfolioCardList 
           items={[
@@ -402,7 +402,7 @@ export default () => {
         lazyLoad
       >
         <p>
-          Video stock BTB platform which allows to find and order collections of video clips. Elastic Search Engine for smart keywords search.
+          A video stock BTB platform which allows to find and order collections of video clips. Elastic Search Engine for smart keywords search.
         </p>
         <PortfolioCardList 
           items={[
@@ -433,7 +433,7 @@ export default () => {
         isSmall
       >
         <p>
-          Music collaborative workspace which connects producers and vocalists. Dedicated developers for on-going work (2+ years).
+          A music collaborative workspace which connects producers and vocalists. Dedicated developers for on-going work (2+ years).
         </p>
         {/* <ProgrammingIcons
           isHtml={ false }
@@ -457,7 +457,7 @@ export default () => {
         lazyLoad
       >
         <p>
-          Web application for booking hotels with special offers for SME and integrations with popular hotel channels. Real-time availability and prices updates based on certified integrations with RezExchange, Smarthotels and Cubilis.
+          A web application for booking hotels with special offers for SME and integrations with popular hotel channels. Real-time availability and prices updates based on certified integrations with RezExchange, Smarthotels and Cubilis.
         </p>
         <PortfolioCardList 
           items={[
@@ -491,7 +491,7 @@ export default () => {
         lazyLoad
       >
         <p>
-          System for remote control and monitoring of transformer rectifiers. Private dashboard for customers of Corrosion Electronics to access data in real-time, receive alerts and export reports.
+          A system for remote control and monitoring of transformer rectifiers. Private dashboard for customers of Corrosion Electronics to access data in real-time, receive alerts and export reports.
         </p>
         <PortfolioCardList 
           items={[
@@ -516,7 +516,7 @@ export default () => {
 
       {/* Security platform */}
       <PortfolioCard
-        title="Security platform"
+        title="Security SaaS software"
         category="security"
         primaryLg={ codeWebp }
         secondaryLg={ codeJpg }
@@ -526,7 +526,7 @@ export default () => {
         lazyLoad
       >
         <p>
-          SaaS solution to manage ads and threats blocking lists to reduce malware infection and other security vulnerabilities. Synching blocking lists with Privoxy based proxy servers.
+          A SaaS software to manage ads and threats block lists to reduce malware infection and other security vulnerabilities. Syncing block lists with Privoxy based proxy servers.
         </p>
         <PortfolioCardList 
           items={[

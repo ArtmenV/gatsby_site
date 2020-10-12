@@ -2,8 +2,8 @@ import * as React from 'react'
 import { func, object, bool } from 'prop-types'
 import CloseIcon from '../../../../../static/icons/close-icon.svg'
 
-export const ModalCategoryItem = ({ 
-  currentOpenCategoryData, 
+export const ModalCategoryItem = ({
+  currentOpenCategoryData,
   handleOpenCurrentCategory,
   isVisibleCategoryItemModal
 }) => {
@@ -12,7 +12,7 @@ export const ModalCategoryItem = ({
       <div className="container__card">
         <article className="category__container-open-content">
           <button
-            onClick={ handleOpenCurrentCategory } 
+            onClick={ handleOpenCurrentCategory }
             className='modal__btn-close'
             aria-label="Open service"
           >
@@ -29,13 +29,12 @@ export const ModalCategoryItem = ({
           </span>
         </article>
       </div>
-
     </div>
   )
 }
 
 ModalCategoryItem.propTypes = {
   handleOpenCurrentCategory: func.isRequired,
-  currentOpenCard: object,
-  isVisibleCategoryItemModal: bool.isRequired
+  isVisibleCategoryItemModal: bool.isRequired,
+  currentOpenCard: object
 }

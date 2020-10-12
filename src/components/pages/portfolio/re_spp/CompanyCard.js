@@ -1,18 +1,25 @@
 import React from 'react'
-// import {
-//   arrayOf,
-//   objectOf,
-//   shape,
-//   string,
-// } from 'prop-types'
+import {
+  arrayOf,
+  shape,
+  object,
+  string
+} from 'prop-types'
 
 import LoadImage from '../../../LoadImage'
+import flagImageWebp from '../../../../../static/images/portfolio/spp/flag.webp'
+import flagImageJpg from '../../../../../static/images/portfolio/spp/flag.jpg'
 
 import '../../../../styles/pages/re_spp/project-pics-card.scss'
 
 export const CompanyCard = ({
   cardData: {
-    cardLogo,
+    cardLogo: {
+      imageWebpLg,
+      imageJpgLg,
+      imageWebpSm,
+      imageJpgSm
+    },
     itemsContent,
     title
   }
@@ -23,10 +30,10 @@ export const CompanyCard = ({
         <div className="card__front">
           <div className="card-logo__container">
             <LoadImage
-              primaryLg={ cardLogo.imageWebpLg }
-              primarySm={ cardLogo.imageWebpSm }
-              secondaryLg={ cardLogo.imageJpgLg }
-              secondarySm={ cardLogo.imageJpgSm }
+              primaryLg={ imageWebpLg }
+              primarySm={ imageWebpSm }
+              secondaryLg={ imageJpgLg }
+              secondarySm={ imageJpgSm }
               className='card__logo'
               alt='card-logo'
               lazyLoad
@@ -46,9 +53,23 @@ export const CompanyCard = ({
               ))
             }
           </ul>
-          <span className="client">
-            Client
-          </span>
+          <div className="card__signature">
+            <div className="country__container">
+              <LoadImage
+                primaryLg={ flagImageWebp }
+                secondaryLg={ flagImageJpg }
+                className='card__flag'
+                alt='flag'
+                lazyLoad
+              />
+              <span className="country">
+                USA, IL, Chicago
+              </span>
+            </div>
+            <span className="client">
+              Client
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -59,15 +80,10 @@ export const CompanyCard = ({
 //   title: '',
 // }
 
-// CompanyCard.propTypes = {
-//   cardData: objectOf(shape({
-//     cardLogo:  objectOf(shape({
-//       imageWebpLg: string.isRequired,
-//       imageJpgLg: string.isRequired,
-//       imageWebpSm: string.isRequired,
-//       imageJpgSm: string.isRequired,
-//     })),
-//     title: string,
-//     itemsContent: arrayOf.string,
-//   }))
-// }
+CompanyCard.propTypes = {
+  cardData: shape({
+    itemsContent: arrayOf(string),
+    title: string,
+    cardLogo: object
+  }),
+}

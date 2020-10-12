@@ -12,12 +12,20 @@ import {
 } from 'pure-react-carousel'
 import { useSelector } from 'react-redux'
 
+import { clients } from '../../../constants'
+
 import ClientBox from './ClientBox'
 import OurClientsCarouselTracker from './OurClientsCarouselTracker'
 
 import eurasia from '../../../../static/images/landing/eurasia.png'
 import europe from '../../../../static/images/landing/europe.png'
 import america from '../../../../static/images/landing/america.png'
+
+const continents = [
+  'america',
+  'europe',
+  'eurasia'
+]
 
 export default () => {
   const count = useSelector(state => state.countClick)
@@ -47,22 +55,24 @@ export default () => {
   }
 
   const handleClick = () => {  
-    timerIdRef.current !== null && clearInterval(timerIdRef.current)
-    switchSlide()
+    // timerIdRef.current !== null && clearInterval(timerIdRef.current)
+    // switchSlide()
     launchAutoPlaySlide()
   }
 
   const switchSlide = () => {
     switch (currentIndexRef.current) {
-      case 1:
-        setCurrentSlide(2)
-        return
       case 0:
         setCurrentSlide(1)
-        return
+        break
+      case 1:
+        setCurrentSlide(2)
+        break
       case 2:
         setCurrentSlide(0)
-        return
+        break
+      default:
+        break
     }
   }
 
@@ -74,17 +84,17 @@ export default () => {
     setTimerId(timerId)
   }
 
-  // Launch/stop play slide
-  useEffect(() => {
-    if (currentSectionIndex === 4 && timerId === null) {
-      launchAutoPlaySlide()
-    } else if (currentSectionIndex !== 4 && timerId !== null) {
-      clearInterval(timerId)
-      setTimerId(null)
-    }
+  // Launch/stop slide playback
+  // useEffect(() => {
+  //   if (currentSectionIndex === 4 && timerId === null) {
+  //     launchAutoPlaySlide()
+  //   } else if (currentSectionIndex !== 4 && timerId !== null) {
+  //     clearInterval(timerId)
+  //     setTimerId(null)
+  //   }
     
-    return () => clearInterval(timerId)
-  }, [currentSectionIndex])
+  //   return () => clearInterval(timerId)
+  // }, [currentSectionIndex])
 
   useEffect(() => {
     const carousel = document.querySelector('.our-clients-carousel')
@@ -102,7 +112,7 @@ export default () => {
       infinite={ false }
       currentSlide={ currentSlide }
       isPlaying={ false }
-      interval={ 3200 }
+      // interval={ 3200 }
       playDirection="forward"
       dragEnabled={ false }
       touchEnabled={ false }
@@ -110,100 +120,61 @@ export default () => {
     >
       {/* Slides */}
       <Slider classNameAnimation="our-clients__transition">
+        {
+          continents.map((continent, index) => {
+            let imgSrc
 
-        {/* America */}
-        <Slide index={ 0 }  className="map-client">
-          <img 
-            data-src={ america }
-            className="map-client__image lazyload" 
-            alt="America map"
-          />
-          <ClientBox
-            projectName="Adsblocking SaaS"
-            projectBranch="Security"
-            location="USA, IL, Chicago"
-            className={ `chicago ${count === 4 ? 'animated' : '' }` }
-          />
-          <ClientBox 
-            projectName="Car Bodyshops ERP"
-            projectBranch="Auto"
-            location="USA, CA, San Diego"
-            className={ `san-diego ${count === 1 ? 'animated' : '' }` }
-          />
-          <ClientBox 
-            projectName="ERP Product API"
-            projectBranch="Retail"
-            location="USA, MA, Lewiston"
-            className={ `lewiston ${count === 7 ? 'animated' : '' }`}
-          />
-        </Slide>
+            switch (continent) {
+              case 'europe':
+                imgSrc = europe
+                break;
+              case 'eurasia':
+                imgSrc = eurasia
+                break;
+              case 'america':
+                imgSrc = america
+                break;
+              default:
+                break
+            }
 
-        {/* Europe */}
-        <Slide index={ 1 }  className="map-client">
-          <img 
-            data-src={ europe }
-            className="map-client__image lazyload" 
-            alt="Europe map"
-          />
-          <ClientBox 
-            projectName="Gift Shop Directory"
-            projectBranch="Lifestyle"
-            location="UK, London"
-            className={ `london ${count === 2 ? 'animated' : '' }` }
-          />
-          <ClientBox 
-            projectName="Hotel Booking Platform"
-            projectBranch="Travel"
-            location="Netherlands, Breda"
-            className={ `breda ${count === 8 ? 'animated' : '' }` }
-          />
-          <ClientBox 
-            projectName="Language Schools Website"
-            projectBranch="Education"
-            location="Spain, Barcelona"
-            className={ `barcelona ${count === 5 ? 'animated' : '' }`}
-          />
-        </Slide>
+            return (
+              <Slide 
+                index={ index }
+                key={ index }  
+              >
+                <img 
+                  data-src={ imgSrc }
+                  className="map-client__image lazyload" 
+                  alt={ `${continent} map` }
+                />
 
-        {/* Asia */}
-        <Slide index={ 2 } className="map-client">
-          <img 
-            data-src={ eurasia }
-            className="map-client__image lazyload" 
-            alt="Asia map"
-          />
-          <ClientBox 
-            className="novosibirsk"
-            location="Russia, Novosibirsk"
-          >
-            <div className="company-title">Zimalab here</div> 
-          </ClientBox>
-          <ClientBox 
-            projectName="Monitoring Dashboard"
-            projectBranch="Engineering"
-            location="Australia, Wollongong"
-            className={ `wollongong ${count === 6 ? 'animated' : '' }` }
-          />
-          <ClientBox 
-            projectName="Vocalists Social Network"
-            projectBranch="Music"
-            location="Australia, Melbourne"
-            className={ `melbourne ${count === 3 ? 'animated' : '' }`}
-          />
-          <ClientBox 
-            projectName="Home Appliance eCommerce"
-            projectBranch="Retail"
-            location="Australia, Brisbane"
-            className={ `brisbane ${count === 9 ? 'animated' : '' }` }
-          />
-        </Slide>
+                {
+                  clients.map((client, index) => {
+                    if (client.continent === continent) {
+                      return (
+                        <ClientBox 
+                          projectName={ client.projectName }
+                          projectBranch={ client.projectBranch }
+                          location={ client.location }
+                          className={ `${client.city} ${count === client.order ? 'animated' : '' }` }
+                          key={ index }
+                        />
+                      )
+                    }
+                  })
+                }
+              </Slide>
+            )
+          })
+        }
       </Slider>
 
       {/* Buttons */}
       <ButtonBack className="button-go-back" />
       <ButtonNext className="button-go-next" />
 
-      <OurClientsCarouselTracker setCurrentIndex={ setCurrentIndex } />
+      {/* <OurClientsCarouselTracker setCurrentIndex={ setCurrentIndex } /> */}
     </CarouselProvider>
   )
 }

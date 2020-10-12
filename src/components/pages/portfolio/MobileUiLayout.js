@@ -1,98 +1,82 @@
 import React from 'react'
-import { 
-  CarouselProvider, 
-  Slider, 
-  Slide, 
-  DotGroup
+import {
+  CarouselProvider,
+  Slider,
+  Slide,
+  ButtonBack,
+  ButtonNext
 } from 'pure-react-carousel'
 import { useBreakpoint } from 'gatsby-plugin-breakpoints'
-import { arrayOf, shape, string } from 'prop-types'
-
 import '../../../styles/components/mobile-ui-layout.scss'
 
 import LoadImage from '../../LoadImage'
 
-/** Backgrounds */
-import bgWebpLg from '../../../../static/backgrounds/portfolio/mobile-ui-large.webp'
-import bgWebpSm from '../../../../static/backgrounds/portfolio/mobile-ui-small.webp'
-import bgJpgLg from '../../../../static/backgrounds/portfolio/mobile-ui-large.jpg'
-import bgJpgSm from '../../../../static/backgrounds/portfolio/mobile-ui-small.jpg'
-
-const MobileUiLayout = ({ items }) => {
+export default ({
+  items
+}) => {
   const breakpoint = useBreakpoint()
+  const refMobileUi = React.useRef(null)
+
+  const handleChangeSlide = (activeSLideIndex) => {
+    const totalSlide =[...refMobileUi.current.querySelectorAll('.carousel__slide')]
+    const activeSlideIndex = totalSlide
+      .map(item => item.className.includes('carousel__slide--visible'))
+      .indexOf(true)
+    if (activeSlideIndex > activeSLideIndex) {
+      document.body.querySelector(`.carousel__back-button`).click()
+    } else {
+      document.body.querySelector(`.carousel__next-button`).click()
+    }
+  }
 
   return (
-    <section className="mobile-ui">
+    <section
+      ref={ refMobileUi }
+      className="mobile-ui-redesign"
+    >
       <h2 className="caption-primary">Mobile UI</h2>
       <CarouselProvider
-        naturalSlideWidth={ 100 }
-        naturalSlideHeight={ 80 }
+        naturalSlideWidth={ 165 }
+        naturalSlideHeight={ 323 }
         isIntrinsicHeight={ true }
-        totalSlides={ items.length }
+        totalSlides={ 5 }
         infinite={ true }
-        currentSlide={ 0 }
-        visibleSlides={ breakpoint.md ? 1 : 5 }
+        currentSlide={ breakpoint.md ? 1 : 2 }
+        visibleSlides={ 1 }
         className="mobile-ui-carousel"
       >
-
         {/* Slides */}
         <Slider>
-          {
-            items.map((item, index) => (
-              <Slide
-                key={ index }
-                index={ index }
-              >
-                <div className="mobile-ui__card">
-                  <LoadImage
-                    primarySm={ item.imageSmWebp }
-                    primaryLg={ item.imageLgWebp }
-                    secondarySm={ item.imageSmPng }
-                    secondaryLg={ item.imageLgPng }
-                    lazyLoad
-                    secondaryType="png" 
-                    alt="UI image"
-                  />
-                </div>
-              </Slide>
-            ))
-          }
+          {items.map((item, index) => (
+            <Slide
+              key={ index }
+              index={ index }
+              onClick={ () => handleChangeSlide(index) }
+            >
+              <div className="mobile-ui__card">
+                <LoadImage
+                  primarySm={ item.imageSmWebp }
+                  primaryLg={ item.imageLgWebp }
+                  secondarySm={ item.imageSmPng }
+                  secondaryLg={ item.imageLgPng }
+                  secondaryType="png"
+                  alt="UI image"
+                  lazyLoad
+                />
+              </div>
+            </Slide>
+          ))}
         </Slider>
 
-        { breakpoint.md && <DotGroup /> }
-   
-        {/* {
-          breakpoint.md ? (
-            <DotGroup />
-          ) : (
-            <div className="carousel-buttons__container">
-              <ButtonBack className="carousel__button carousel__button--white ">
-                <span className="carousel__button-arrow left" />
-              </ButtonBack>
-              <ButtonNext className="carousel__button carousel__button--white ">
-                <span className="carousel__button-arrow right" />
-              </ButtonNext>
-            </div>
-          )
-        } */}
+        <div className="carousel-buttons__container">
+          <ButtonBack className="carousel__button carousel__button--white ">
+            <span className="carousel__button-arrow left" />
+          </ButtonBack>
+          <ButtonNext className="carousel__button carousel__button--white ">
+            <span className="carousel__button-arrow right" />
+          </ButtonNext>
+        </div>
       </CarouselProvider>
-
-      <div 
-        data-bgset={ `${bgJpgSm} [(max-width: 992px)] | ${bgJpgLg}` } 
-        data-bgset-webp={ `${bgWebpSm} [(max-width: 992px)] | ${bgWebpLg}` }
-        className="background lazyload"
-      />
     </section>
   )
 }
-
-MobileUiLayout.propTypes = {
-  items: arrayOf(shape({
-    imageSmWebp: string.isRequired,
-    imageLgWebp: string.isRequired,
-    imageSmPng: string.isRequired,
-    imageLgPng: string.isRequired
-  }))
-}
-
-export default MobileUiLayout

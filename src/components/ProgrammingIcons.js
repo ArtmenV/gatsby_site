@@ -37,20 +37,20 @@ const ProgrammingIcons = ({
 }) => (
   <div className="programming-icons-container">
     { isSymphony && <SymphonyIcon className="programming-icon symphony" /> }
-    { isHtml && <HtmlIcon className="programming-icon html" /> }
-    { isJs && <JsIcon className="programming-icon js" /> }
-    { isPhp && <PhpIcon className="programming-icon php" /> }
-    { isVue && <VueIcon className="programming-icon vue" /> }
-    { isApi && <ApiIcon className="programming-icon api" /> }
-    { isApi2 && <ApiIcon2 className="programming-icon api-two" /> }
-    { isAws && <AwsIcon className="programming-icon aws" /> }
-    { isNote && <NoteIcon className="programming-icon note" /> }
-    { isScreen && <ScreenIcon className="programming-icon screen" /> }
-    { isSpeed && <SpeedIcon className="programming-icon speed" /> }
-    { isSquare && <SquareIcon className="programming-icon square" /> }
-    { isSwan && <Swanicon className="programming-icon swan" /> }
-    { isLaravel && <LaravelIcon className="programming-icon laravel" /> }
-  </div>  
+    { isHtml && <HtmlIcon className="programming-icon icon--html" /> }
+    { isJs && <JsIcon className="programming-icon icon--js" /> }
+    { isPhp && <PhpIcon className="programming-icon icon--php" /> }
+    { isVue && <VueIcon className="programming-icon icon--vue" /> }
+    { isApi && <ApiIcon className="programming-icon icon--api" /> }
+    { isApi2 && <ApiIcon2 className="programming-icon icon--api-2" /> }
+    { isAws && <AwsIcon className="programming-icon icon--aws" /> }
+    { isNote && <NoteIcon className="programming-icon icon--note" /> }
+    { isScreen && <ScreenIcon className="programming-icon icon--screen" /> }
+    { isSpeed && <SpeedIcon className="programming-icon icon--speed" /> }
+    { isSquare && <SquareIcon className="programming-icon icon--square" /> }
+    { isSwan && <Swanicon className="programming-icon icon--swan" /> }
+    { isLaravel && <LaravelIcon className="programming-icon icon--laravel" /> }
+  </div>
 )
 
 // ProgrammingIcons.defaultProps = {

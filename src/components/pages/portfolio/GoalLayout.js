@@ -1,41 +1,31 @@
-import React, { 
+import React, {
   useEffect
 } from 'react'
-import { useBreakpoint } from 'gatsby-plugin-breakpoints'
+
 import { Player } from 'video-react'
 import { string } from 'prop-types'
 
-import '../../../styles/components/goal-layout.scss'
-
 import LoadImage from '../../LoadImage'
 
-import displaySmJpg from '../../../../static/images/portfolio/monitor-small.jpg'
-import displaySmWebp from '../../../../static/images/portfolio/monitor-small.webp'
-import displayLgJpg from '../../../../static/images/portfolio/monitor-large.jpg'
-import displayLgWebp from '../../../../static/images/portfolio/monitor-large.webp'
-
-// import displayWebp from '../../../../static/backgrounds/portfolio/monitor.webp'
-// import displayPng from '../../../../static/backgrounds/portfolio/monitor.png'
+import '../../../styles/components/goal-layout.scss'
 
 const Goal = ({
   video,
-  // videoSmWebm,
-  // videoLgWebm,
-  // videoSmMp4,
-  // videoLgMp4,
+  goalSmJpg,
+  goalLgJpg,
+  goalSmWebp,
+  goalLgWebp,
+  typeImage,
   children
 }) => {
-  const breakpoint = useBreakpoint()
 
   useEffect(() => {
-    if (('IntersectionObserver' in window)) {
+    if (('IntersectionObserver' in window) && video) {
       const observer = new IntersectionObserver(onIntersection, { threshold: 1 })
       const video = document.body.querySelector('.goal-video-container video')
 
       observer.observe(video)
     }
-
-    // return () => observer.unobserve(video)
   }, [])
 
   function playVideo(video) {
@@ -48,7 +38,7 @@ const Goal = ({
 
   /**
    * On intersection
-   * @param {array} entries 
+   * @param {array} entries
    */
   function onIntersection(entries) {
     entries.forEach(entry => {
@@ -61,51 +51,45 @@ const Goal = ({
   }
 
   return (
-    <section className="goal">
+    <section className="goal-redesign">
       <div className="goal__content">
-        <h2 className="caption-primary">Goal:</h2>
+        <h2 className="caption-primary">Goal</h2>
         <div className="goal__content-text">{ children }</div>
       </div>
-      
-      <div 
-        // data-bgset={ `${displaySmJpg} [(max-width: 992px)] | ${displayLgJpg}` } 
-        // data-bgset-webp={ `${displaySmWebp} [(max-width: 992px)] | ${displayLgWebp}` }
-        // data-bgset={ displayPng } 
-        // data-bgset-webp={ displayWebp }
-        className="goal__media"
-      > 
-        <LoadImage 
-          primarySm={ displaySmWebp }
-          primaryLg={ displayLgWebp }
-          secondarySm={ displaySmJpg }
-          secondaryLg={ displayLgJpg }
-          lazyLoad
-          secondaryType="jpg" 
-          alt="UI image"
-          
-        />
-        <Player
-          muted={ true }
-          playsInline
-          className="goal-video-container"
-          controls={ false }
-          loop={ true }
-          src={ video }
-        >
-          {/* <source src={ breakpoint.md ? videoSmMp4 : videoLgMp4 } />
-          <source src={ breakpoint.md ? videoSmWebm : videoLgWebm } /> */}
-        </Player>
-      </div>
 
+      <div className="goal__media lazyload">
+        <LoadImage
+          primarySm={ goalSmWebp }
+          primaryLg={ goalLgWebp }
+          secondarySm={ goalSmJpg }
+          secondaryLg={ goalLgJpg }
+          secondaryType={ typeImage }
+          alt="UI image"
+          lazyLoad
+        />
+        { video && (
+            <Player
+              muted={ true }
+              playsInline
+              className="goal-video-container"
+              controls={ false }
+              loop={ true }
+              src={ video }
+            >
+            </Player>
+          )}
+      </div>
     </section>
   )
 }
 
 Goal.propTypes = {
-  // videoSmWebm: string.isRequired,
-  // videoLgWebm: string.isRequired,
-  // videoSmMp4: string.isRequired,
-  // videoLgMp4: string.isRequired,
+  video: string,
+  typeImage: string.isRequired,
+  goalSmJpg: string.isRequired,
+  goalLgJpg: string.isRequired,
+  goalSmWebp: string.isRequired,
+  goalLgWebp: string.isRequired
 }
 
 export default Goal

@@ -2,136 +2,402 @@
 /*------------------------------------*\
   #Start section
 \*------------------------------------*/
+// this common file for all page with redesign
+// bottom file i set background
 
-.start {
+//main settings and setting for lingua page
+.start-redesign {
   height:                      100vh;
   height: calc(var(--vh, 1vh) * 100);
   position: relative;
-  padding-top:                  fluidSizeVh(150, 568);
-  padding-top: calc(var(--vh, 1vh) * #{vh(150, 568)});
-  background-color: transparentize($dark-blue, 0.3);
+  background: linear-gradient(0deg, #082B51 -2.39%, rgba(8, 43, 81, 0.78) 17.23%, rgba(8, 43, 81, 0.5) 100%);
   transition: height 0.35s;
-}
+  padding-top:                      35vh;
+  padding-top: calc(var(--vh, 1vh) * 35);
 
-.start__caption {
-  font-size:   36px;
-  line-height: 56px;
-  font-weight:  900;
-  text-align: center;
-
-  @include breakpoint (lg) {
-    margin: 17px 0;
-    font-size:   fluidSizeVw(100, 1440);
-    line-height: fluidSizeVw(122, 1440);
+  @include breakpoint(lg) {
+    padding-top:                      30vh;
+    padding-top: calc(var(--vh, 1vh) * 30);
   }
 
-  @include breakpoint (lg_mid) {
-    margin: 17px 0;
-    font-size:   100px;
-    line-height: 122px;
-  }
+  .main-title__container {
+    display: flex;
+    flex-direction: column;
 
-  @include breakpoint (xl) {
-    margin: 20px 0;
-    font-size:   120px;
-    line-height: 146px;
-  }
-}
-
-.upper-block,
-.lower-block {
-  // width: 275px;
-  height: 60px;
-  margin: 0 auto;
-  border: 3px solid $light-blue;
-
-  @include breakpoint (lg) {
-    // width: fluidSizeVw(826, 1440);
-    // max-width:              826px;
-    height: fluidSizeVw(58, 1440);
-    max-height:              58px;
-  }
-
-  @include breakpoint (xl) {
-    // width: 980px;
-    height: 69px;
-  }
-}
-
-.upper-block {
-  margin-bottom: -7px;
-  border-bottom: none;
-
-  @include breakpoint (lg) {
-    margin-bottom: 0;
-  }
-}
-
-.lower-block {
-  display: flex;
-  align-items: flex-end;
-  // padding-bottom: 15px;
-  border-top: none;
-
-  @include breakpoint (lg) {
-    padding-bottom: fluidSizeVw(15, 1440);
-  }
-
-  @include breakpoint (lg_mid) {
-    padding-bottom: 15px;
-  }
-}
-
-.lower-block__inner {
-  display: flex;
-  width: 190px;
-  margin:    0 auto;
-  padding: 5px 35px;
-  align-items: center;
-  background-color: transparentize($light-blue, 0.5);
-
-  &-text {
-    font-size:    8px;
-    line-height: 10px;
-    font-weight:  600;
-  }
-
-  @include breakpoint (lg) {
-    width: auto;
-    padding: fluidSizeVw(14, 1440) fluidSizeVw(16.5, 1440);
-
-    &-text {
-      font-size:   fluidSizeVw(22, 1440);
-      line-height: fluidSizeVw(27, 1440);
+    @include breakpoint(lg) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
     }
   }
 
-  @include breakpoint (lg_mid) {
-    padding: 14px 16.5px;
+  .start__title--one,.start__title--two {
+    font-weight: 800;
+    font-size: 46px;
+    line-height: 56px;
+    text-align: center;
+    text-transform: capitalize;
+  }
 
-    &-text {
-      font-size:   22px;
-      line-height: 27px;
+  .start__title--two {
+    -webkit-text-stroke: 1.5px $light-blue;
+    text-stroke: 1.5px $light-blue;
+    color: transparent;
+
+    @include breakpoint(lg) {
+      -webkit-text-stroke: 3px $light-blue;
+      text-stroke: 3px $light-blue;
     }
   }
 
-  // @include breakpoint (xl) {
-  //   padding: 17px 18px;
+  .start__caption {
+    // text-shadow: 0px 10px 20px rgba(122, 122, 122, 0.25);
+    @include breakpoint (lg) {
+      margin: 17px 0;
+      font-size:   100px;
+      line-height: 122px;
+    }
 
-  //   &-text {
-  //     font-size:   30px;
-  //     line-height: 37px;
-  //   }
-  // }
-}
+    @include breakpoint (lg_mid) {
+      font-size:   120px;
+      line-height: 122px;
+    }
 
-.kek {
-  width: 275px;
-  margin: 0 auto;
-  
-  @include breakpoint (lg) {
-    width: fluidSizeVw(826, 1440);
-    max-width:              826px;
+    @include breakpoint (xl) {
+      margin: 20px 0;
+      font-size:   150px;
+      line-height: 146px;
+    }
+  }
+
+  .sub-title__container {
+    font-size:   16px;
+    font-weight:  800;
+    line-height: 20px;
+    width: 95%;
+    max-width: 320px;
+    margin: 0 auto;
+    margin-top: 3vh;
+    margin-top: calc(var(--vh, 1vh) * 3);
+    text-transform: uppercase;
+    text-align: center;
+
+    @include breakpoint(lg) {
+      font-size:   37px;
+      font-weight:  800;
+      line-height: 45px;
+      width: 700px;
+      margin: 0 auto;
+      margin-top: 3vh;
+      margin-top: calc(var(--vh, 1vh) * 3);
+      text-transform: uppercase;
+      text-align: center;
+      max-width: 1100px;
+    }
+
+    @include breakpoint(lg_mid) {
+      width: 800px;
+      font-size:   44px;
+      line-height: 55px;
+    }
+
+    @include breakpoint(xl) {
+      width: 1100px;
+      font-size:   56px;
+      line-height: 68px;
+    }
   }
 }
+
+
+//---------------------------------------//
+  //settings for spp page
+//---------------------------------------//
+.spp-page-redesign {
+  .start-redesign {
+    @include breakpoint(lg) {
+      padding-top:                      22vh!important;
+      padding-top: calc(var(--vh, 1vh) * 22)!important;
+    }
+  }
+
+  .title__container {
+    @include breakpoint(lg) {
+      flex-direction: column;
+      display: block;
+      max-width: 1350px;
+      margin: 0 auto;
+    }
+
+    @include breakpoint(xl) {
+      max-width: 1380px;
+    }
+  }
+
+  .title--one {
+    font-size: 42px;
+    text-transform: none;
+    @include breakpoint(lg) {
+      text-align: left!important;
+      margin-left: 100px;
+      font-size:   100px;
+      line-height: 122px;
+    }
+
+    @include breakpoint (lg_mid) {
+      font-size:   100px;
+      line-height: 122px;
+    }
+
+    @include breakpoint (xl) {
+      margin: 20px 0;
+      font-size: 120px;
+    }
+  }
+
+  .title--two {
+    font-size: 42px;
+    text-transform: none;
+    @include breakpoint(lg) {
+      text-align: right!important;
+      margin-right: 100px;
+      font-size:   100px;
+    }
+
+    @include breakpoint (lg_mid) {
+      font-size:   100px;
+    }
+
+    @include breakpoint (xl) {
+      margin: 20px 0;
+      font-size: 120px;
+    }
+  }
+
+  .sub-title {
+    margin-top: 30px;
+
+    @include breakpoint(lg) {
+      margin-top: 40px;
+      font-size: 37px;
+    }
+  }
+
+  .start__sub-title-text {
+    @include breakpoint(lg) {
+      font-size: 37px;
+    }
+  }
+
+  .sub-title__container {
+    @include breakpoint(lg) {
+      width: 920px;
+      line-height: 55px;
+    }
+
+    @include breakpoint(xl) {
+      width: 1200px;
+    }
+  }
+}
+
+.negina-page-redesign {
+  .start-redesign {
+    .start__caption {
+      -webkit-text-stroke: 1.5px $light-blue;
+      text-stroke: 1.5px $light-blue;
+      color: transparent;
+      text-shadow: none;
+
+      @include breakpoint(lg) {
+        -webkit-text-stroke: 3px $light-blue;
+        text-stroke: 3px $light-blue;
+      }
+    }
+  }
+}
+
+
+
+/**powernapp*/
+.powernapp-page-redesign {
+  .start-redesign {
+    .title__container {
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .title--two {
+      text-transform: lowercase;
+    }
+  }
+}
+
+
+//this i set a background for start section
+//lingua backgrond
+.webp {
+  .lingua-page-redesign {
+    .start-redesign {
+      .background {
+        background-position: center;
+        background-image: url('/backgrounds/portfolio/linguaschools/start-background-sm.webp');
+
+        @include breakpoint(lg) {
+          background-image: url('/backgrounds/portfolio/linguaschools/lingua-start-background-lg.webp');
+        }
+      }
+    }
+  }
+}
+
+.no-webp {
+  .lingua-page-redesign {
+    .start-redesign {
+      .background {
+        background-position: center;
+        background-image: url('/backgrounds/portfolio/linguaschools/start-background-sm.jpg');
+
+        @include breakpoint(lg) {
+          background-image: url('/backgrounds/portfolio/linguaschools/lingua-start-background-lg.jpg');
+        }
+      }
+    }
+  }
+}
+
+//spp background
+.webp {
+  .spp-page-redesign {
+    .start-redesign {
+      background: $portfolio-start-section-background;
+      .background {
+        background-position: center;
+        background-image: url('/backgrounds/portfolio/spp/start-small.webp');
+
+        @include breakpoint(lg) {
+          background-image: url('/backgrounds/portfolio/spp/start-large.webp');
+        }
+      }
+    }
+  }
+}
+
+.no-webp {
+  .spp-page-redesign {
+    .start-redesign {
+      background: $portfolio-start-section-background;
+      .background {
+        background-position: center;
+        background-image: url('/backgrounds/portfolio/spp/start-small.jpg');
+
+        @include breakpoint(lg) {
+          background-image: url('/backgrounds/portfolio/spp/start-large.jpg');
+        }
+      }
+    }
+  }
+}
+
+
+//bodyshops background
+.webp {
+  .bodyshops-page-redesign {
+    .start-redesign {
+      background: $portfolio-start-section-background;
+      .background {
+        background-position: center;
+        background-image: url('/backgrounds/portfolio/bodyshops/start-small.webp');
+
+        @include breakpoint(lg) {
+          background-image: url('/backgrounds/portfolio/bodyshops/start-large.webp');
+        }
+      }
+    }
+  }
+}
+
+.no-webp {
+  .bodyshops-page-redesign {
+    .start-redesign {
+      background: $portfolio-start-section-background;
+      .background {
+        background-position: center;
+        background-image: url('/backgrounds/portfolio/bodyshops/start-small.jpg');
+
+        @include breakpoint(lg) {
+          background-image: url('/backgrounds/portfolio/bodyshops/start-large.jpg');
+        }
+      }
+    }
+  }
+}
+
+//negina background
+.webp {
+  .negina-page-redesign {
+    .start-redesign {
+      background: $portfolio-start-section-background;
+      .background {
+        background-position: center;
+        background-image: url('/backgrounds/portfolio/negina/start-small.webp');
+
+        @include breakpoint(lg) {
+          background-image: url('/backgrounds/portfolio/negina/start-large.webp');
+        }
+      }
+    }
+  }
+}
+
+.no-webp {
+  .negina-page-redesign {
+    .start-redesign {
+      background: $portfolio-start-section-background;
+      .background {
+        background-position: center;
+        background-image: url('/backgrounds/portfolio/negina/start-small.jpg');
+
+        @include breakpoint(lg) {
+          background-image: url('/backgrounds/portfolio/negina/start-large.jpg');
+        }
+      }
+    }
+  }
+}
+
+//poweranapp background
+.webp {
+  .powernapp-page-redesign {
+    .start-redesign {
+      background: $portfolio-start-section-background;
+      .background {
+        background-position: center;
+        background-image: url('/backgrounds/portfolio/powernapp/start-small.webp');
+
+        @include breakpoint(lg) {
+          background-image: url('/backgrounds/portfolio/powernapp/start-large.webp');
+        }
+      }
+    }
+  }
+}
+
+.no-webp {
+  .powernapp-page-redesign {
+    .start-redesign {
+      background: $portfolio-start-section-background;
+      .background {
+        background-position: center;
+        background-image: url('/backgrounds/portfolio/powernapp/start-small.jpg');
+
+        @include breakpoint(lg) {
+          background-image: url('/backgrounds/portfolio/powernapp/start-large.jpg');
+        }
+      }
+    }
+  }
+}
+
 

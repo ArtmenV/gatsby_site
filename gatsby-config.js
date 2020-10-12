@@ -17,22 +17,15 @@ const myCustomQueries = {
 module.exports = {
   plugins: [
     `gatsby-plugin-react-svg`,
-    // {
-    //   resolve: `gatsby-plugin-sass`,
-    //   options: {
-    //     // implementation: require("sass"),
-    //     data: `@use "${__dirname}/src/style/main.scss";`
-    //   }
-    // },
+    // 'gatsby-plugin-loadable-components-ssr',
     {
       resolve: 'gatsby-plugin-sass',
       options: {
         data: `@import "./src/styles/main.scss";`,
       }
     },
-    // `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-loadable-components-ssr`,
+    'gatsby-plugin-webpack-bundle-analyzer',
     {
       resolve: "gatsby-plugin-breakpoints",
         options: {

@@ -1,112 +1,166 @@
 
 /*--------------------------------------*\
-  #Project pictures 
+  #Project pictures
 \*--------------------------------------*/
 
-.project-pictures {
+.project-pictures-redesign {
   position: relative;
-  padding: 20px 0 63px;
+  padding: 30px 0 20px;
   overflow: hidden;
-  background-color: $light-gray;
+  background: $portfolio-background!important;
+
+  @include breakpoint(lg) {
+    padding-top: 25px;
+    padding-bottom: 20px;
+  }
 
   .caption-primary {
-    margin: 0;
-    color: $dark-blue;
+    color: transparentize($white, 0.6);
+    margin: 10px 0 10px;
+
+    @include breakpoint(lg)     { font-size: 60px }
+    @include breakpoint(lg_mid) { font-size: 70px }
+    @include breakpoint(xl)     { font-size: 94px }
 
     &::before {
-      border-color: $dark-blue;
+      border-color: transparentize($white, 0.6);
+      width: 7.8vw;
+
+      @include breakpoint(lg)     { width: 160px }
+      @include breakpoint(lg_mid) { width: 220px }
+      @include breakpoint(xl)     { width: 260px }
     }
   }
 
+  .carousel__slider-tray {
+    width: 340%!important;
+
+    @include breakpoint(lg) {
+      width: 480%!important;
+    }
+
+    @include breakpoint(xl) {
+      width: 680%!important;
+    }
+  }
+
+  //settings for corousel navigation button
   .carousel-buttons__container {
     position: absolute;
-    right: 7px;
-    bottom: 10px;
+    z-index: 201;
+    top:   40px;
+    right: 15px;
+
+    @include breakpoint (lg) {
+      top:   60px;
+      right:    0;
+      left: 600px;
+    }
+
+    @include breakpoint (lg_mid) { left: 740px }
+    @include breakpoint (xl)     { left: 940px }
   }
 
-  @include breakpoint (lg) {
-    padding: fluidSizeVw(43, 1440) 0 fluidSizeVw(115, 1440);
+    .carousel__button {
+      width: 30px;
 
-    .carousel-buttons__container {
-      bottom: fluidSizeVw(20, 1440);
-      right: fluidSizeVw(34, 1440);
+      &:hover {
+        background: none;
+      }
+    }
+
+    .carousel__button-arrow {
+      width:  12px;
+      height: 12px;
+      border: 3px solid $white;
+      border-left:   none;
+      border-bottom: none;
+
+      @include breakpoint(lg) {
+        width:  18px;
+        height: 18px;
+      }
+
+      @include breakpoint(xl) {
+        width:  24px;
+        height: 24px;
+      }
+
+      &:hover {
+        border-color: $light-blue!important;
+      }
+    }
+
+    @include breakpoint (lg) {
+      .carousel__button {
+        border: none;
+        margin-right: 0;
+        width: 30px;
+        &:hover {
+          background: none;
+        }
+      }
+
+      .carousel__button-arrow::before {
+        display: none;
+      }
+    }
+
+  .project-pictures__carousel {
+    width: fluidSizeVw(380, 320);
+    margin-top:    20px;
+
+    .carousel__slider {
+      overflow: visible;
+    }
+
+    @include breakpoint (lg) {
+      width: fluidSizeVw(1020, 1440);
+      max-width:              1280px;
+      margin-top: fluidSizeVw(60, 1440);
+      height: 100%;
+    }
+
+    @include breakpoint (lg_mid) {
+      margin-top: 60px;
+    }
+
+    @include breakpoint (xl) {
+      max-width: 1058px;
+      margin-top: 100px;
     }
   }
 
-  @include breakpoint (lg_mid) {
-    padding: 43px 0 115px;
+  .project__carousel-slide {
+    padding: 0 0;
 
-    .carousel-buttons__container {
-      bottom: 20px;
-      right: 64px;
+    @include breakpoint (lg) {
+      padding: 0 fluidSizeVw(35, 1440);
+      padding-right: 0;
+    }
+
+    @include breakpoint (lg_mid) {
+      padding: 0 35px;
     }
   }
 
-  @include breakpoint (xl) {
-    padding: 48px 0 154px;
+  .project__image {
+    max-width: 100%;
+    max-height: 250px;
+    padding: 0 15px 0 0;
 
-    .caption-primary {
-      line-height: 110px;
+    @include breakpoint (lg) {
+      padding: fluidSizeVw(20, 1440);
+      max-height: 1200px!important;
+      box-shadow: none;
     }
 
-    .carousel-buttons__container {
-      bottom: 60px;
-      right: 73px;
+    @include breakpoint (lg_mid) {
+      padding: 0 20px;
     }
   }
 }
 
-.project-pictures__carousel {
-  width: fluidSizeVw(280, 320);
-  // max-width: ;
-  margin-top: 20px;
-
-  .carousel__slider {
-    overflow: visible;
-  }
-
-  @include breakpoint (lg) {
-    width: fluidSizeVw(930, 1440);
-    max-width:              930px;
-    margin-top: fluidSizeVw(60, 1440);
-  }
-
-  @include breakpoint (lg_mid) {
-    margin-top: 60px;
-  } 
-
-  @include breakpoint (xl) {
-    max-width: 1058px;
-    margin-top: 15px;
-  }
-}
-
-.project__carousel-slide {
-  padding: 0 20px;
-
-  @include breakpoint (lg) {
-    padding: 0 fluidSizeVw(35, 1440);
-  }
-
-  @include breakpoint (lg_mid) {
-    padding: 0 35px;
-  }
-}
-
-.project__image {
-  max-width: 100%;
-  height:    auto;
-  padding: 0 10px;
-  box-shadow: 0px 20px 50px rgba(70, 70, 70, 0.1);
-
-  @include breakpoint (lg) {
-    padding: fluidSizeVw(20, 1440);
-  }
-
-  @include breakpoint (lg_mid) {
-    padding: 0 20px;
-  }
-}
 
 
 

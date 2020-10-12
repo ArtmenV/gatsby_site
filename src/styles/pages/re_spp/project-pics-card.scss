@@ -18,7 +18,7 @@
     margin: 0 auto;
 
     @include breakpoint(lg) {
-      grid-template-columns: 1.0fr 1.5fr;
+      grid-template-columns: 1.0fr 1.40fr;
     }
   }
 
@@ -48,16 +48,62 @@
   }
 
   .card__back {
-    padding: 30px 20px 20px 20px;
+    padding: 30px 20px 8px 20px;
     background: transparentize($white, 0.94);
     grid-area: 1 / 1 / 1 / 1;
 
     @include breakpoint(lg) {
-      padding:  fluidSizeVw(30, 1440) 
-                fluidSizeVw(20, 1440) 
-                fluidSizeVw(10, 1440) 
+      padding:  fluidSizeVw(30, 1440)
+                fluidSizeVw(20, 1440)
+                fluidSizeVw(10, 1440)
                 fluidSizeVw(30, 1440);
       grid-area: 1 / 2 / 1 / 2;
+    }
+
+    .card__signature {
+      display: flex;
+      flex-direction: column;
+      // align-items: center;
+
+        @include breakpoint(lg) {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+      }
+
+    .country__container {
+      display: flex;
+      align-items: center;
+      margin-top: 16px;
+      padding-right: 10px;
+
+      @include breakpoint(lg) {
+
+        font-size:   fluidSizeVw(20, 1440);
+        line-height: fluidSizeVw(30, 1440);
+        margin-top: 0;
+      }
+
+      @include breakpoint(xl) {
+        font-size:   30px;
+        line-height: 42px;
+      }
+
+      .country {
+        @include breakpoint(lg) {
+          margin-top: 2px;
+        }
+      }
+
+      img {
+        margin-bottom: 6px;
+        height: 15px;
+        margin-right: 8px;
+
+        @include breakpoint(lg) {
+          margin-bottom: 0;
+        }
+      }
     }
 
     &::before {
@@ -99,13 +145,14 @@
     font-size:   16px;
     line-height: 130%;
     margin-top:  20px;
-    color: transparentize($white, 0.2);
+    color: transparentize($white, .2);
 
     @include breakpoint(lg) {
       font-size:   fluidSizeVw(20, 1440);
       line-height: fluidSizeVw(30, 1440);
       list-style: none;
       margin-top: fluidSizeVw(15, 1440);
+      color: $white;
     }
 
     @include breakpoint(xl) {
@@ -125,10 +172,10 @@
   .client {
     display: flex;
     justify-content: flex-end;
-    margin-top:  18px;
+    margin-top:  8px;
     font-weight:  900;
     font-size:   45px;
-    line-height: 55px;
+    line-height: 48px;
     -webkit-text-stroke: 1.5px $light-blue;
     text-stroke:         1.5px $light-blue;
     color: transparent;
@@ -136,6 +183,8 @@
     @include breakpoint(lg) {
       font-size: fluidSizeVw(79, 1440);
       line-height: fluidSizeVw(96, 1440);
+      margin-top:  5px;
+      margin-right:  12px;
     }
 
     @include breakpoint(xl) {

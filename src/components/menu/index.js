@@ -10,6 +10,7 @@ import CompanyInfo from '../CompanyInfo'
 import ReviewLinks from '../ReviewLinks'
 import Copyright from '../Copyright'
 import HomeLink from '../HomeLink'
+import ScheduleCallButton from '../ScheduleCallButton'
 
 import CloseIcon from '../../../static/icons/close-icon.svg'
 
@@ -56,6 +57,7 @@ export default () => {
       >
         <CompanyInfo />
         <ReviewLinks noStar={ breakpoints.md ? true : false } />
+        <ScheduleCallButton />
       </div>
       { !breakpoints.md && <Copyright /> }
     </div>    

@@ -271,7 +271,7 @@
     .portfolio-card__content {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(3, 1fr);
+      // grid-template-rows: repeat(3, 1fr);
       gap: 0 fluidSizeVw(80, 1440);
   
       p {       
@@ -519,8 +519,13 @@
   margin-top: 35px;
 
   @include breakpoint (lg) {
-    align-items: flex-end;
-    flex-grow:          1;
+    margin-top: fluidSizeVw(35, 1440);
+    // align-items: flex-end;
+    // flex-grow:          1;
+  }
+
+  @include breakpoint (lg_mid) {
+    margin-top: 35px;
   }
 }
 

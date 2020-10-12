@@ -118,7 +118,7 @@ export const workItems = [
     link: '/portfolio/powernapp/'
   },
   {
-    title: 'learning',
+    title: 'education',
     content: 'New brand website for chain of Spanish language schools with custom CMS to manage courses, destinations and all dynamic info.',
     link: '/portfolio/linguaschools/'
   },
@@ -141,7 +141,7 @@ export const reviews = [
     review: `They were great about turning around results as our requirements changed. They rarely said, “We can’t do that.”`
   },
   {
-    name: 'Rom from Netherlands',
+    name: 'Rob from Netherlands',
     position: 'Cofounder of Travel Startup',
     review: `Zimalab rapidly delivered a flawless end product that seamlessly integrates with compatible systems. Communication was strong and occurred on a daily basis.`
   },
@@ -168,63 +168,144 @@ export const clients = [
     projectBranch: 'Security',
     location: 'USA, IL, Chicago',
     city: 'chicago',
-    continent: "america"
+    continent: 'america',
+    order: 1
   },
   {
     projectName: 'Car Bodyshops ERP',
     projectBranch: 'Auto',
     location: 'USA, CA, San Diego',
     city: 'san-diego',
-    continent: "america"
+    continent: 'america',
+    order: 7
   },
   {
     projectName: 'ERP Product API',
     projectBranch: 'Retail',
     location: 'USA, MA, Lewiston',
     city: 'lewiston',
-    continent: "america"
+    continent: 'america',
+    order: 4
+  },
+  {
+    projectName: 'Payment Solution',
+    projectBranch: 'Finance',
+    location: 'California, Redwood City',
+    city: 'redwood',
+    continent: 'america',
+    order: 10
+  },
+  {
+    projectName: 'Data Management',
+    projectBranch: 'Legal',
+    location: 'Rockville, Maryland',
+    city: 'rockville',
+    continent: 'america',
+    order: 13
+  },
+  {
+    projectName: 'Freight Trucks ERP',
+    projectBranch: 'Transportation',
+    location: 'USA, CA, San Diego',
+    city: 'san-diego-2',
+    continent: 'america',
+    order: 16
   },
   {
     projectName: 'Hotel Booking Platform',
     projectBranch: 'Travel',
     location: 'Netherlands, Breda',
     city: 'breda',
-    continent: "europe"
+    continent: 'europe',
+    order: 5
   },
   {
     projectName: 'Gift Shop Directory',
     projectBranch: 'Lifestyle',
     location: 'UK, London',
     city: 'london',
-    continent: "europe"
+    continent: 'europe',
+    order: 2
   },
   {
     projectName: 'Language Schools Website',
     projectBranch: 'Education',
     location: 'Spain, Barcelona',
     city: 'barcelona',
-    continent: "europe"
+    continent: 'europe',
+    order: 8
+  },
+  {
+    projectName: 'Music Lessons',
+    projectBranch: 'Education',
+    location: 'Israel, Rehovot',
+    city: 'rehovot',
+    continent: 'europe',
+    order: 17
+  },
+  {
+    projectName: 'Construction Membership',
+    projectBranch: 'Construction',
+    location: 'France, Carpentras',
+    city: 'carpentras',
+    continent: 'europe',
+    order: 11
+  },
+  {
+    projectName: 'Quotes Directory',
+    projectBranch: 'Education',
+    location: 'Switzerland, Lausanne',
+    city: 'lausanne',
+    continent: 'europe',
+    order: 14
   },
   {
     projectName: 'Monitoring Dashboard',
     projectBranch: 'Engineering',
     location: 'Australia, Wollongong',
     city: 'wollongong',
-    continent: "eurasia"
+    continent: 'eurasia',
+    order: 6
   },
   {
     projectName: 'Vocalists Social Network',
     projectBranch: 'Music',
     location: 'Australia, Melbourne',
     city: 'melbourne',
-    continent: "eurasia"
+    continent: 'eurasia',
+    order: 12
   },
   {
     projectName: 'Home Appliance eCommerce',
     projectBranch: 'Retail',
     location: 'Australia, Brisbane',
     city: 'brisbane',
-    continent: "eurasia"
+    continent: 'eurasia',
+    order: 3
+  },
+  {
+    projectName: 'Cryptocurrency Exchange',
+    projectBranch: 'Finance',
+    location: 'Australia, Melbourne',
+    city: 'melbourne-2',
+    continent: 'eurasia',
+    order: 18
+  },
+  {
+    projectName: 'Novel Planner',
+    projectBranch: 'Lifestyle',
+    location: 'Australia, Newcastle',
+    city: 'newcastle',
+    continent: 'eurasia',
+    order: 15
+  },
+  {
+    projectName: 'Music Teachers',
+    projectBranch: 'Education',
+    location: 'Australia, Brisbane',
+    city: 'brisbane-2',
+    continent: 'eurasia',
+    order: 9
   }
 ]
 

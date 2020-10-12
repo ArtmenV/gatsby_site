@@ -1,13 +1,10 @@
-import React, { 
-  useEffect, 
+import React, {
   useRef,
-  useState 
 } from 'react'
-import { useBreakpoint } from 'gatsby-plugin-breakpoints'
-import { 
-  string, 
-  array, 
-  bool 
+import {
+  string,
+  array,
+  bool
 } from 'prop-types'
 
 import '../../../styles/components/work-layout.scss'
@@ -20,92 +17,51 @@ const WorkLayout = ({
   listItems,
   imageLgPrimary,
   imageLgSecondary,
+  imageSmPrimary,
+  imageSmSecondary,
   alt,
-  bgJpg,
-  bgWebp,
   className,
-  isMobileBackgrounded,
   isReversed,
+  isWhiteImageWorkOne,
+  isWhiteImageWorkTwo,
+  isWhiteImageWorkThree,
   children
 }) => {
-  const breakpoints = useBreakpoint()
   const container = useRef(null)
-  const header = useRef(null)
-  const [timerId, setTimerId] = useState(null)
-
-  const background = {
-    ['data-bgset']: bgJpg,
-    ['data-bgset-webp']: bgWebp,
-  }
-
-  useEffect(() => {
-    if (!timerId) {
-      setTimerId(setTimeout(() => {
-        setTimerId(null)
-
-        if (breakpoints.md) {
-          removeBackground(header.current)
-        } else {
-          removeBackground(container.current)
-        }
-      }, 700))
-    }
-  }, [breakpoints.md])
-
-  function removeBackground (element) {
-    element.style.background = "none"
-  }
 
   return (
-    <section
-      {
-        ...(isMobileBackgrounded && breakpoints.md ? 
-          {
-            ...background,
-            ['className']: `work-layout work-layout--backgrounded lazyload`
-          } : {
-            ['className']: `work-layout ${isReversed ? 'work-layout--reversed' : ''} ${className ? className : ''}`
-          })
-      } 
+    <section className={  `work-layout-redesign ${isReversed ? 'work-layout--reversed' : ''} ${className ? className : ''}`}
       ref={ container }
     >
-      <header
-        {
-          ...(!breakpoints.md ?
-            {
-              ...background,
-              ['className']: "work-layout__header lazyload"
-            } : {
-              ['className']: "work-layout__header"
-            }
-          )
-        }
-        ref={ header }
-      >
-        <h2 className="caption-primary">{ title }</h2>
+      <header className="header__container">
+        { className !== 'speed' && className !== 'threatlists' && <h2 className="caption-primary">{ title }</h2>}
+        {/* { className === 'cms' && breakpoints.md && <h3 className="caption-primary subtitle">{ subTitle }</h3>} */}
       </header>
-      
-      <section className="work-layout__content-outer">
+
+      <section className="work-layout__content">
+        <div className={
+          isWhiteImageWorkOne ? 'work-layout__image is-white-image-one' :
+          isWhiteImageWorkTwo ? 'work-layout__image is-white-image-two' :
+          isWhiteImageWorkThree ? 'work-layout__image is-white-image-three' :
+          'work-layout__image'
+        }>
+          <LoadImage
+            primaryLg={ imageLgPrimary }
+            secondaryLg={ imageLgSecondary }
+            primarySm={ imageSmPrimary }
+            secondarySm={ imageSmSecondary }
+            alt={ alt }
+            lazyLoad
+          />
+        </div>
         <div className="work-layout__content-inner">
-          { subTitle && <h3 className="work-layout__subtitle">{ subTitle }</h3> }
-
-          {
-            listItems.length && (
-              <ul className="work-layout__list">
-                { listItems.map((item, index) => <li key={ index }>{ item }</li>) }
-              </ul>
-            )
-          }
-          
-          <div className="work-layout__image">
-            <LoadImage
-              primaryLg={ imageLgPrimary }
-              secondaryLg={ imageLgSecondary }
-              alt={ alt }
-              lazyLoad
-            />
-          </div>
-
+          { (className === 'speed' || className === 'threatlists') && <h2 className="caption-primary">{ title }</h2>}
+          { subTitle && <h3 className="work-layout__subtitle">{ subTitle }</h3>}
+          { listItems.length && (
+            <ul className="work-layout__list">
+              { listItems.map((item, index) => <li key={ index }>{ item }</li>) }
+            </ul>
+          )}
           { children }
         </div>
       </section>
@@ -119,11 +75,13 @@ WorkLayout.propTypes = {
   listItems: array,
   imageLgPrimary: string.isRequired,
   imageLgSecondary: string.isRequired,
+  imageSmPrimary: string,
+  imageSmSecondary: string,
   alt: string.isRequired,
-  bgJpg: string.isRequired,
-  bgWebp: string.isRequired,
-  isMobileBackgrounded: bool,
   isReversed: bool,
+  isWhiteImageWorkOne: bool,
+  isWhiteImageWorkTwo: bool,
+  isWhiteImageWorkThree: bool,
   className: string
 }
 

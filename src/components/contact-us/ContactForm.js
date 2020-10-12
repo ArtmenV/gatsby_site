@@ -6,14 +6,18 @@ import React, {
 import { func } from 'prop-types'
 import ReCAPTCHA from "react-google-recaptcha"
 import axios from 'axios'
+import { useBreakpoint } from 'gatsby-plugin-breakpoints'
 
 import { isObjectEmpty } from '../../helpers' 
-
 
 // const siteKey = "6LdzbMoZAAAAAGg1ePY5ecINQo_iVBKAEZZ08qKF"
 // const siteKey = '6LeJz8oZAAAAADXKD_9w1tLbuUtsS6h2atrQPtW1'
 const siteKey = '6Ler8ckZAAAAAC-USbXdlGathJgV9Ny70mBwk6sq'
-
+const isProd = false
+const emailApiUrl = isProd ? 
+  'https://v4back.zimalab.com/api/createContactUsEmail' :
+  'http://demo-backend.zimalab.com/api/createContactUsEmail'
+  
 const ContactForm = ({ 
   data,
   saveDataForm,
@@ -21,20 +25,21 @@ const ContactForm = ({
   onError
  }) => {
   const [form, setForm] = useState({
-          name: '',
-          email: '',
-          skype: '',
-          project: ''
-        }),
-        [errors, setErrors] = useState({}),
-        [isLoading, setIsLoading] = useState(false)
-  
+    name: '',
+    email: '',
+    skype: '',
+    project: ''
+  })
+  const [errors, setErrors] = useState({})
+  const [isLoading, setIsLoading] = useState(false)
   const recaptchaRef = useRef()
+  const breakpoint = useBreakpoint()
 
   useEffect(() => {
     data && setForm(data)
   }, [])
 
+  /** It changes the value of the corresponding input field */
   const handleChange = e => {
     const {
       name,
@@ -47,14 +52,25 @@ const ContactForm = ({
     })
   }
 
+  /**
+   * It validates email
+   * 
+   * @param {string} email 
+   * @returns {boolean}
+   */
   const validateEmail = email => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase())
   }
 
-  const validateForm = (form) => {
+  /**
+   * It validates contact form
+   * 
+   * @param {Object<string>} form 
+   * @returns {boolean}
+   */
+  const validateForm = form => {
     const errors = {}
-    let isValid
 
     for (let key in form) {
       let trimmedValue, mailIsValid
@@ -79,12 +95,18 @@ const ContactForm = ({
       }
     }
 
-    isValid = isObjectEmpty(errors)
+    const isValid = isObjectEmpty(errors)
     setErrors(errors)
     
     return isValid
   }
 
+  /**
+   * It transforms data from contact form for dispatch to the server
+   * 
+   * @param {Object<string>} data
+   * @returns {Object<string>}
+   */
   const transformDataForDispatch = data => {
     for (let key in data) {
       data[key] = data[key].trim()
@@ -97,6 +119,14 @@ const ContactForm = ({
     return data
   }
 
+  /**
+   * It does the following:
+   * 
+   *  - checks the form for validation
+   *  - creating recaptcha token if form is valid
+   *  - dispatch the data to the server
+   *  - if there is an error saves data form to the parent component
+   */
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -110,20 +140,21 @@ const ContactForm = ({
       setIsLoading(true)
 
       axios({
-        url: 'http://demo-backend.zimalab.com/api/createContactUsEmail',
+        url: emailApiUrl,
         method: 'post',
         data: {...newData},
         timeout: 10000
       })
       .then(res => {
-        console.log(res.status)
-        setIsLoading(false)
         res.status === 200 && onSubmit(true) && onError(false)
       })
       .catch(() => {
         onSubmit(true) 
         onError(true)
         saveDataForm(form)
+      })
+      .finally(() => {
+        setIsLoading(false)
       })
     }
   }
@@ -149,7 +180,8 @@ const ContactForm = ({
           className="contact-form__input"  
         />
         {
-          errors.name && <div className="contact-form__item-error">{ errors.name }</div>
+          errors.name && 
+            <div className="contact-form__item-error">{ errors.name }</div>
         }
       </div>
       
@@ -171,7 +203,8 @@ const ContactForm = ({
           className="contact-form__input"  
         />
         {
-          errors.email && <div className="contact-form__item-error">{ errors.email }</div>
+          errors.email && 
+            <div className="contact-form__item-error">{ errors.email }</div>
         }
       </div>
       
@@ -203,7 +236,8 @@ const ContactForm = ({
           className="contact-form__textarea"  
         />
         {
-          errors.project && <div className="contact-form__item-error">{ errors.project }</div>
+          errors.project && 
+            <div className="contact-form__item-error">{ errors.project }</div>
         }
       </div>
 
@@ -228,10 +262,14 @@ const ContactForm = ({
           }}
         />
 
-        <div className="email-info">
-          or contact us directly at <a href="mailto:getstarted@zimalab.com" className="link-mailto">getstarted@zimalab.com</a>
-        </div>
-
+        {
+          !breakpoint.md && (
+            <div className="email-info">
+              or contact us directly at <a href="mailto:getstarted@zimalab.com" className="link-mailto">getstarted@zimalab.com</a>
+            </div>
+          )
+        }
+      
       </div>
     </form>
   )
@@ -244,3 +282,4 @@ ContactForm.propTypes = {
 }
 
 export default ContactForm
+

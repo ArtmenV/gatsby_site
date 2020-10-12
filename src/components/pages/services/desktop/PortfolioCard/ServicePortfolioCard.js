@@ -1,5 +1,5 @@
 import React from 'react'
-import { 
+import {
   bool,
   string,
   node
@@ -20,14 +20,12 @@ export const ServicePortfolioCard = ({
   children
 }) => {
   //component btn for card see more
-  console.log('seeMore', seeProjectLink)
   const ButtonMore = () => (
-    <Link to={ seeProjectLink }>
-      <button 
-        className="portfolio-card__button-details btn-see-more"
-      >
-        SEE MORE
-      </button>
+    <Link
+      to={ seeProjectLink }
+      className="portfolio-card__button--more portfolio-card__link"
+    >
+      SEE MORE
     </Link>
   )
 
@@ -36,21 +34,25 @@ export const ServicePortfolioCard = ({
       <span className="category__container-close">
       </span>
       <h2 className={
-        isCardBig ? 'portfolio-card__title':
+        isCardBig ?
+        'portfolio-card__title' :
         'portfolio-card__title portfolio-card__title-small__card'
-        }
-      >
+      }>
         { title }
       </h2>
 
       <div className={
-        isCardBig ? 
-        'portfolio-card__content' : 
+        isCardBig ?
+        'portfolio-card__content' :
         'portfolio-card__content portfolio-card__content-small__card'
-        }
-      >
+      }>
         { children }
-        { isCardBig && isSeeMoreBtn && ButtonMore()}
+
+        { isCardBig && isSeeMoreBtn && (
+          <div className="portfolio-card__link-container">
+            {ButtonMore()}
+          </div>
+        )}
       </div>
       <div className="portfolio-card__category">{ category }</div>
 
@@ -64,16 +66,16 @@ export const ServicePortfolioCard = ({
       </div>
     </div>
   )
-} 
+}
 
 ServicePortfolioCard.propTypes = {
   isCardBig: bool.isRequired,
-  isSeeMoreBtn: bool,
-  seeProjectLink: string,
   title: string.isRequired,
   category: string.isRequired,
   primaryLg: string.isRequired,
   secondaryLg: string.isRequired,
-  lazyLoad: bool,
   children: node.isRequired,
+  isSeeMoreBtn: bool,
+  seeProjectLink: string,
+  lazyLoad: bool
 }

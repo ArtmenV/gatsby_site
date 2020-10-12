@@ -1,10 +1,10 @@
 import * as React from 'react'
 import {
   shape,
-  bool, 
+  bool,
   array,
   string,
-  func 
+  func
 } from 'prop-types'
 
 import { ServicePortfolioCardList } from './ServicePortfolioCardList'
@@ -12,16 +12,16 @@ import { ServicePortfolioCard } from './ServicePortfolioCard'
 
 import ProgrammingIcons from '../../../../ProgrammingIcons'
 
-export const ServicePortfolioCards = ({ 
-  handleOpenCard, 
+export const ServicePortfolioCards = ({
+  handleOpenCard,
   isSeeDetailBtn,
   titleSection,
   currentCardItem: {
-    webpImage, 
+    webpImage,
     jpgImage,
     isSeeMoreBtn,
     seeProjectLink,
-    description, 
+    description,
     category,
     title,
     items,
@@ -80,18 +80,18 @@ export const ServicePortfolioCards = ({
 }
 
 ServicePortfolioCards.propTypes = {
-  handleOpenCard: func,
   isSeeDetailBtn: bool.isRequired,
   titleSection: string.isRequired,
+  handleOpenCard: func,
 
   currentCardItem: shape({
-    webpImage: string.isRequired, 
+    webpImage: string.isRequired,
     jpgImage: string.isRequired,
-    isSeeMoreBtn: bool,
-    seeProjectLink: string,
-    description: string.isRequired, 
+    description: string.isRequired,
     category: string.isRequired,
     title: string.isRequired,
+    isSeeMoreBtn: bool,
+    seeProjectLink: string,
     items: array,
 
     programmingIcon: shape({

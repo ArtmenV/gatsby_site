@@ -1,12 +1,10 @@
-import React, { 
+import React, {
   useState,
   useCallback,
   useRef
 } from 'react'
-import { 
-  objectOf, 
+import {
   shape,
-  element,
   string,
   array,
 } from 'prop-types'
@@ -19,10 +17,10 @@ import { CardCarouselComponent } from './card-carousel/CardCarousel'
 import IconT from '../../../../../static/services/icon/t-icon.svg'
 import IconFrame from '../../../../../static/services/icon/frame-icon.svg'
 
-//css for mobile 
+//css for mobile
 import '../../../../styles/pages/services/mobile/_services.scss';
 
-export const ServicesMobile = ({ 
+export const ServicesMobile = ({
   navigationServicesData: {
     headerData: {
       title,
@@ -36,7 +34,6 @@ export const ServicesMobile = ({
   const [currentOpenCategoryData, setCurrentOpenCategoryData] = useState({})
   const [isSwitchOpenCard, setIsSwitchOpenCard] = useState(false)
   const [isCategoryHidden, setIsCategoryHidden] = useState(false)
-  // const [isOpenCurrentCategory, setIsOpenCurrentCategory] = useState(false)
   const [isSeeDetailBtn, setIsDetailBtn] = useState(false)
   const expandRef = useRef(null)
 
@@ -74,10 +71,10 @@ export const ServicesMobile = ({
           <div className="description">
             { description }
           </div>
-          
+
           {/* current section category */}
           { !isCategoryHidden && (
-            <CategoryList 
+            <CategoryList
               categoryList={ servicesCategoryList }
               handleOpenCurrentCategory={ handleOpenCurrentCategory }
             />
@@ -85,8 +82,8 @@ export const ServicesMobile = ({
         </div>
 
           {/* modal current category */}
-          <ModalCategoryItem 
-            isVisibleCategoryItemModal={ isVisibleItemCard } 
+          <ModalCategoryItem
+            isVisibleCategoryItemModal={ isVisibleItemCard }
             currentOpenCategoryData={ currentOpenCategoryData }
             handleOpenCurrentCategory={ handleOpenCurrentCategory }
           />
@@ -98,8 +95,8 @@ export const ServicesMobile = ({
         // if just use UI/UX get error becouse / is not valid selector
         // look carefully
         //---------------------------------------------
-          titleSection={ title.split(' ')[0] === 'UI/UX' 
-            ? 'ui-ux-design' 
+          titleSection={ title.split(' ')[0] === 'UI/UX'
+            ? 'ui-ux-design'
             : title.split(' ')[0]
           }
           navigationServicesData={ portfolioCardList }
@@ -115,8 +112,7 @@ export const ServicesMobile = ({
           <Switch handleToggleSwitch={ handleToggleSwitch } />
           <IconFrame />
         </div>
-        )
-      }
+      )}
     </div>
   )
 }

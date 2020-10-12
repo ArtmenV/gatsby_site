@@ -12,6 +12,7 @@ import CompanyInfo from '../CompanyInfo'
 import ReviewLinks from '../ReviewLinks'
 import Copyright from '../Copyright'
 import Link from '../Link'
+import ScheduleCallButton from '../ScheduleCallButton'
 
 import Arrow from '../../../static/icons/arrow.svg'
 
@@ -19,7 +20,6 @@ import roadSmJpg from '../../../static/backgrounds/road-small.jpg'
 import roadSmWebp from '../../../static/backgrounds/road-small.webp'
 import roadLgJpg from '../../../static/backgrounds/road-large.jpg'
 import roadLgWebp from '../../../static/backgrounds/road-large.webp'
-
 
 const ContactUs = ({
   hasCopyright,
@@ -76,75 +76,50 @@ const ContactUs = ({
         <div>
           <CompanyInfo />
           <ReviewLinks />
+          <ScheduleCallButton />
         </div>
 
       </div>
       { hasCopyright && <Copyright /> }
 
-      {
-        hasNavigation && (location.pathname !== '/portfolio/re_linguaschools/' &&
-          location.pathname !== '/portfolio/re_spp/') && (
-          <div className="contact-us__navigation">
-            <Link
-              to={ prevProject }
-              svgIcon={ <Arrow className="icon--arrow" /> }
-              className="link-to-project link-to-project--prev"
-            >
-              previous project
-            </Link>
-
-            <Link
-              to={ nextProject }
-              svgIcon={ <Arrow className="icon--arrow" /> }
-              className="link-to-project link-to-project--next"
-            >
-              next project
-            </Link>
-
-          </div>
-        )
-      }
-
       {/* //this for redesign page */}
-      {
-        hasNavigation && (location.pathname === '/portfolio/re_linguaschools/' ||
-          location.pathname === '/portfolio/re_spp/') && (
-          <>
-            <div className="contact-us__navigation">
-              <div className="contact-us__navigation-button">
-                <Link
-                  to={ prevProject }
-                  svgIcon={ <Arrow className="icon--arrow" /> }
-                  className="link-to-project link-to-project--prev"
-                >
-                  {
-                    breakpoints.md ? 'prev' : 'previous project'
-                  }
-                </Link>
+      {hasNavigation && (
+        <>
+          <div className="contact-us__navigation">
+            <div className="contact-us__navigation-button">
+              <Link
+                to={ prevProject }
+                svgIcon={ <Arrow className="icon--arrow" /> }
+                className="link-to-project link-to-project--prev"
+              >
+                {
+                  breakpoints.md ? 'prev' : 'previous project'
+                }
+              </Link>
 
-                <Link
-                  to={ nextProject }
-                  svgIcon={ <Arrow className="icon--arrow" /> }
-                  className="link-to-project link-to-project--next"
-                >
-                  {
-                    breakpoints.md ? 'next' : 'next project'
-                  }
-                </Link>
-              </div>
-              {
-                breakpoints.md &&  (
-                  <div className="footer-container">
-                    <div className="footer-description">
-                      projects
-                    </div>
-                  </div>
-                )
-              }
+              <Link
+                to={ nextProject }
+                svgIcon={ <Arrow className="icon--arrow" /> }
+                className="link-to-project link-to-project--next"
+              >
+                {
+                  breakpoints.md ? 'next' : 'next project'
+                }
+              </Link>
             </div>
-          </>
-        )
-      }
+            {
+              breakpoints.md &&  (
+                <div className="footer-container">
+                  <div className="footer-description">
+                    projects
+                  </div>
+                </div>
+              )
+            }
+          </div>
+        </>
+        )}
+
       { children }
     </section>
   )

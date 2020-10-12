@@ -1,53 +1,133 @@
-import React from 'react'
-import { array } from 'prop-types'
+import React, { useEffect } from 'react'
+import { array, object, string } from 'prop-types'
+import { Player } from 'video-react'
+
+import { FeaturesGallery } from './FeaturesGallery'
+import Arrow from '../../../../static/icons/arrow.svg'
+import LoadImage from '../../LoadImage'
+import Link from '../../Link'
 
 import '../../../styles/components/core-features-layout.scss'
 
-import Link from '../../Link'
+const CoreFeaturesLayout = ({
+  items,
+  timeline,
+  timelineData,
+  link,
+  video,
+  coreFeaturesGallery,
+  displaySmJpg,
+  displayLgJpg,
+  displaySmWebp,
+  displayLgWebp,
+  typeImage
+}) => {
 
-import bgWebpLg from '../../../../static/backgrounds/portfolio/features-large.webp'
-import bgWebpSm from '../../../../static/backgrounds/portfolio/features-small.webp'
-import bgJpgLg from '../../../../static/backgrounds/portfolio/features-large.jpg'
-import bgJpgSm from '../../../../static/backgrounds/portfolio/features-small.jpg'
+  useEffect(() => {
+    if (('IntersectionObserver' in window) && video) {
+      const observer = new IntersectionObserver(onIntersection, { threshold: 1 })
+      const video = document.body.querySelector('.goal-video-container video')
 
-import Arrow from '../../../../static/icons/arrow.svg'
+      observer.observe(video)
+    }
+  }, [])
 
-const CoreFeaturesLayout = ({ items }) => {
+  function playVideo(video) {
+    video.play()
+  }
+
+  function pauseVideo(video) {
+    video.pause()
+  }
+
+  /**
+   * On intersection
+   * @param {array} entries
+   */
+  function onIntersection(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        playVideo(entry.target)
+      } else {
+        pauseVideo(entry.target)
+      }
+    })
+  }
 
   return (
-    <section className="core-features">
-      <h2 className="caption-primary">Core Features:</h2>
+    <section className="core-features-redesign">
+      <h2 className="caption-primary">Core Features</h2>
 
-      <ul className="core-features__list">
-        { items.map((item, index) => <li key={ index }>{ item }</li>) }
-      </ul>
+      <div className="core-features__container">
+        <div>
+          <ul className="core-features__list">
+            { items.map((item, index) => <li key={ index }>{ item }</li>) }
+          </ul>
+          {link &&
+            <div className="flex-container">
+              <Link
+                to={ link }
+                svgIcon={ <Arrow className="icon--arrow" /> }
+                className="core-features__link"
+                external
+                outlined
+              >
+                go to website
+              </Link>
+            </div>}
+        </div>
 
-      <div className="flex-container">
-        <div className="core-features__timeline">Timeline: July 2018 - now</div>
-        <Link 
-          to="https://www.linguaschools.com"
-          svgIcon={ <Arrow className="icon--arrow" /> }
-          className="core-features__link"
-          external
-          outlined
-        >
-          go to website
-        </Link>
+        <div>
+          <div className="core-features__timeline">
+            <span className="timeline">
+              { timeline }
+            </span> { timelineData }
+          </div>
+
+          {/* check we have video or not */}
+          { video ? (
+            <div className="goal__media monitor__image">
+              <LoadImage
+                primaryLg={ displayLgWebp }
+                primarySm={ displaySmWebp }
+                secondaryLg={ displayLgJpg }
+                secondarySm={ displaySmJpg }
+                secondaryType={ typeImage }
+                lazyLoad
+                alt="UI image"
+              />
+              <Player
+                muted={ true }
+                playsInline
+                className="goal-video-container"
+                controls={ false }
+                loop={ true }
+                src={ video }
+              />
+            </div>
+          ) : (
+            <FeaturesGallery
+              coreFeaturesGallery={ coreFeaturesGallery }
+            />
+          )}
+        </div>
       </div>
-      
-      <div 
-        data-bgset={ `${bgJpgSm} [(max-width: 992px)] | ${bgJpgLg}` } 
-        data-bgset-webp={ `${bgWebpSm} [(max-width: 992px)] | ${bgWebpLg}` }
-        className="background lazyload"
-      />
     </section>
   )
 }
 
 CoreFeaturesLayout.propTypes = {
-  items: array.isRequired
+  items: array.isRequired,
+  timeline: string,
+  timelineData: string,
+  video: string,
+  displaySmJpg: string,
+  displayLgJpg: string,
+  displaySmWebp: string,
+  displayLgWebp: string,
+  typeImage: string,
+  coreFeaturesGallery: object
 }
 
 export default CoreFeaturesLayout
 
-  

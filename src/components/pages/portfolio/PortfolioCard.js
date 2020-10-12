@@ -31,7 +31,8 @@ const PortfolioCard = ({
   }
 
   const handleClick = (e) => {
-    const openedCard = document.body.querySelector('.portfolio-card.portfolio-card--opened')
+    const openedCard = 
+      document.body.querySelector('.portfolio-card.portfolio-card--opened')
     const target = e.currentTarget
     const cardIsOpened = target.classList.contains('portfolio-card--opened')
 
@@ -45,7 +46,8 @@ const PortfolioCard = ({
 
       setTimeout(() => {
         target.scrollIntoView({
-          behavior: 'smooth'
+          behavior: 'smooth',
+          block: 'center'
         })
       }, 0.1)
     }

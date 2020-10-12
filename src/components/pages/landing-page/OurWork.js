@@ -1,10 +1,14 @@
 import React from 'react'
 import { useBreakpoint } from 'gatsby-plugin-breakpoints'
+import loadable from '@loadable/component'
 
-import OurWorkMobile from './OurWorkMobile'
-import OurWorkDesctop from './OurWorkDesctop'
+// import OurWorkMobile from './OurWorkMobile'
+// import OurWorkDesctop from './OurWorkDesctop'
 
 import CarouselButtons from '../../CarouselButtons'
+
+const OurWorkMobile = loadable(() => import('./OurWorkMobile'))
+const OurWorkDesctop = loadable(() => import('./OurWorkDesctop'))
 
 export default () => {
   const breakpoints = useBreakpoint()

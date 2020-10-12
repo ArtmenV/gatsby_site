@@ -1,54 +1,50 @@
 import React from 'react'
 import { string } from 'prop-types'
 
-import  '../../../styles/components/start-layout.scss'
-
 import ButtonToNext from '../../ButtonToNext'
 import HomeLink from '../../HomeLink'
 
+import  '../../../styles/components/start-layout.scss'
+
 const Start = ({
   title,
+  titleTwoPart,
   subTitle,
-  backgroundUrlSmWebp,
-  backgroundUrlLgWebp,
-  backgroundUrlSmJpg,
-  backgroundUrlLgJpg,
+  subTitleLast
 }) => {
 
   return (
-    <section className="start">
-      <div 
-        data-bgset={ `${backgroundUrlSmJpg} [(max-width: 992px)] | ${backgroundUrlLgJpg}` } 
-        data-bgset-webp={ `${backgroundUrlSmWebp} [(max-width: 992px)] | ${backgroundUrlLgWebp}` }
-        className="background lazyload"
-      />
+    <section className="start-redesign">
+      <div className="background"/>
 
       <HomeLink />
-      
-      <div className="kek">
-        <div className="upper-block" />
 
-        <h1 className="start__caption" dangerouslySetInnerHTML={{__html: title}}></h1>
-
-        <div className="lower-block">
-          <div className="lower-block__inner">
-            <div className="lower-block__inner-text">{ subTitle }</div>
-          </div>
-        </div>
+      <div className="main-title__container title__container">
+        <h1 className="start__caption start__title--one title--one">{ title }</h1>
+        { titleTwoPart && (
+          <h1
+            className="start__caption start__title--two title--two"
+          >
+            { titleTwoPart }
+          </h1>
+        )}
       </div>
 
-      <ButtonToNext to='goal' />
+        <div className="sub-title__container sub-title__container">
+          <div className="start__sub-title-text sub-title">{ subTitle }</div>
+          { subTitleLast && <div className="start__sub-title-text">{ subTitleLast }</div> }
+        </div>
+
+      <ButtonToNext to='goal-redesign' />
     </section>
   )
 }
 
 Start.propTypes = {
   title: string.isRequired,
+  titleTwoPart: string,
   subTitle: string,
-  backgroundUrlSmWebp: string.isRequired,
-  backgroundUrlLgWebp: string.isRequired,
-  backgroundUrlSmJpg: string.isRequired,
-  backgroundUrlLgJpg: string.isRequired
+  subTitleLast: string
 }
 
 export default Start

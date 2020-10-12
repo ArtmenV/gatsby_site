@@ -155,6 +155,8 @@
   background-color: $blue;
   position: absolute;
   left: 17px;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: -1;
 
   @include breakpoint (lg) {
@@ -281,7 +283,7 @@
   .security { @include background('/backgrounds/landing/our-work/security.jpg'); }
   .auto     { @include background('/backgrounds/auto.jpg');                      }
   .travel   { @include background('/backgrounds/travel.jpg');                    }
-  .learning { @include background('/backgrounds/landing/our-work/learning.jpg'); }
+  .education { @include background('/backgrounds/landing/our-work/learning.jpg'); }
   .music    { @include background('/backgrounds/music.jpg');                     }
 }
 
@@ -289,6 +291,6 @@
   .security { @include background('/backgrounds/landing/our-work/security.webp'); }
   .auto     { @include background('/backgrounds/auto.webp');                      }
   .travel   { @include background('/backgrounds/travel.webp');                    }
-  .learning { @include background('/backgrounds/landing/our-work/learning.webp'); }
+  .education { @include background('/backgrounds/landing/our-work/learning.webp'); }
   .music    { @include background('/backgrounds/music.webp');                     }
 }

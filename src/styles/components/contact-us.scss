@@ -22,7 +22,7 @@
       margin-top: 0;
     }
   }
-  
+
   .caption-primary {
     margin-bottom:                  fluidSizeVh(20, 568);
     margin-bottom: calc(var(--vh, 1vh) * #{vh(20, 568)});
@@ -352,7 +352,7 @@
   @include breakpoint (lg) {
     margin-bottom: 40px;
   }
-  
+
 }
 
 .message__text {
@@ -397,7 +397,8 @@
   display: flex;
   align-items:     center;
   justify-content: center;
-  margin-bottom: 18px;
+  margin-bottom:                  fluidSizeVw(18, 568);
+  margin-bottom: calc(var(--vh, 1vh) * #{vh(18, 568)});
   font-size:           26px;
   letter-spacing:    0.05em;
   font-weight:         bold;
@@ -501,6 +502,210 @@
     .contact-us & {
       height: 110px;
       padding: 0 55px;
+    }
+  }
+}
+
+
+
+
+/*-------------------------------------*\
+#portfolio page
+\*-------------------------------------*/
+.webp{
+  .lingua-page-redesign,
+  .spp-page-redesign,
+  .bodyshops-page-redesign,
+  .negina-page-redesign,
+  .powernapp-page-redesign {
+    .contact-us {
+      @include breakpoint(lg) {
+        background-image: url('/backgrounds/contact-background-lg.webp')!important;
+        background-size: cover!important;
+      }
+    }
+  }
+}
+
+.no-webp{
+  .lingua-page-redesign,
+  .spp-page-redesign,
+  .bodyshops-page-redesign,
+  .negina-page-redesign,
+  .powernapp-page-redesign {
+    .contact-us {
+      @include breakpoint(lg) {
+        background-image: url('/backgrounds/contact-background-lg.jpg')!important;
+        background-size: cover!important;
+      }
+    }
+  }
+}
+
+.lingua-page-redesign,
+.spp-page-redesign,
+.bodyshops-page-redesign,
+.negina-page-redesign,
+.powernapp-page-redesign {
+  .contact-us {
+    background: $portfolio-background!important;
+    padding-top: 40px;
+    height: 100%;
+    min-height: 720px;
+
+    @include breakpoint(lg) {
+      min-height: 780px;
+      max-height: 980px;
+    }
+
+    @include breakpoint(lg_mid) {
+      min-height: 860px;
+    }
+
+    @include breakpoint(xl) {
+      min-height: 980px;
+      max-height: 1240px;
+    }
+
+    .caption-primary {
+      color: transparentize($white, 0.6);
+      margin: 0 0 40px;
+      margin-bottom: 40px!important;
+
+      @include breakpoint(lg)     { font-size: 60px }
+      @include breakpoint(lg_mid) { font-size: 70px }
+      @include breakpoint(xl)     { font-size: 94px }
+
+      &::before {
+        border-color: transparentize($white, 0.6);
+        width: 7.8vw;
+
+        @include breakpoint(lg)     { width: 160px }
+        @include breakpoint(lg_mid) { width: 220px }
+        @include breakpoint(xl)     { width: 260px }
+      }
+    }
+
+    .review-links-container {
+      display: none;
+
+      @include breakpoint(lg) {
+        display: block;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        max-width: auto;
+        bottom: 15px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .start-redesign{
+    .background {
+      z-index: -1 !important;
+    }
+  }
+
+  .contact-form__input,
+  .contact-form__textarea {
+    background-color: transparentize($white, 0.88);
+  }
+
+  .btn-submit {
+    background-color: transparentize($white, 0.88);
+    &:hover {
+      background-color: $light-blue!important;
+    }
+  }
+
+  .contact-us__navigation {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+
+    @include breakpoint(lg) {
+      height: 70px;
+    }
+
+    @include breakpoint(xl) {
+      height: 90px;
+    }
+
+    .contact-us__navigation-button {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 10px;
+
+      @include breakpoint(lg) {
+        margin-top: 0;
+      }
+    }
+
+    &::before {
+      @include breakpoint(lg) {
+        content: '';
+        height: 70px;
+        position: absolute;
+        z-index: 0;
+        bottom: 0;
+        left:   0;
+        right:  0;
+        background: transparentize(#082B51, 0.88);
+        mix-blend-mode: multiply;
+      }
+
+      @include breakpoint(xl) {
+        height: 90px;
+      }
+    }
+
+    .link-app {
+      font-style:        normal;
+      font-weight:          600;
+      font-size: 24px!important;
+      line-height:         29px;
+      text-transform: uppercase;
+
+      @include breakpoint(lg) {
+        width: 29.86111vw;
+        max-width:  430px;
+        height:  70px;
+        font-size: 1.66667vw !important;
+        line-height:               32px;
+        z-index: 201;
+        cursor: pointer;
+      }
+
+      @include breakpoint(lg_mid) { max-width: 600px }
+      @include breakpoint(xl) {
+        max-width: 600px;
+        height:     90px;
+      }
+
+      .link-app__svg-icon {
+        padding-bottom: .4rem;
+        @include breakpoint(lg) { padding-bottom: 0 }
+      }
+    }
+  }
+
+  .footer-container {
+    display:          flex;
+    flex-direction: column;
+    align-items:  flex-end;
+    margin-top: 5px;
+
+    .footer-description {
+      font-weight: bold;
+      font-size:   50px;
+      text-transform: uppercase;
+      color: transparent;
+      -webkit-text-stroke: 1px $light-blue;
+      text-stroke:         1px $light-blue;
     }
   }
 }

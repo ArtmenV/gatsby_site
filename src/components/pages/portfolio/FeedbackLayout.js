@@ -1,15 +1,14 @@
 import React from 'react'
 import { useBreakpoint } from 'gatsby-plugin-breakpoints'
-import { 
-  arrayOf,
-  shape,
-  string
-} from 'prop-types'
-
-import '../../../styles/components/feedback-layout.scss'
+// import {
+//   shape,
+//   string
+// } from 'prop-types'
 
 import FeedbackMobile from './FeedbackMobile'
 import FeedbackDesktop from './FeedbackDesktop'
+
+import '../../../styles/components/feedback-layout.scss'
 
 const FeedbackLayout = ({
   reviewImagesSm,
@@ -18,10 +17,10 @@ const FeedbackLayout = ({
   const breakpoint = useBreakpoint()
 
   return (
-    <section className="feedback">
+    <section className="feedback-redesign">
       <h2 className="caption-primary">Feedback</h2>
       {
-        breakpoint.md ? 
+        breakpoint.md ?
           <FeedbackMobile reviewImages={ reviewImagesSm } /> :
           <FeedbackDesktop reviewImages={ reviewImagesLg } />
       }
@@ -29,15 +28,15 @@ const FeedbackLayout = ({
   )
 }
 
-FeedbackLayout.propTypes = {
-  reviewImagesSm: arrayOf(shape({
-    imageWebp: string.isRequired,
-    imageJpg: string.isRequired
-  })),
-  reviewImagesLg: arrayOf(shape({
-    imageWebp: string.isRequired,
-    imageJpg: string.isRequired
-  }))
-}
+// FeedbackLayout.propTypes = {
+//   reviewImagesSm: shape({
+//     imageWebp: string.isRequired,
+//     imageJpg: string.isRequired
+//   }),
+//   reviewImagesLg: shape({
+//     imageWebp: string.isRequired,
+//     imageJpg: string.isRequired
+//   })
+// }
 
 export default FeedbackLayout

@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 import { useDispatch } from 'react-redux'
 import { currentSectionIndex } from '../../redux/actions/fullpage'
 
-import { setVhUnit } from '../../helpers'
+import { setVhUnit, changeMenuColor, handleKeyNav } from '../../helpers'
 import '../../styles/pages/powernapp/index.scss'
 
 import Layout from '../../components/Layout'
@@ -17,57 +17,61 @@ import ContactUs from '../../components/contact-us'
 import HamburgerMenu from '../../components/HamburgerMenu'
 import Menu from '../../components/menu'
 
+//core goal
+import bgWebpLg from '../../../static/images/portfolio/powernapp/goal-powernapp-lg.webp'
+import bgWebpSm from '../../../static/images/portfolio/powernapp/goal-powernapp-sm.webp'
+import bgJpgLg from '../../../static/images/portfolio/powernapp/goal-powernapp-lg.jpg'
+import bgJpgSm from '../../../static/images/portfolio/powernapp/goal-powernapp-sm.jpg'
+
+/* core section */
+import displaySmJpg from '../../../static/images/portfolio/monitor-sm.png'
+import displaySmWebp from '../../../static/images/portfolio/monitor-sm.webp'
+import displayLgJpg from '../../../static/images/portfolio/monitor-lg.png'
+import displayLgWebp from '../../../static/images/portfolio/monitor-lg.webp'
+
 /** Images */
 import hotelsWebp from '../../../static/images/portfolio/powernapp/hotels-large.webp'
 import hotelsJpg from '../../../static/images/portfolio/powernapp/hotels-large.jpg'
-import searchWebp from '../../../static/images/portfolio/powernapp/search-large.webp' 
+import searchWebp from '../../../static/images/portfolio/powernapp/search-large.webp'
 import searchJpg from '../../../static/images/portfolio/powernapp/search-large.jpg'
-import backendWebp from '../../../static/images/portfolio/powernapp/backend-large.webp' 
-import backendJpg from '../../../static/images/portfolio/powernapp/backend-large.jpg' 
+import backendWebp from '../../../static/images/portfolio/powernapp/backend-large.webp'
+import backendJpg from '../../../static/images/portfolio/powernapp/backend-large.jpg'
 
 import review1WebpLg from '../../../static/images/portfolio/powernapp/reviews/review-1-large.webp'
 import review1JpgLg from '../../../static/images/portfolio/powernapp/reviews/review-1-large.jpg'
 import review1WebpSm from '../../../static/images/portfolio/powernapp/reviews/review-1-small.webp'
 import review1JpgSm from '../../../static/images/portfolio/powernapp/reviews/review-1-small.jpg'
-import review2WebpLg from '../../../static/images/portfolio/powernapp/reviews/review-2-large.webp'
-import review2JpgLg from '../../../static/images/portfolio/powernapp/reviews/review-2-large.jpg'
-import review2WebpSm from '../../../static/images/portfolio/powernapp/reviews/review-2-small.webp'
-import review2JpgSm from '../../../static/images/portfolio/powernapp/reviews/review-2-small.jpg'
+import review2WebpLg from '../../../static/images/portfolio/powernapp/reviews/feedback-powernapp-2-lg.webp'
+import review2JpgLg from '../../../static/images/portfolio/powernapp/reviews/feedback-powernapp-2-lg.jpg'
+import review2WebpSm from '../../../static/images/portfolio/powernapp/reviews/feedback-powernapp-2-sm.webp'
+import review2JpgSm from '../../../static/images/portfolio/powernapp/reviews/feedback-powernapp-2-sm.jpg'
 
-import Ui1SmPng from '../../../static/images/portfolio/powernapp/mobile-ui/ui-1-small.png'
-import Ui1SmWebp from '../../../static/images/portfolio/powernapp/mobile-ui/ui-1-small.webp'
-import Ui1LgPng from '../../../static/images/portfolio/powernapp/mobile-ui/ui-1-large.png'
-import Ui1LgWebp from '../../../static/images/portfolio/powernapp/mobile-ui/ui-1-large.webp'
+/**for mobile ui */
+import Ui1SmPng from '../../../static/images/portfolio/powernapp/mobile-ui/powernapp-sm-1.png'
+import Ui1SmWebp from '../../../static/images/portfolio/powernapp/mobile-ui/powernapp-sm-1.webp'
+import Ui1LgPng from '../../../static/images/portfolio/powernapp/mobile-ui/powernapp-lg-1.png'
+import Ui1LgWebp from '../../../static/images/portfolio/powernapp/mobile-ui/powernapp-lg-1.webp'
 
-import Ui2SmPng from '../../../static/images/portfolio/powernapp/mobile-ui/ui-2-small.png'
-import Ui2SmWebp from '../../../static/images/portfolio/powernapp/mobile-ui/ui-2-small.webp'
-import Ui2LgPng from '../../../static/images/portfolio/powernapp/mobile-ui/ui-2-large.png'
-import Ui2LgWebp from '../../../static/images/portfolio/powernapp/mobile-ui/ui-2-large.webp'
+import Ui2SmPng from '../../../static/images/portfolio/powernapp/mobile-ui/powernapp-sm-2.png'
+import Ui2SmWebp from '../../../static/images/portfolio/powernapp/mobile-ui/powernapp-sm-2.webp'
+import Ui2LgPng from '../../../static/images/portfolio/powernapp/mobile-ui/powernapp-lg-2.png'
+import Ui2LgWebp from '../../../static/images/portfolio/powernapp/mobile-ui/powernapp-lg-2.webp'
 
-import Ui3SmPng from '../../../static/images/portfolio/powernapp/mobile-ui/ui-3-small.png'
-import Ui3SmWebp from '../../../static/images/portfolio/powernapp/mobile-ui/ui-3-small.webp'
-import Ui3LgPng from '../../../static/images/portfolio/powernapp/mobile-ui/ui-3-large.png'
-import Ui3LgWebp from '../../../static/images/portfolio/powernapp/mobile-ui/ui-3-large.webp'
+import Ui3SmPng from '../../../static/images/portfolio/powernapp/mobile-ui/powernapp-lg-3.png'
+import Ui3SmWebp from '../../../static/images/portfolio/powernapp/mobile-ui/powernapp-lg-3.webp'
+import Ui3LgPng from '../../../static/images/portfolio/powernapp/mobile-ui/powernapp-lg-3.png'
+import Ui3LgWebp from '../../../static/images/portfolio/powernapp/mobile-ui/powernapp-lg-3.webp'
 
-import Ui4SmPng from '../../../static/images/portfolio/powernapp/mobile-ui/ui-4-small.png'
-import Ui4SmWebp from '../../../static/images/portfolio/powernapp/mobile-ui/ui-4-small.webp'
-import Ui4LgPng from '../../../static/images/portfolio/powernapp/mobile-ui/ui-4-large.png'
-import Ui4LgWebp from '../../../static/images/portfolio/powernapp/mobile-ui/ui-4-large.webp'
+import Ui4SmPng from '../../../static/images/portfolio/powernapp/mobile-ui/powernapp-lg-4.png'
+import Ui4SmWebp from '../../../static/images/portfolio/powernapp/mobile-ui/powernapp-lg-4.webp'
+import Ui4LgPng from '../../../static/images/portfolio/powernapp/mobile-ui/powernapp-lg-4.png'
+import Ui4LgWebp from '../../../static/images/portfolio/powernapp/mobile-ui/powernapp-lg-4.webp'
 
-import Ui5SmPng from '../../../static/images/portfolio/powernapp/mobile-ui/ui-5-small.png'
-import Ui5SmWebp from '../../../static/images/portfolio/powernapp/mobile-ui/ui-5-small.webp'
-import Ui5LgPng from '../../../static/images/portfolio/powernapp/mobile-ui/ui-5-large.png'
-import Ui5LgWebp from '../../../static/images/portfolio/powernapp/mobile-ui/ui-5-large.webp'
-
-/** Backgrounds */
-import startSmWebp from '../../../static/backgrounds/portfolio/powernapp/start-small.webp'
-import startLgWebp from '../../../static/backgrounds/portfolio/powernapp/start-large.webp'
-import startSmJpg from '../../../static/backgrounds/portfolio/powernapp/start-small.jpg'
-import startLgJpg from '../../../static/backgrounds/portfolio/powernapp/start-large.jpg'
-import bg3Webp from '../../../static/backgrounds/portfolio/linguaschools/background-3-large.webp'
-import bg3Jpg from '../../../static/backgrounds/portfolio/linguaschools/background-3-large.jpg'
-
-/** Videos */ 
+import Ui5SmPng from '../../../static/images/portfolio/powernapp/mobile-ui/powernapp-lg-5.png'
+import Ui5SmWebp from '../../../static/images/portfolio/powernapp/mobile-ui/powernapp-lg-5.webp'
+import Ui5LgPng from '../../../static/images/portfolio/powernapp/mobile-ui/powernapp-lg-5.png'
+import Ui5LgWebp from '../../../static/images/portfolio/powernapp/mobile-ui/powernapp-lg-5.webp'
+/** Videos */
 import videoMp4 from '../../../static/videos/powernapp/video.mp4'
 
 const mobileUiItems = [
@@ -105,7 +109,6 @@ const mobileUiItems = [
 
 export default () => {
   const dispatch = useDispatch()
-  
   useEffect(() => {
     dispatch(currentSectionIndex(0))
   }, [])
@@ -122,27 +125,85 @@ export default () => {
     return () => window.removeEventListener('orientationchange', onOrientationChange)
   }, [])
 
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const handleScroll = () => {
+    const isMobile = window.innerWidth < 992
+
+    const mobileClass = [
+      'is-white-image-one',
+      'is-white-image-two',
+      'is-white-image-three',
+      'feedback__carousel',
+      'mobile-ui__card'
+    ]
+
+    const desktopClass = [
+      'is-white-image-two',
+      'mobile-ui__card',
+      'video-react'
+    ]
+
+    changeMenuColor(isMobile ? mobileClass: desktopClass)
+}
+
+  /**
+   * this function for navigation keyboard
+   */
+  const handleKeyUp = React.useCallback((event) => {
+    const navigationLink = {
+      prevSite: '/portfolio/bodyshops/',
+      nextSite: '/portfolio/linguaschools/'
+    }
+
+    handleKeyNav(event.key, navigationLink)
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener('keyup', handleKeyUp)
+
+    return () => window.removeEventListener('keyup', handleKeyUp)
+  }, [handleKeyUp])
+
   return (
     <Layout>
       <Helmet>
         <title>Portfolio | Powernapp</title>
       </Helmet>
 
-      <main className="powernapp-page">
+      <main className="powernapp-page-redesign">
         <StartLayout
-          title="Powernapp"
-          subTitle="Hotel booking platform for small business"
-          backgroundUrlSmWebp={ startSmWebp }
-          backgroundUrlLgWebp={ startLgWebp }
-          backgroundUrlSmJpg={ startSmJpg }
-          backgroundUrlLgJpg={ startLgJpg }
+          title="Power"
+          titleTwoPart="napp"
+          subTitle="HOTEL BOOKING PLATFORM"
+          subTitleLast='TRAVEL'
         />
 
-        <GoalLayout video={ videoMp4 } >
-          Build web application for booking hotels with special offers for SME and integrations with RezExchange, Cubilis and Smarthotels
+        <GoalLayout
+          goalSmJpg={ bgJpgSm }
+          goalLgJpg={ bgJpgLg }
+          goalSmWebp={ bgWebpSm }
+          goalLgWebp={ bgWebpLg }
+          typeImage="jpg"
+        >
+          Develop a web application for booking hotels with special
+          offers for SME and integrations
+          <div className="goal__description-last--line">with RezExchange, Cubilis and Smarthotels</div>
         </GoalLayout>
 
-        <CoreFeaturesLayout 
+        <CoreFeaturesLayout
+          video={ videoMp4 }
+          displaySmJpg={ displaySmJpg }
+          displayLgJpg={ displayLgJpg }
+          displaySmWebp={ displaySmWebp }
+          displayLgWebp={ displayLgWebp }
+          typeImage='png'
+          timeline='Timeline:'
+          timelineData='September 2016 - now'
           items={[
             'Search engine of hotel offers',
             'Real-time availability and price updates',
@@ -153,6 +214,7 @@ export default () => {
             'Invoice management system',
             'Certified API integrations with RezExchange, Cubilis and Smarthotels'
           ]}
+          link='https://powernapp.com/'
         />
 
         <WorkLayout
@@ -164,10 +226,9 @@ export default () => {
             'Real-time prices and availability'
           ]}
           imageLgPrimary={ searchWebp }
-          imageLgSecondary={ searchJpg } 
+          imageLgSecondary={ searchJpg }
+          isWhiteImageWorkOne={ true }
           alt="Search image"
-          bgWebp={ bg3Webp }
-          bgJpg={ bg3Jpg }
           className="search"
         />
 
@@ -181,11 +242,10 @@ export default () => {
           ]}
           isReversed={ true }
           isMobileBackgrounded={ true }
+          isWhiteImageWorkTwo={ true }
           imageLgPrimary={ hotelsWebp }
-          imageLgSecondary={ hotelsJpg } 
+          imageLgSecondary={ hotelsJpg }
           alt="Book hotel image"
-          bgWebp={ bg3Webp }
-          bgJpg={ bg3Jpg }
           className="book-hotels"
         />
 
@@ -199,16 +259,17 @@ export default () => {
             'View reports and bookings stats on graphs'
           ]}
           imageLgPrimary={ backendWebp }
-          imageLgSecondary={ backendJpg } 
+          isWhiteImageWorkThree={ true }
+          imageLgSecondary={ backendJpg }
           alt="Hotels backend image"
-          bgWebp={ bg3Webp }
-          bgJpg={ bg3Jpg }
           className="hotels-backend"
         />
 
-        <MobileUiLayout items={ mobileUiItems } />
+        <MobileUiLayout
+          items={ mobileUiItems }
+        />
 
-        <FeedbackLayout 
+        <FeedbackLayout
           reviewImagesSm={[
             {
               imageWebp: review1WebpSm,
@@ -231,7 +292,7 @@ export default () => {
           ]}
         />
 
-        <ContactUs 
+        <ContactUs
           hasNavigation
           prevProject={ '/portfolio/bodyshops/' }
           nextProject={ '/portfolio/linguaschools/' }

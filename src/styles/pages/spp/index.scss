@@ -10,9 +10,16 @@
   }
 
   @include breakpoint (lg) {
-    .kek {
+    .middle-block {
       width: fluidSizeVw(1177, 1440);
       max-width: 1177px!important;
+    }
+  }
+
+  @include breakpoint (xl) {
+    .start__caption {
+      font-size: 100px;
+      line-height: 122px;
     }
   }
   

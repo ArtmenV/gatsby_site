@@ -39,25 +39,25 @@ export const navigationListData = [
 export const servicesDiscoveryData = {
   headerData: {
     title: 'Discovery',
-    description: `Together with Business Analyst and Lead Developer, 
-      we define implementation approach, 
-      functional requirements, and detailed development plan, 
+    description: `Together with Business Analyst and Lead Developer,
+      we define implementation approach,
+      functional requirements, and detailed development plan,
       according to your budget, desired timeline and business goals.`,
   },
   servicesCategoryList: [
     {
       title: 'Business Analytics',
       text: `
-        We help transform your ideas and business goals into functional requirements. 
-        Our specialist analyzes business processes and researches available automations. 
-        Well done architecture allows to code effectively and reduce the budget. 
+        We help transform your ideas and business goals into functional requirements.
+        Our specialist analyzes business processes and researches available automations.
+        Well done architecture allows to code effectively and reduce the budget.
       `
     },
     {
       title: 'Feasibility and Architecture',
       text: `
-        Feasibility study helps to find an optimal way to 
-        accomplish complex tasks and integrations with 3rd party components. 
+        Feasibility study helps to find an optimal way to
+        accomplish complex tasks and integrations with 3rd party components.
         It’s important to eliminate technical risks and search for alternatives
         before start to get succedded.
     `
@@ -65,9 +65,9 @@ export const servicesDiscoveryData = {
     {
       title: 'Specifications Creation',
       text: `
-        We create a document, which describes web application structure, 
-        functionality, user roles, and workflow. Based on specification, 
-        we make a detailed development plan, caclulate time and budget costs, 
+        We create a document, which describes web application structure,
+        functionality, user roles, and workflow. Based on specification,
+        we make a detailed development plan, caclulate time and budget costs,
         after which we can begin coding.
     `
     }
@@ -82,8 +82,8 @@ export const servicesDiscoveryData = {
       webpImage: autoWebp,
       jpgImage: autoJpg,
       description: `
-        CRM/ERP solution for a chain of 500+ car bodyshops. 
-        Dashboard for orders and supply management, 
+        A CRM/ERP solution for a chain of 500+ car bodyshops.
+        Dashboard for orders and supply management,
         different access level for shops, statistics module and generation .pdf reports.
       `,
       items: [
@@ -108,8 +108,8 @@ export const servicesDiscoveryData = {
       webpImage: microchipWebp,
       jpgImage: microchipJpg,
       description: `
-        System for remote control and monitoring of transformer rectifiers. 
-        Private dashboard for customers of Corrosion Electronics to access data in real-time, 
+        A system for remote control and monitoring of transformer rectifiers.
+        Private dashboard for customers of Corrosion Electronics to access data in real-time,
         receive alerts and export reports.
       `,
       programmingIcon: {
@@ -124,14 +124,14 @@ export const servicesDiscoveryData = {
       title: 'Hotel Booking',
       isCardBig: false,
       isSeeMoreBtn: true,
-      seeProjectLink: '/portfolio/bodyshops/',
+      seeProjectLink: '/portfolio/powernapp/',
       category: 'travel',
       webpImage: bedroomWebp,
       jpgImage: bedroomJpg,
       description: `
-        Web application for booking hotels with special 
-        offers for SME and integrations with popular hotel channels. 
-        Real-time availability and prices updates based on certified 
+        A web application for booking hotels with special
+        offers for SME and integrations with popular hotel channels.
+        Real-time availability and prices updates based on certified
         integrations with RezExchange, Smarthotels and Cubilis.
       `,
       programmingIcon: {
@@ -149,9 +149,9 @@ export const servicesDiscoveryData = {
 export const UiUxDesignData = {
   headerData: {
     title: 'UI/UX design',
-    description: `Our design team will design 
-      User Interface according to your vision and business 
-      goals and foresee all use cases including main user 
+    description: `Our design team will design
+      User Interface according to your vision and business
+      goals and foresee all use cases including main user
       stories, negative use cases, empty states and wrong data.`,
   },
   servicesCategoryList: [
@@ -188,9 +188,9 @@ export const UiUxDesignData = {
       webpImage: bedroomWebp,
       jpgImage: bedroomJpg,
       description: `
-        Web application for booking hotels with special 
-        offers for SME and integrations with popular hotel channels. 
-        Real-time availability and prices updates based on certified 
+        A web application for booking hotels with special
+        offers for SME and integrations with popular hotel channels.
+        Real-time availability and prices updates based on certified
         integrations with RezExchange, Smarthotels and Cubilis.
       `,
       items: [
@@ -215,7 +215,7 @@ export const UiUxDesignData = {
       webpImage: babyWebp,
       jpgImage: babyJpg,
       description: `
-        Website for baby gift lists creation by adding items 
+        A website for baby gift lists creation by adding items
         using special browser bookmarklet. Share lists and reserve items.
       `,
       programmingIcon: {
@@ -226,7 +226,7 @@ export const UiUxDesignData = {
       }
     },
     {
-      title: 'Security platform',
+      title: 'Security SaaS software',
       isCardBig: false,
       isSeeMoreBtn: true,
       seeProjectLink: '/portfolio/spp/',
@@ -234,10 +234,9 @@ export const UiUxDesignData = {
       webpImage: codeWebp,
       jpgImage: codeJpg,
       description: `
-        SaaS solution to manage ads and threats blocking 
-        lists to reduce malware infection and other security 
-        vulnerabilities. Synching blocking lists with 
-        Privoxy based proxy servers.
+        A SaaS software to manage ads and threats block
+        lists to reduce malware infection and other security vulnerabilities.
+        Syncing block lists with Privoxy based proxy servers.
       `,
       programmingIcon: {
         isNote: true,
@@ -254,7 +253,7 @@ export const servicesFrontEndData = {
   headerData: {
     title: 'Frontend',
     description: `
-      Deliver great User Experience with lightning fast and interactive 
+      Deliver great User Experience with lightning fast and interactive
       frontend with modern JS frameworks like Vue and React.`,
   },
   servicesCategoryList: [
@@ -287,7 +286,7 @@ export const servicesFrontEndData = {
   ],
   portfolioCardList: [
     {
-      title: 'Security platform',
+      title: 'Security SaaS software',
       isCardBig: true,
       isSeeMoreBtn: true,
       seeProjectLink: '/portfolio/spp/',
@@ -295,10 +294,9 @@ export const servicesFrontEndData = {
       webpImage: codeWebp,
       jpgImage: codeJpg,
       description: `
-        SaaS solution to manage ads and threats blocking lists 
-        to reduce malware infection and other security 
-        vulnerabilities. Synching blocking lists with Privoxy 
-        based proxy servers.
+        A SaaS software to manage ads and threats block lists to
+        reduce malware infection and other security vulnerabilities.
+        Syncing block lists with Privoxy based proxy servers.
       `,
       items: [
         'Threats management',
@@ -321,8 +319,8 @@ export const servicesFrontEndData = {
       webpImage: audioWebp,
       jpgImage: audioJpg,
       description: `
-        Music collaborative workspace which connects 
-        producers and vocalists. Dedicated developers 
+        A music collaborative workspace which connects
+        producers and vocalists. Dedicated developers
         for on-going work (2+ years).
       `,
       programmingIcon: {
@@ -339,9 +337,9 @@ export const servicesFrontEndData = {
       webpImage: microchipWebp,
       jpgImage: microchipJpg,
       description: `
-        System for remote control and monitoring of 
-        transformer rectifiers. Private dashboard for 
-        customers of Corrosion Electronics to access 
+        A system for remote control and monitoring of
+        transformer rectifiers. Private dashboard for
+        customers of Corrosion Electronics to access
         data in real-time, receive alerts and export reports.
       `,
       programmingIcon: {
@@ -395,8 +393,8 @@ export const servicesBackEndData = {
       webpImage: autoWebp,
       jpgImage: autoJpg,
       description: `
-        CRM/ERP solution for a chain of 500+ car bodyshops. 
-        Dashboard for orders and supply management, 
+        A CRM/ERP solution for a chain of 500+ car bodyshops.
+        Dashboard for orders and supply management,
         different access level for shops, statistics module and generation .pdf reports.
       `,
       items: [
@@ -421,9 +419,9 @@ export const servicesBackEndData = {
       webpImage: microchipWebp,
       jpgImage: microchipJpg,
       description: `
-        System for remote control and monitoring of 
-        transformer rectifiers. Private dashboard for 
-        customers of Corrosion Electronics to access 
+        A system for remote control and monitoring of
+        transformer rectifiers. Private dashboard for
+        customers of Corrosion Electronics to access
         data in real-time, receive alerts and export reports.
       `,
       programmingIcon: {
@@ -441,7 +439,7 @@ export const servicesBackEndData = {
       webpImage: cardWebp,
       jpgImage: cardJpg,
       description: `
-        eCommerce solution for large Australian home appliance 
+        An eCommerce solution for large Australian home appliance
         retailer with custom backend system to manage inventory,
         products, brands, taxonomy, promotions.
       `,
@@ -459,8 +457,8 @@ export const servicesBackEndData = {
 export const servicesApiData = {
   headerData: {
     title: 'API',
-    description: ` 
-      Extend functionality of your web app with 3rd party 
+    description: `
+      Extend functionality of your web app with 3rd party
       integrations, sync work of
       different services or create your own API for mobile apps or another services.`,
   },
@@ -468,7 +466,7 @@ export const servicesApiData = {
     {
       title: 'API integrations',
       text: `
-        We've built more than 100 API integrations with different services including 
+        We've built more than 100 API integrations with different services including
         Payment Gateways, CRM, hotel channels and marketing automation tools.`
     },
     {
@@ -496,10 +494,10 @@ export const servicesApiData = {
       webpImage: penWebp,
       jpgImage: penJpg,
       description: `
-        Product search API of large promotional products distributor. 
-        Collaboration with Product Data team and IT Architect to setup 
-        the requirements and transform xml data files into 
-        a well-structured, normalised, fast, secure, 
+        A product search API of large promotional products distributor.
+        Collaboration with Product Data team and IT Architect to setup
+        the requirements and transform xml data files into
+        a well-structured, normalised, fast, secure,
         developer-friendly and stateless RESTful API.
       `,
       items: [
@@ -521,8 +519,8 @@ export const servicesApiData = {
       webpImage: notebookWebp,
       jpgImage: notebookJpg,
       description: `
-        Automatically publish items on eBay from 
-        Pawn marketplace database. Monitor sales status 
+        Automatically publish items on eBay from
+        Pawn marketplace database. Monitor sales status
         and retreive info about sold items.
       `,
       programmingIcon: {
@@ -531,7 +529,7 @@ export const servicesApiData = {
       }
     },
     {
-      title: 'Security platform',
+      title: 'Security SaaS software',
       isCardBig: false,
       isSeeMoreBtn: true,
       seeProjectLink: '/portfolio/spp/',
@@ -539,10 +537,9 @@ export const servicesApiData = {
       webpImage: codeWebp,
       jpgImage: codeJpg,
       description: `
-        SaaS solution to manage ads and threats blocking 
-        lists to reduce malware infection and other security 
-        vulnerabilities. Synching blocking lists with 
-        Privoxy based proxy servers.
+        A SaaS software to manage ads and threats block lists
+        to reduce malware infection and other security vulnerabilities.
+        Syncing block lists with Privoxy based proxy servers.
       `,
       programmingIcon: {
         isNote: true,
@@ -566,7 +563,7 @@ export const servicesLiveMaintenance = {
     {
       title: 'Release preparation',
       text: `
-        We will prepare full functioning demo for 
+        We will prepare full functioning demo for
         your review and check before release.`
     },
     {
@@ -594,11 +591,11 @@ export const servicesLiveMaintenance = {
       webpImage: linguaWebp,
       jpgImage: linguaJpg,
       description: `
-        New brand website for chain of Spanish language 
-        schools with custom CMS to manage courses, 
-        destinations and all dynamic info. Support 
-        of several languages (English, German, Dutch, 
-        Spanish, French, Italian) with own domains 
+        A new brand website for chain of Spanish language
+        schools with custom CMS to manage courses,
+        destinations and all dynamic info. Support
+        of several languages (English, German, Dutch,
+        Spanish, French, Italian) with own domains
         (.com, .de, .nl, .es, .de, .fr, .it) for SEO purposes.
       `,
       items: [
@@ -621,8 +618,8 @@ export const servicesLiveMaintenance = {
       webpImage: booksWebp,
       jpgImage: booksJpg,
       description: `
-        Portal for students and parents to discover 
-        and compare private schools. Implemented in 2 
+        A portal for students and parents to discover
+        and compare private schools. Implemented in 2
         languages — English and Arabic.
       `,
       programmingIcon: {
@@ -639,8 +636,8 @@ export const servicesLiveMaintenance = {
       webpImage: cameraWebp,
       jpgImage: cameraJpg,
       description: `
-        Video stock BTB platform which allows to find and order 
-        collections of video clips. Elastic Search Engine for 
+        A video stock BTB platform which allows to find and order
+        collections of video clips. Elastic Search Engine for
         smart keywords search.
       `,
       programmingIcon: {
@@ -655,14 +652,14 @@ export const servicesLiveMaintenance = {
 export const servicesFeaturedData = {
   headerData: {
     title: 'Featured',
-    description: `We focus on high quality and attention to the details 
+    description: `We focus on high quality and attention to the details
       and you will be able to take advantage of additional services we provide.`,
   },
   servicesCategoryList: [
     {
       title: 'Security',
       text: `
-        In-built preventing common security vulnerabilities like cross site scriptingXSS, 
+        In-built preventing common security vulnerabilities like cross site scriptingXSS,
         cross site request forgery CSRF, SQL injection, authentication bypass.
       `
     },
@@ -684,7 +681,7 @@ export const servicesFeaturedData = {
   ],
   portfolioCardList: [
     {
-      title: 'Music Courses',
+      title: 'Music lessons',
       isCardBig: true,
       isSeeMoreBtn: true,
       seeProjectLink: '/portfolio/negina/',
@@ -692,9 +689,9 @@ export const servicesFeaturedData = {
       webpImage: guitarWebp,
       jpgImage: guitarJpg,
       description: `
-        Musical portal for learning how to play piano and 
-        other instruments. Different membership plans. 
-        Songs, artists and cources directory.
+        A portal for learning how to play music
+        instruments with paid subscriptions,
+        songs and artists catalog
       `,
       items: [
         'Online directory',
@@ -712,7 +709,7 @@ export const servicesFeaturedData = {
       }
     },
     {
-      title: 'Security platform',
+      title: 'Security SaaS software',
       isCardBig: false,
       category: 'security',
       isSeeMoreBtn: true,
@@ -720,10 +717,9 @@ export const servicesFeaturedData = {
       webpImage: codeWebp,
       jpgImage: codeJpg,
       description: `
-        SaaS solution to manage ads and threats blocking 
-        lists to reduce malware infection and other security 
-        vulnerabilities. Synching blocking lists with 
-        Privoxy based proxy servers.
+        A SaaS software to manage ads and threats block lists
+        to reduce malware infection and other security vulnerabilities.
+        Syncing block lists with Privoxy based proxy servers.
       `,
       programmingIcon: {
         isNote: true,
@@ -742,9 +738,9 @@ export const servicesFeaturedData = {
       webpImage: bedroomWebp,
       jpgImage: bedroomJpg,
       description: `
-        Web application for booking hotels with special 
-        offers for SME and integrations with popular hotel channels. 
-        Real-time availability and prices updates based on certified 
+        A web application for booking hotels with special
+        offers for SME and integrations with popular hotel channels.
+        Real-time availability and prices updates based on certified
         integrations with RezExchange, Smarthotels and Cubilis.
       `,
       programmingIcon: {
@@ -756,5 +752,5 @@ export const servicesFeaturedData = {
         isApi: true
       }
     }
-  ],
+  ]
 }

@@ -3,15 +3,14 @@ import {
   shape,
   bool,
   string,
-  array,
-  arrayOf
+  array
 } from 'prop-types'
 
 import { ServicePortfolioCardList } from './PortfolioCard/ServicePortfolioCardList'
 import { ServicePortfolioCard } from './PortfolioCard/ServicePortfolioCard'
 import ProgrammingIcons from '../../../ProgrammingIcons'
 
-export const Porfolio = ({ 
+export const Porfolio = ({
   portfolioCardData
 }) => {
   return (
@@ -54,10 +53,10 @@ export const Porfolio = ({
 }
 
 Porfolio.propTypes = {
-  portfolioCardData: arrayOf(shape({
-    webpImage: string.isRequired, 
+  portfolioCardData: shape({
+    webpImage: string.isRequired,
     jpgImage: string.isRequired,
-    description: string.isRequired, 
+    description: string.isRequired,
     category: string.isRequired,
     title: string.isRequired,
     isCardBig: bool.isRequired,
@@ -67,13 +66,19 @@ Porfolio.propTypes = {
 
     programmingIcon: shape({
       isApi: bool,
+      isApi2: bool,
       isAws: bool,
       isHtml: bool,
       isJs: bool,
+      isNote: bool,
+      isPhp: bool,
+      isScreen: bool,
       isSpeed: bool,
+      isSquare: bool,
+      isSwan: bool,
       isSymphony: bool,
       isLaravel: bool,
       isVue: bool
     })
-  }))
+  })
 }

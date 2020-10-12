@@ -20,12 +20,12 @@ import { setVhUnit } from '../helpers'
 import '../styles/pages/landing-page/index.scss'
 
 const anchors = [
-  'home', 
-  'our-work', 
-  'our-services', 
-  'reviews', 
-  'our-clients', 
-  'contact-us', 
+  'home',
+  'our-work',
+  'our-services',
+  'reviews',
+  'our-clients',
+  'contact-us',
 ]
 
 export default () => {
@@ -37,7 +37,7 @@ export default () => {
     ourServices: <OurServices />,
     reviews: <Reviews />,
     ourClients: <OurClients />,
-    contactUs: <ContactUs hasCopyright={ true } />
+    contactUs: <ContactUs hasCopyright={true} />
   })
 
   useEffect(() => {
@@ -48,21 +48,21 @@ export default () => {
   }, [])
 
   // Jump to anchor if it exists
-  useEffect(() => {  
-    if (window && location.state && location.state.anchor ) {
+  useEffect(() => {
+    if (window && location.state && location.state.anchor) {
       setTimeout(() => window.fullpage_api.moveTo(location.state.anchor), 100)
     }
-  },[])
+  }, [])
 
   useEffect(() => {
-    document.addEventListener('lazybeforeunveil', function(e){
+    document.addEventListener('lazybeforeunveil', function (e) {
       var bg = e.target.getAttribute('data-bg');
-      if(bg){
-          e.target.style.backgroundImage = 'url(' + bg + ')';
+      if (bg) {
+        e.target.style.backgroundImage = 'url(' + bg + ')';
       }
     });
   }, [])
-  
+
   const handleLeave = (_, destination) => {
     dispatch(currentSectionIndex(destination.index))
   }
@@ -70,7 +70,7 @@ export default () => {
   return (
     <Layout>
       <Helmet>
-        <title>Zimalab</title>
+        <title>Zimalab | Featured Web Development Team</title>
         <link rel="stylesheet" type="text/css" href="https://unpkg.com/fullpage.js@3.0.1/dist/fullpage.min.css"></link>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
       </Helmet>
@@ -78,15 +78,15 @@ export default () => {
         <ReactFullpage
           anchors={[...anchors]}
           lockAnchors={true}
-          onLeave={ handleLeave }
-          lazyLoading={ false }
+          onLeave={handleLeave}
+          lazyLoading={false}
           normalScrollElements='.menu.menu--opened, .contact-form__textarea'
           render={({ state, fullpageApi }) => (
-            <ReactFullpage.Wrapper lazyLoading={ false }>
+            <ReactFullpage.Wrapper lazyLoading={false}>
               {
                 Object.keys(slides).map((title, index) => (
-                  <React.Fragment key={ index }>
-                    { slides[title] }
+                  <React.Fragment key={index}>
+                    { slides[title]}
                   </React.Fragment>
                 ))
               }

@@ -1,13 +1,17 @@
 import React from 'react'
 import { useBreakpoint } from 'gatsby-plugin-breakpoints'
+import loadable from '@loadable/component'
 
-import OurClientsMobile from './OurClientsMobile'
-import OurClientsDesctop from './OurClientsDesctop'
+// import OurClientsMobile from './OurClientsMobileNew'
+// import OurClientsDesctop from './OurClientsDesctop'
 
 import spaceSmJpg from '../../../../static/backgrounds/landing/space-small.jpg'
 import spaceSmWebp from '../../../../static/backgrounds/landing/space-small.webp'
 import spaceLgJpg from '../../../../static/backgrounds/landing/space-large.jpg'
 import spaceLgWebp from '../../../../static/backgrounds/landing/space-large.webp'
+
+const OurClientsMobile = loadable(() => import('./OurClientsMobile'))
+const OurClientsDesctop = loadable(() => import('./OurClientsDesctop'))
 
 export default () => {
   const breakpoints = useBreakpoint()

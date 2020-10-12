@@ -2,94 +2,217 @@
 /*------------------------------------*\
   #Feedback section
 \*------------------------------------*/
-
-.feedback {
+.feedback-redesign {
   position: relative;
-  padding: 40px 0 84px 0;
-  background-color: $light-gray;
+  padding: 25px 0 0 0;
+  background: $portfolio-background;
   overflow: hidden;
 
-  .caption-primary {
-    margin-top: 0;
-    line-height: 34px;
-    color: $dark-blue;
-
-    &::before {
-      border-color: $dark-blue;
-    }
-  }
-
-  .carousel-buttons__container {
-    position: absolute;
-    bottom: 25px;
-    right:  20px;
-  }
-
   @include breakpoint (lg) {
-    height: fluidSizeVw(890, 1440);
-    max-height: 890px;
-    padding-top: 75px;
-
-    .caption-primary {
-      line-height: 85px;
-    }
+    height: fluidSizeVw(720, 1440);
+    padding-top: 50px;
+    padding-bottom: 25px;
   }
 
   @include breakpoint (xl) {
-    max-height: 940px;
+    height: fluidSizeVw(1000, 1920);
+    padding-top: 100px;
   }
-}
 
-.feedback__carousel {
-  width: fluidSizeVw(278, 320);
-  margin: 39px auto 0 auto;
-}
+  .caption-primary {
+    color: transparentize($white, 0.6);
+    margin-top: 0;
+    line-height: 34px;
 
-.carousel__image {
-  margin: 0 auto;
-}
+    @include breakpoint(lg)     { font-size: 60px }
+    @include breakpoint(lg_mid) { font-size: 70px }
+    @include breakpoint(xl)     { font-size: 94px }
 
-.feedback__image {
+    &::before {
+      border-color: transparentize($white, 0.6);
+      width: 7.8vw;
 
-  @include breakpoint (lg) {
+      @include breakpoint(lg)     { width: 160px }
+      @include breakpoint(lg_mid) { width: 220px }
+      @include breakpoint(xl)     { width: 260px }
+    }
+  }
+
+  //carousel arrow for mibile version
+  .carousel-buttons__container {
     position: absolute;
-    box-shadow: 0px 20px 50px rgba(70, 70, 70, 0.05);
-    transition: all .35s ease-in-out;
+    z-index: 201;
+    top:     25px;
+    right:   15px;
 
-    &:hover {
-      transform: scale(1.1);
-      z-index: 100;
+    .carousel__button {
+      background-color: none;
+      color: $white;
+      width: 30px;
+
+      &:hover {
+        background: none;
+      }
+    }
+
+    .carousel__button-arrow {
+      border-color: $white;
+      width: 12px;
+      height: 12px;
+      border: 3px solid $white;
+      border-left: none;
+      border-bottom: none;
+
+      &:hover {
+        border-color: $light-blue!important;
+      }
+    }
+  }
+
+  .feedback__carousel {
+    width: 100%;
+    margin-top: 3vh;
+    //did max size for mobile version
+    .carousel__image {
+      max-height: 250px;
+      margin: 0;
+    }
+
+    .carousel__slide {
+      margin-right: 1rem;
+    }
+
+    .carousel__slider-tray {
+      width: 160%!important;
+    }
+  }
+    .carousel__image {
+      height: auto;
+    }
+
+  .feedback__image {
+    @include breakpoint (lg) {
+      position: absolute;
+      cursor: pointer;
+      box-shadow: none;
+      // box-shadow: 0px 20px 50px rgba(70, 70, 70, 0.05);
+      transition: all .35s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+        transition-delay: .2s;
+        z-index: 100;
+      }
+    }
+  }
+
+  .feedback__image-1 {
+    @include breakpoint (lg) {
+      z-index: 200;
+      width:  fluidSizeVw(600, 1440);
+      height: fluidSizeVw(305, 1440);
+      left:   fluidSizeVw(120, 1440);
+      top:    fluidSizeVw(260, 1440);
+      transform: rotate(-9.46deg);
+    }
+
+    @include breakpoint (lg_mid) {
+      top: fluidSizeVw(275, 1440);
+    }
+
+    @include breakpoint (xl) {
+      top: fluidSizeVw(330, 1920);
+    }
+  }
+
+  .feedback__image-2 {
+    @include breakpoint (lg) {
+      width:   fluidSizeVw(600, 1440);
+      height:  fluidSizeVw(313, 1440);
+      top:     fluidSizeVw(260, 1440);
+      right:   fluidSizeVw(120, 1440);
+      transform: rotate(10.18deg);
+
+      &:hover  {
+        z-index: 201;
+      }
+    }
+
+    @include breakpoint (lg_mid) {
+      top: fluidSizeVw(275, 1440);
+    }
+
+    @include breakpoint (xl) {
+      top: fluidSizeVw(330, 1920);
     }
   }
 }
 
-.feedback__image-1 {
-  z-index: 100;
+.negina-page-redesign {
+  .feedback-redesign {
 
-  @include breakpoint (lg) {
-    width:  fluidSizeVw(615, 1440);
-    height: fluidSizeVw(313, 1440);
-    top: fluidSizeVw(370, 1440);
-    left:   fluidSizeVw(230, 1440);
+    @include breakpoint(lg) {
+      height: 45.08333vw;
+    }
+
+    @include breakpoint(xl) {
+      height: 47.08333vw;
+    }
+
+    .feedback__image-1 {
+      margin-left: 8vw;
+      // width: 280px;
+
+      @include breakpoint(lg) {
+        margin-left: 0;
+        left: 28.5vw;
+        top: 15vw;
+      }
+
+      @include breakpoint(lg_mid) {
+        top: 14vw;
+      }
+
+      @include breakpoint(xl) {
+        top: 16vw;
+      }
+
+      transform: rotate(0deg);
+    }
+
+    .carousel__image {
+      margin: 0 auto;
+    }
+
+    .carousel__slider-tray {
+      width: 100%!important;
+    }
+
+    .carousel__inner-slide {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .carousel-buttons__container {
+      display: none;
+    }
+
+    .carousel__slide {
+      margin: 0 auto;
+    }
   }
-
-  @include breakpoint (lg_mid) {
-    top: 370px;
-  }
-
 }
 
-.feedback__image-2 {
 
-  @include breakpoint (lg) {
-    width:  fluidSizeVw(585, 1440);
-    height: fluidSizeVw(305, 1440);
-    right:   fluidSizeVw(230, 1440);
-    top: fluidSizeVw(275, 1440);
+/*-----------------*/
+// powernapp scss
+/*----------------*/
+.powernapp-page-redesign, .bodyshops-page-redesign {
+  .feedback-redesign {
+    .carousel__slide {
+      // .carousel__image-1 {
+      //   height: 102%!important;
+      // }
+    }
   }
-
-  @include breakpoint (lg_mid) {
-    top: 275px;
-  }
-  
 }

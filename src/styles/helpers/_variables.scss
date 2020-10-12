@@ -21,8 +21,12 @@ $soft-color: #D6DADE;
 $red: #DD1212;
 
 //work
-$portfolio-background:  linear-gradient(0deg, #082B51, #082B51), 
+$portfolio-background:  linear-gradient(0deg, #082B51, #082B51),
                         linear-gradient(0deg, #213853, #213853), #061E39;
+
+//portfolio background start section
+$portfolio-start-section-background: linear-gradient(180deg, rgba(8, 43, 81, 0.4) 0%,
+                                    #082B51 102.02%);
 
 
 

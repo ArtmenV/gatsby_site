@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 import { useDispatch } from 'react-redux'
 import { currentSectionIndex } from '../../redux/actions/fullpage'
 
-import { setVhUnit } from '../../helpers'
+import { setVhUnit, changeMenuColor, handleKeyNav } from '../../helpers'
 import '../../styles/pages/bodyshops/index.scss'
 
 import Layout from '../../components/Layout'
@@ -16,39 +16,43 @@ import ContactUs from '../../components/contact-us'
 import HamburgerMenu from '../../components/HamburgerMenu'
 import Menu from '../../components/menu'
 
+/**goal section*/
+import bgWebpLg from '../../../static/images/portfolio/bodyshops/goal/goal-lg.webp'
+import bgWebpSm from '../../../static/images/portfolio/bodyshops/goal/goal-sm.webp'
+import bgJpgLg from '../../../static/images/portfolio/bodyshops/goal/goal-lg.jpg'
+import bgJpgSm from '../../../static/images/portfolio/bodyshops/goal/goal-sm.jpg'
+
+/* core section */
+import displaySmJpg from '../../../static/images/portfolio/monitor-sm.png'
+import displaySmWebp from '../../../static/images/portfolio/monitor-sm.webp'
+import displayLgJpg from '../../../static/images/portfolio/monitor-lg.png'
+import displayLgWebp from '../../../static/images/portfolio/monitor-lg.webp'
+
 /** Images */
 import ordersWebp from '../../../static/images/portfolio/bodyshops/orders-large.webp'
-import ordersJpg from '../../../static/images/portfolio/bodyshops/orders-large.jpg'  
+import ordersJpg from '../../../static/images/portfolio/bodyshops/orders-large.jpg'
 import shopsWebp from '../../../static/images/portfolio/bodyshops/shops-large.webp'
 import shopsJpg from '../../../static/images/portfolio/bodyshops/shops-large.jpg'
 import automationsWebp from '../../../static/images/portfolio/bodyshops/automations-large.webp'
 import automationsJpg from '../../../static/images/portfolio/bodyshops/automations-large.jpg'
 import erpWebp from '../../../static/images/portfolio/bodyshops/erp-large.webp'
-import erpJpg from '../../../static/images/portfolio/bodyshops/erp-large.jpg'   
+import erpJpg from '../../../static/images/portfolio/bodyshops/erp-large.jpg'
 
-import review1WebpLg from '../../../static/images/portfolio/bodyshops/reviews/review-1-large.webp'
-import review1JpgLg from '../../../static/images/portfolio/bodyshops/reviews/review-1-large.jpg'
-import review1WebpSm from '../../../static/images/portfolio/bodyshops/reviews/review-1-small.webp'
-import review1JpgSm from '../../../static/images/portfolio/bodyshops/reviews/review-1-small.jpg'
+import review1WebpLg from '../../../static/images/portfolio/bodyshops/reviews/feedback-bodyshops-1-lg.webp'
+import review1JpgLg from '../../../static/images/portfolio/bodyshops/reviews/feedback-bodyshops-1-lg.jpg'
+import review1WebpSm from '../../../static/images/portfolio/bodyshops/reviews/feedback-bodyshops-1-sm.webp'
+import review1JpgSm from '../../../static/images/portfolio/bodyshops/reviews/feedback-bodyshops-1-sm.jpg'
 import review2WebpLg from '../../../static/images/portfolio/bodyshops/reviews/review-2-large.webp'
 import review2JpgLg from '../../../static/images/portfolio/bodyshops/reviews/review-2-large.jpg'
 import review2WebpSm from '../../../static/images/portfolio/bodyshops/reviews/review-2-small.webp'
 import review2JpgSm from '../../../static/images/portfolio/bodyshops/reviews/review-2-small.jpg'
 
-/** Backgrounds */
-import startSmWebp from '../../../static/backgrounds/portfolio/bodyshops/start-small.webp'
-import startLgWebp from '../../../static/backgrounds/portfolio/bodyshops/start-large.webp'
-import startSmJpg from '../../../static/backgrounds/portfolio/bodyshops/start-small.jpg'
-import startLgJpg from '../../../static/backgrounds/portfolio/bodyshops/start-large.jpg'
-import bg3Webp from '../../../static/backgrounds/portfolio/linguaschools/background-3-large.webp'
-import bg3Jpg from '../../../static/backgrounds/portfolio/linguaschools/background-3-large.jpg'
-
-/** Videos */ 
+/** Videos */
 import videoMp4 from '../../../static/videos/bodyshops/video.mp4'
 
 export default () => {
   const dispatch = useDispatch()
-  
+
   useEffect(() => {
     dispatch(currentSectionIndex(0))
   }, [])
@@ -65,27 +69,82 @@ export default () => {
     return () => window.removeEventListener('orientationchange', onOrientationChange)
   }, [])
 
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const handleScroll = () => {
+    const isMobile = window.innerWidth < 992
+
+    const mobileClass = [
+      'is-white-image-one',
+      'feedback__carousel'
+    ]
+
+    const desktopClass = [
+      'video-react'
+    ]
+
+    changeMenuColor(isMobile ? mobileClass: desktopClass)
+  }
+
+  /**
+   * this function for navigation keyboard
+   */
+  const handleKeyUp = React.useCallback((event) => {
+    const navigationLink = {
+      prevSite: '/portfolio/spp/',
+      nextSite: '/portfolio/powernapp/'
+    }
+
+    handleKeyNav(event.key, navigationLink)
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener('keyup', handleKeyUp)
+
+    return () => window.removeEventListener('keyup', handleKeyUp)
+  }, [handleKeyUp])
+
   return (
     <Layout>
       <Helmet>
         <title>Portfolio | Bodyshops</title>
       </Helmet>
 
-      <main className="bodyshops-page">
+      <main className="bodyshops-page-redesign">
         <StartLayout
-          title="Bodyshops"
-          subTitle="CRM/ERP for auto bodyshops orders and supply management"
-          backgroundUrlSmWebp={ startSmWebp }
-          backgroundUrlLgWebp={ startLgWebp }
-          backgroundUrlSmJpg={ startSmJpg }
-          backgroundUrlLgJpg={ startLgJpg }
+          title="Body"
+          titleTwoPart="shops"
+          subTitle="CAR REPAIR ERP"
+          subTitleLast='AUTO'
         />
 
-        <GoalLayout video={ videoMp4 } >
-          Build a CRM/ERP solution for a chain of 500+ car bodyshops. Implement orders and supply management, different access level for shop management, display statistics and generate .pdf reports.
+        <GoalLayout
+          goalSmJpg={ bgJpgSm }
+          goalLgJpg={ bgJpgLg }
+          goalSmWebp={ bgWebpSm }
+          goalLgWebp={ bgWebpLg }
+          typeImage="jpg"
+        >
+          Develop a CRM/ERP solution for a chain of 500+ car
+          bodyshops with dashboard for orders
+          <div className="goal__description-last--line">
+            and supply management
+          </div>
         </GoalLayout>
 
-        <CoreFeaturesLayout 
+        <CoreFeaturesLayout
+          video={ videoMp4 }
+          displaySmJpg={ displaySmJpg }
+          displayLgJpg={ displayLgJpg }
+          displaySmWebp={ displaySmWebp }
+          displayLgWebp={ displayLgWebp }
+          typeImage='png'
+          timeline='Timeline:'
+          timelineData='August 2017 - now'
           items={[
             'Custom order creation process',
             'Interactive car models for visual indication of repair request',
@@ -108,9 +167,8 @@ export default () => {
           ]}
           imageLgPrimary={ ordersWebp }
           imageLgSecondary={ ordersJpg }
+          isWhiteImageWorkOne={ true }
           alt="Orders image"
-          bgWebp={ bg3Webp }
-          bgJpg={ bg3Jpg }
           className="orders"
         />
 
@@ -127,8 +185,6 @@ export default () => {
           imageLgPrimary={ shopsWebp }
           imageLgSecondary={ shopsJpg }
           alt="Shops & supply image"
-          bgWebp={ bg3Webp }
-          bgJpg={ bg3Jpg }
           className="shops"
         />
 
@@ -143,8 +199,6 @@ export default () => {
           imageLgPrimary={ automationsWebp }
           imageLgSecondary={ automationsJpg }
           alt="Automations image"
-          bgWebp={ bg3Webp }
-          bgJpg={ bg3Jpg }
           className="automations"
         />
 
@@ -161,12 +215,10 @@ export default () => {
           imageLgPrimary={ erpWebp }
           imageLgSecondary={ erpJpg }
           alt="Custom tailored ERP image"
-          bgWebp={ bg3Webp }
-          bgJpg={ bg3Jpg }
           className="erp"
         />
 
-        <FeedbackLayout 
+        <FeedbackLayout
           reviewImagesSm={[
             {
               imageWebp: review1WebpSm,
@@ -189,7 +241,7 @@ export default () => {
           ]}
         />
 
-        <ContactUs 
+        <ContactUs
           hasNavigation
           prevProject={ '/portfolio/spp/' }
           nextProject={ '/portfolio/powernapp/' }
@@ -198,5 +250,5 @@ export default () => {
         <Menu />
       </main>
     </Layout>
-  )  
+  )
 }

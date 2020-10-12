@@ -1,17 +1,18 @@
 import React, { useRef } from 'react'
-import { 
+import {
   bool,
   string,
   func,
-  element, array
+  array
 } from 'prop-types'
 import { useBreakpoint } from 'gatsby-plugin-breakpoints'
+
 import Link from '../../../../Link'
+import LoadImage from '../../../../LoadImage'
+import CarouselButtons from '../../../../CarouselButtons'
 
 import ArrowNext from '../../../../../../static/icons/arrow-next.svg'
 import CloseIcon from '../../../../../../static/icons/close-icon.svg'
-import CarouselButtons from '../../../../CarouselButtons'
-import LoadImage from '../../../../LoadImage'
 
 export const ServicePortfolioCard = ({
   seeProjectLink,
@@ -32,7 +33,7 @@ export const ServicePortfolioCard = ({
   const onPrevSlide = () => {
     document.body.querySelector(
       `.services__carousel-${titleSection} .carousel__back-button`
-      ).click()
+    ).click()
   }
 
   const onNextSlide = () => {
@@ -43,34 +44,38 @@ export const ServicePortfolioCard = ({
 
   //component for card
   const ButtonDetails = () => (
-    <button 
+    <button
       onClick={ handleOpenCard }
       className="portfolio-card__button-details"
     >
-      DETAILS 
+      DETAILS
       <ArrowNext width="42.77" height="13.5" className="arrow-next"/>
     </button>
   )
 
   const ButtonMore = () => (
-    <Link to={ seeProjectLink }>
-      <button className="portfolio-card__button--more ">
-        SEE MORE
-      </button>
+    <Link
+      to={ seeProjectLink }
+      className="
+        portfolio-card__button--more
+        portfolio-card__link
+      "
+    >
+      SEE MORE
     </Link>
   )
 
   return (
     <div className="portfolio-card" ref={ refCard }>
       <div className="services-card__carousel">
-        <CarouselButtons 
+        <CarouselButtons
           onClickPrev={ onPrevSlide }
           onClickNext={ onNextSlide }
           blue={ breakpoint.md }
         />
       </div>
       <button
-        onClick={ handleOpenCard } 
+        onClick={ handleOpenCard }
         className='modal__btn-close'
         aria-label="Open service"
       >
@@ -103,13 +108,13 @@ ServicePortfolioCard.propTypes = {
   title: string.isRequired,
   titleSection: string.isRequired,
   category: string.isRequired,
+  isSeeDetailBtn: bool.isRequired,
   primaryLg: string.isRequired,
   secondaryLg: string.isRequired,
+  children: array.isRequired,
   isSeeMoreBtn: bool,
-  isSeeDetailBtn: bool.isRequired,
   seeProjectLink: string,
   handleOpenCard: func,
-  children: array.isRequired,
   lazyLoad: bool,
   isFeatured: bool
 }

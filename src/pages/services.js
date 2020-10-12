@@ -1,4 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, {
+  useEffect,
+  useState
+} from 'react'
 import { Helmet } from 'react-helmet'
 import ReactFullpage from '@fullpage/react-fullpage'
 import { useDispatch, useSelector } from 'react-redux'
@@ -35,7 +38,7 @@ import FeaturedIcon from '../../static/services/icon/featured-head.svg'
 import '../styles/pages/services/index.scss'
 
 const anchors = [
-  'main', 
+  'main',
   'Discovery',
   'UI/UX',
   'Frontend',
@@ -67,12 +70,16 @@ export default () => {
   const currentSection = useSelector(state => state.currentSectionIndex)
 
   useEffect(() => {
+    dispatch(currentSectionIndex(0))
+  }, [])
+
+  useEffect(() => {
     setVhUnit()
     window.addEventListener('resize', setVhUnit)
     return () => window.removeEventListener('resize', setVhUnit)
   }, [])
 
-  useEffect(() => {  
+  useEffect(() => {
     if (window && location.state && location.state.anchor) {
       setTimeout(() => window.fullpage_api.moveTo(location.state.anchor), 100)
     }
@@ -112,7 +119,7 @@ export default () => {
     dispatch(currentSectionIndex(destination.index))
   }
 
-//this effect need for add class 
+//this effect need for add class
 //for hide background fixed when component loading first tine
   useEffect(() => {
     setTimeout(() => setIsAddClass(true), 500)
@@ -122,15 +129,15 @@ export default () => {
     <Layout>
       <Helmet>
         <title>Services</title>
-        <link 
-          rel="stylesheet" 
-          type="text/css" 
+        <link
+          rel="stylesheet"
+          type="text/css"
           href="https://unpkg.com/fullpage.js@3.0.1/dist/fullpage.min.css"
         />
       </Helmet>
       <main className={ isAddClass ? 'service-page fixed-background' : 'service-page' }>
         <div className='service-navigation'>
-          <NavigationList 
+          <NavigationList
             headIcon={ headIcon }
             navigationListData={ navigationListData }
             key={ currentSection }

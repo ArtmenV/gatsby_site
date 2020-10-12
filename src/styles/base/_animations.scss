@@ -1,4 +1,32 @@
-/*------------------- Scale ------------------*/ 
+
+/*------------------------------------*\
+  #Base  
+\*------------------------------------*/
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes spinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+
+
+
+/*------------------------------------*\
+  #Our clients  
+\*------------------------------------*/
+
+/* Line */
 @keyframes scaleInLineMobile {
   0% {
     transform: scale(0);
@@ -18,11 +46,11 @@
     opacity: 1;
     transform: scale(0);
   }
-  1.3888%, 31.9444% {
+  0.6944%, 15.9722% {
     opacity: 1;
     transform: scale(1);
   }
-  33.3333%, 100% {
+  16.6666%, 100% {
     opacity: 0;
   }
 }
@@ -37,8 +65,7 @@
   }
 }
 
-// London
-@keyframes scaleInLineLondon {
+@keyframes scaleInFirstCityLine {
   0% {
     opacity: 1;
     transform: scale(0);
@@ -52,23 +79,7 @@
   }
 }
 
-// Chicago
-@keyframes scaleInLineChicago {
-  0% {
-    opacity: 1;
-    transform: scale(0);
-  }
-  4.1666%, 95.8333% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-// Wollongong
-@keyframes scaleInLineWollongong {
+@keyframes scaleInLineSecondCityLine {
   0% {
     opacity: 1;
     transform: scale(0);
@@ -82,18 +93,21 @@
   }
 }
 
-
-/*---------------------- Fade --------------------*/ 
-@keyframes fadeOut {
+@keyframes scaleInLineThirdCityLine {
   0% {
     opacity: 1;
+    transform: scale(0);
   }
-
+  4.1666%, 95.8333% {
+    transform: scale(1);
+    opacity: 1;
+  }
   100% {
     opacity: 0;
   }
 }
 
+/* Content */
 @keyframes fadeInDownContentMobile {
   0% {
     opacity: 0;
@@ -113,11 +127,11 @@
     opacity: 0;
     transform: translate3d(0,-100%,0);
   }
-  1.3889%, 30.5555% {
+  0.6944%, 15.2777% {
     opacity: 1;
     transform: translateZ(0);
   }
-  31.9444%, 100% {
+  15.9722%, 100% {
     opacity: 0;
   }
 }
@@ -133,7 +147,7 @@
   }
 }
 
-@keyframes fadeInDownContentLondon {
+@keyframes fadeInDownFirstCityContent {
   0% {
    opacity:0;
    transform:translate3d(0,-100%,0);
@@ -147,23 +161,7 @@
   }
 }
 
- // Chicago
- @keyframes fadeInDownContentChicago {
-  0% {
-    opacity:0;
-    transform:translate3d(0,-100%,0);
-  }
-  4.3478%, 95.6521% {
-    opacity:1;
-    transform:translateZ(0);
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
- // Wollongong
- @keyframes fadeInDownContentWollongong {
+@keyframes fadeInDownSecondCityContent {
   0% {
    opacity:0;
    transform:translate3d(0,-100%,0);
@@ -177,7 +175,28 @@
   }
 }
 
-// Snowflake
+@keyframes fadeInDownThirdCityContent {
+  0% {
+    opacity:0;
+    transform:translate3d(0,-100%,0);
+  }
+  4.3478%, 95.6521% {
+    opacity:1;
+    transform:translateZ(0);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+
+
+
+/*------------------------------------*\
+  #Snowflake 
+\*------------------------------------*/
+
 @keyframes snowflakeColorChange {
  0% {
   opacity: 0.2;
@@ -189,20 +208,6 @@
  }
 }
 
-// animation service page card
-@keyframes animationForServicePageCard {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes spinner {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
 
 
 
